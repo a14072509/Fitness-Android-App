@@ -1,7 +1,13 @@
 package com.example.afs;
 
+enum Gender
+{
+    MALE, FEMALE, UNKNOWN
+}
+
 public class UserInfo
 {
+
     //instance variables
     private String userName;
     private String password;
@@ -11,34 +17,19 @@ public class UserInfo
     private double weight; // in unit of pounds
 
     private double height; // in unit of centimeters
-    private char gender; //'F' = female, 'M' = male, 'U' = Unknown
+    private Gender gender; //'F' = female, 'M' = male, 'U' = Unknown
 
     //constructors
-    public UserInfo(String userName, String password)
-    {
-        this.userName = userName;
-        this.password = password;
-        this.gender = 'U';
-    }
-
-    public UserInfo(String userName, String password, double weight, double height)
-    {
-        this(userName, password);
-        this.weight = weight;
-        this.height = height;
-    }
-
-    public UserInfo(String userName, String password, double weight, double height, char gender)
-    {
-        this(userName, password, weight, height);
-        this.gender = gender;
-    }
 
     public UserInfo(String userName, String password, double weight,
-                    double height, char gender, String email)
+                    double height, Gender gender, String email)
     {
-        this(userName, password, weight, height, gender);
-        this.email = email;
+        setUserName(userName);
+        setPassword(password);
+        setWeight(weight);
+        setHeight(height);
+        setGender(gender);
+        setEmail(email);
     }
 
     //methods
@@ -50,10 +41,7 @@ public class UserInfo
         return userName;
     }
 
-    public void setUserName(String userName)
-    {
-        this.userName = userName;
-    }
+    public void setUserName(String userName) { this.userName = userName; }
 
     public String getPassword()
     {
@@ -95,12 +83,12 @@ public class UserInfo
         this.height = height;
     }
 
-    public char getGender()
+    public Gender getGender()
     {
         return gender;
     }
 
-    public void setGender(char gender)
+    public void setGender(Gender gender)
     {
         this.gender = gender;
     }
