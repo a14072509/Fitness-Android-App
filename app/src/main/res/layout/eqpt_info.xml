@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="Equipment Information"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/eqptName"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorPrimaryDark"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="NAME OF EQUIPMENT"
+        android:textColor="@color/colorAccent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD TO CALENDAR" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="290dp" />
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="DESCRIPTION OF EQUIPMENT"
+        android:textColor="@color/colorPrimaryDark" />
+</LinearLayout>
