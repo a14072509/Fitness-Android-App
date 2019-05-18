@@ -8,4 +8,5 @@
     <string name="title_activity_dietplan">dietplan</string>
     <string name="title_activity_calendar">calendar</string>
     <string name="title_activity_work_out">WorkOut</string>
+    <string name="title_activity_login">login</string>
 </resources>
