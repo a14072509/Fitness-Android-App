@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FoodHistory" />
+        <activity android:name=".AddFood" />
     </application>
 
 </manifest>

@@ -31,7 +31,7 @@
             android:textColor="@color/colorPrimary" />
 
         <EditText
-            android:id="@+id/input1"
+            android:id="@+id/foodName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -56,7 +56,7 @@
             android:textColor="@color/colorAccent" />
 
         <EditText
-            android:id="@+id/input2"
+            android:id="@+id/foodCalorie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -66,7 +66,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/addButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ADD" />
