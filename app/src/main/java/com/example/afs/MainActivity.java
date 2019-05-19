@@ -25,37 +25,5 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         }, SPLASH_TIME_OUT);
-
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        bottomNav.setOnNavigationItemSelectedListener(navListener);
-
     }
-
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                    Fragment selectedFragment = null;
-
-                    switch (menuItem.getItemId()) {
-                        case R.id.nav_workout:
-                            selectedFragment = new WorkOut();
-                            break;
-                        case R.id.nav_dietplan:
-                            selectedFragment = new DietPlan();
-                            break;
-                        case R.id.nav_calendar:
-                            selectedFragment = new Calendar();
-                            break;
-                        case R.id.nav_profile:
-                            selectedFragment = new Profile();
-                            break;
-                    }
-
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            selectedFragment).commit();
-
-                    return true;
-                }
-            };
 }

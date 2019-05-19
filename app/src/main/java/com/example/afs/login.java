@@ -20,8 +20,7 @@ public class login extends AppCompatActivity {
         loginButton = (Button) findViewById(R.id.loginbutton);
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                setContentView(R.layout.workout);
-                //signIn();
+                signIn();
             }
         });
     }
