@@ -12,9 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 public class DietPlan extends AppCompatActivity {
 
+    private ImageButton addFoodButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +28,13 @@ public class DietPlan extends AppCompatActivity {
         Menu menu = bottomNav.getMenu();
         MenuItem menuItem = menu.getItem(1);
         menuItem.setChecked(true);
+
+        addFoodButton = (ImageButton)findViewById(R.id.imageButton);
+        addFoodButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                addFood();
+            }
+        });
 
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -60,6 +70,11 @@ public class DietPlan extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         overridePendingTransition(0, 0);
+    }
+
+    public void addFood() {
+        Intent intent = new Intent(this, FoodHistory.class);
+        startActivity(intent);
     }
 }
 
