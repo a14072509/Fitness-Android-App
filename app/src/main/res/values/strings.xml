@@ -9,4 +9,5 @@
     <string name="title_activity_calendar">calendar</string>
     <string name="title_activity_work_out">WorkOut</string>
     <string name="title_activity_login">login</string>
+    <string name="title_activity_test">test</string>
 </resources>
