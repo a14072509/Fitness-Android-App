@@ -2,8 +2,7 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,12 +11,15 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:background="@color/colorAccent"
+            android:layout_height="60dp"
+            android:background="@drawable/grad_color_yellow"
             android:gravity="center"
+            android:paddingLeft="20dp"
             android:text="Calendar"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="30sp" />
+            android:textAlignment="textStart"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+            android:textStyle="italic" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,10 +31,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="63dp"
                 android:layout_weight="1"
-                android:background="@color/colorPrimaryDark"
                 android:gravity="center"
-                android:text="TODAY GOAL:"
-                android:textColor="@color/colorAccent" />
+                android:text="Goal For Today:"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/input"
@@ -46,8 +48,7 @@
         <CalendarView
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
-            android:layout_height="377dp"
-            android:background="@android:color/holo_orange_light" />
+            android:layout_height="377dp" />
     </LinearLayout>
 
     <android.support.design.widget.BottomNavigationView

@@ -13,15 +13,21 @@
             android:name=".login"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".WorkOut"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".DietPlan"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Calendar"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Profile"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".WorkOut"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DietPlan"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Calendar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ExerciseList"/>
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
