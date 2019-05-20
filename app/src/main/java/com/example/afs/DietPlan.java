@@ -29,7 +29,7 @@ public class DietPlan extends AppCompatActivity {
         MenuItem menuItem = menu.getItem(1);
         menuItem.setChecked(true);
 
-        addFoodButton = (ImageButton)findViewById(R.id.imageButton);
+        addFoodButton = (ImageButton)findViewById(R.id.imageButton4);
         addFoodButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 addFood();
