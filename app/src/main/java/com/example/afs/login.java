@@ -8,9 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class login extends AppCompatActivity {
     private Button loginButton;
+    private TextView signupText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +25,21 @@ public class login extends AppCompatActivity {
                 signIn();
             }
         });
+
+        signupText = (TextView) findViewById(R.id.sign_up_text);
+        signupText.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                signUp();
+            }
+        });
     }
 
-    public void signIn() {
+    private void signIn() {
+        Intent intent = new Intent(this, WorkOut.class);
+        startActivity(intent);
+    }
+
+    private void signUp() {
         Intent intent = new Intent(this, WorkOut.class);
         startActivity(intent);
     }
