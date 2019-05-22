@@ -27,6 +27,7 @@
         android:text="ADD NEW ITEM" />
 
     <ListView
+        android:id="@+id/foodHistoryList"
         android:layout_width="match_parent"
         android:layout_height="512dp"
         android:background="@android:color/holo_orange_light" />
