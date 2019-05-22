@@ -40,7 +40,7 @@ public class login extends AppCompatActivity {
     }
 
     private void signUp() {
-        Intent intent = new Intent(this, WorkOut.class);
+        Intent intent = new Intent(this, Signup.class);
         startActivity(intent);
     }
 

@@ -8,18 +8,20 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class FoodHistory extends AppCompatActivity {
     private Button addItemButton;
-    private ListView foodList;
+    private ScrollView foodList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food_history);
 
-        foodList = (ListView)findViewById(R.id.foodHistoryList);
+        foodList = (ScrollView)findViewById(R.id.foodHistoryList);
 
         //ArrayList<String> names = new ArrayList<String>();
         //ArrayList<Integer> calories = new ArrayList<Integer>();
@@ -30,8 +32,9 @@ public class FoodHistory extends AppCompatActivity {
         //FoodAdapter adapter = new FoodAdapter(this, temp, temp1);
         //foodList.setAdapter(adapter);
 
-        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.food_history, R.id.textView, temp);
-        //foodList.setAdapter(arrayAdapter);
+        TextView textView = new TextView(this);
+        textView.setText("Some text");
+        foodList.addView(textView);
 
         addItemButton = (Button) findViewById(R.id.addItemButton);
         addItemButton.setOnClickListener(new View.OnClickListener() {
