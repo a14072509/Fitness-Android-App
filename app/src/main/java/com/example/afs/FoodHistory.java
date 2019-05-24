@@ -12,6 +12,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class FoodHistory extends AppCompatActivity {
+    private android.support.v7.widget.Toolbar toolbar;
     private Button addItemButton;
     public ListView foodList;
     public String[] names;
@@ -57,11 +58,27 @@ public class FoodHistory extends AppCompatActivity {
                 addItem();
             }
         });
+
+        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.foodHistoryToolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                back();
+            }
+        });
     }
 
 
-    public void addItem() {
+    private void addItem() {
         Intent intent = new Intent(this, AddFood.class);
+        startActivity(intent);
+    }
+
+    private void back() {
+        Intent intent = new Intent(this, DietPlan.class);
         startActivity(intent);
     }
 }

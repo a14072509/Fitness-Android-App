@@ -8,13 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class AddFood extends AppCompatActivity {
-
+    private android.support.v7.widget.Toolbar toolbar;
     private Button addButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.addfood);
+        setContentView(R.layout.add_food);
 
         addButton = (Button)findViewById(R.id.addButton);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -22,6 +22,22 @@ public class AddFood extends AppCompatActivity {
                 add();
             }
         });
+
+        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.addFoodToolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                back();
+            }
+        });
+    }
+
+    private void back() {
+        Intent intent = new Intent(this, FoodHistory.class);
+        startActivity(intent);
     }
 
     /**

@@ -5,9 +5,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolbar1"
-        layout="@layout/toolbar" />
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/ExerciseListToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/toolbar_grad_yellow"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="Exercise List"
+        app:titleTextColor="#ffffff"
+        app:theme="@style/ToolbarTheme" >
+    </android.support.v7.widget.Toolbar>
 
     <SearchView
         android:layout_width="match_parent"

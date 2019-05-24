@@ -12,7 +12,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/grad_color_yellow"
+            android:background="@drawable/toolbar_grad_yellow"
             android:gravity="center"
             android:paddingLeft="20dp"
             android:text="Calendar"
