@@ -8,33 +8,48 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.ScrollView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class FoodHistory extends AppCompatActivity {
     private Button addItemButton;
-    private ScrollView foodList;
+    public ListView foodList;
+    public String[] names;
+    public String[] calories;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food_history);
 
-        foodList = (ScrollView)findViewById(R.id.foodHistoryList);
+        foodList = (ListView)findViewById(R.id.foodHistoryList);
 
-        //ArrayList<String> names = new ArrayList<String>();
-        //ArrayList<Integer> calories = new ArrayList<Integer>();
+        ArrayList<String> namesDB = new ArrayList<String>();
+        ArrayList<String> caloriesDB = new ArrayList<String>();
 
-        String[] temp = new String[]{"Apple", "Banana"};
-        Integer[] temp1 = new Integer[]{300, 250};
+        //TODO Read names and calories from database
 
-        //FoodAdapter adapter = new FoodAdapter(this, temp, temp1);
-        //foodList.setAdapter(adapter);
 
-        TextView textView = new TextView(this);
-        textView.setText("Some text");
-        foodList.addView(textView);
+        //These are jsut tests
+        namesDB.add("Apple");
+        namesDB.add("Bag");
+        caloriesDB.add(""+200);
+        caloriesDB.add(""+300);
+
+
+        //store the list into array
+        names = new String[namesDB.size()];
+        calories = new String[caloriesDB.size()];
+        namesDB.toArray(names);
+        caloriesDB.toArray(calories);
+
+        //get the food list gadget
+        foodList = (ListView)findViewById(R.id.foodHistoryList);
+
+        //set up the adapter
+        FoodAdapter foodAdapter= new FoodAdapter(getApplicationContext(), names, calories);
+        foodList.setAdapter(foodAdapter);
+
 
         addItemButton = (Button) findViewById(R.id.addItemButton);
         addItemButton.setOnClickListener(new View.OnClickListener() {

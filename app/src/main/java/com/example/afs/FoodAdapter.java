@@ -11,10 +11,10 @@ import android.widget.TextView;
 public class FoodAdapter extends BaseAdapter {
     Context context;
     String[] names;
-    Integer[] calories;
+    String[] calories;
     LayoutInflater inflter;
 
-    public FoodAdapter(Context applicationContext, String[] names, Integer[] calories) {
+    public FoodAdapter(Context applicationContext, String[] names, String[] calories) {
         this.context = context;
         this.names = names;
         this.calories = calories;
@@ -39,11 +39,11 @@ public class FoodAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        view = inflter.inflate(R.layout.food_history, null);
-        TextView name = (TextView) view.findViewById(R.id.foodCalorieTextView);
-        //TextView calorie = (TextView) view.findViewById(R.id.foodCalorieTextView);
+        view = inflter.inflate(R.layout.food_text, null);
+        TextView name = (TextView) view.findViewById(R.id.foodTextView);
+        TextView calorie = (TextView) view.findViewById(R.id.calorieTextView);
         name.setText(names[i]);
-        //calorie.setText(calories[i]);
+        calorie.setText(calories[i]);
         return view;
     }
 }
