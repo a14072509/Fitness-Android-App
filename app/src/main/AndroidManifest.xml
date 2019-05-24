@@ -9,24 +9,14 @@
         android:roundIcon="@mipmap/launch_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".login"
-            android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".WorkOut"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".DietPlan"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Calendar"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Profile"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".login" />
+        <activity android:name=".WorkOut" />
+        <activity android:name=".DietPlan" />
+        <activity android:name=".Calendar" />
+        <activity android:name=".Profile" />
         <activity android:name=".ExerciseList" />
         <activity android:name=".Signup" />
+        <activity android:name=".AddFood" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
