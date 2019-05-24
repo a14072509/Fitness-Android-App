@@ -13,8 +13,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:title="Food History"
-        app:titleTextColor="#ffffff"
-        app:theme="@style/ToolbarTheme" >
+        app:titleTextColor="#ffffff">
     </android.support.v7.widget.Toolbar>
 
     <SearchView
