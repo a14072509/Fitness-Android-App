@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
@@ -12,10 +13,9 @@
         android:background="@drawable/toolbar_grad_yellow"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        app:theme="@style/ToolbarTheme"
         app:title="Add Your Food"
-        app:titleTextColor="#ffffff"
-        app:theme="@style/ToolbarTheme" >
-    </android.support.v7.widget.Toolbar>
+        app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
     <ImageView
         android:id="@+id/AddFoodImage"
@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/AddFoodImage"
         android:layout_marginTop="20dp"
+        android:background="#ffffff"
         android:orientation="horizontal">
 
         <ImageView
@@ -56,6 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/FoodNameSection"
         android:layout_marginTop="20dp"
+        android:background="#ffffff"
         android:orientation="horizontal">
 
         <ImageView

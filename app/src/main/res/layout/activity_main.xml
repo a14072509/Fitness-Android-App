@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:adjustViewBounds="true"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/cropped_logo" />
 
     <LinearLayout
         android:layout_width="match_parent"

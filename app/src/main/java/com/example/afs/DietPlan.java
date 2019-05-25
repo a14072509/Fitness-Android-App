@@ -3,16 +3,11 @@ package com.example.afs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class DietPlan extends AppCompatActivity {
@@ -21,7 +16,7 @@ public class DietPlan extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dietplan);
+        setContentView(R.layout.diet_plan);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
@@ -29,7 +24,7 @@ public class DietPlan extends AppCompatActivity {
         MenuItem menuItem = menu.getItem(1);
         menuItem.setChecked(true);
 
-        addFoodButton = (ImageButton)findViewById(R.id.imageButton4);
+        addFoodButton = (ImageButton)findViewById(R.id.addFoodButton);
         addFoodButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 addFood();

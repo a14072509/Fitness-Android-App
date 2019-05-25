@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView3"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/aerobicToolbar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/colorAccent"
-        android:gravity="center"
-        android:text="Add to Calendar"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="30sp" />
+        android:background="@drawable/toolbar_grad_yellow"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:theme="@style/ToolbarTheme"
+        app:title="Aerobic Name"
+        app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"

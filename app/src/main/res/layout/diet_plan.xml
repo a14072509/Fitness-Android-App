@@ -18,12 +18,21 @@
         android:textStyle="italic" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/addFoodButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/list"
+        android:layout_alignParentRight="false"
+        android:layout_toLeftOf="@+id/deleteFoodButton"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/deleteFoodButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/list"
         android:layout_alignParentRight="true"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_delete" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -36,14 +45,14 @@
     <LinearLayout
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="320dp"
         android:layout_below="@+id/imageView6"
         android:orientation="vertical">
 
         <ListView
             android:id="@+id/dynamic_list"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp" />
 
@@ -52,7 +61,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_below="@+id/imageButton4"
+        android:layout_below="@+id/addFoodButton"
         android:orientation="horizontal">
 
         <TextView
