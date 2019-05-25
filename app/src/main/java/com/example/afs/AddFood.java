@@ -29,8 +29,7 @@ public class AddFood extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                back();
+            public void onClick(View v) {back();
             }
         });
     }
