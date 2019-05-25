@@ -13,7 +13,6 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:theme="@style/ToolbarTheme"
-        app:title="Aerobic Name"
         app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
     <LinearLayout
@@ -26,10 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="44dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
             android:gravity="center"
-            android:text="EXERCISE NAME:"
-            android:textColor="@color/colorAccent" />
+            android:text="EXERCISE NAME:" />
 
         <EditText
             android:id="@+id/input1"
@@ -51,10 +48,8 @@
             android:layout_width="wrap_content"
             android:layout_height="46dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
             android:gravity="center"
-            android:text="CALORIES"
-            android:textColor="@color/colorAccent" />
+            android:text="CALORIES" />
 
         <EditText
             android:id="@+id/input2"
