@@ -31,7 +31,25 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="439dp"
-            android:background="@drawable/bodypart"/>
+            android:background="@drawable/bodypart">
+
+            <Button
+                android:id="@+id/head"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="18dp"
+                android:alpha="0" />
+
+            <Button
+                android:id="@+id/thigh"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="210dp"
+                android:alpha="0"
+                android:text="Button" />
+        </FrameLayout>
 
     </LinearLayout>
 
