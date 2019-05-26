@@ -29,7 +29,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold|italic" />
 
-            <TextView
+            <EditText
                 android:id="@+id/edit_age"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -57,7 +57,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold|italic" />
 
-            <TextView
+            <EditText
                 android:id="@+id/edit_height"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -84,7 +84,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold|italic" />
 
-            <TextView
+            <EditText
                 android:id="@+id/edit_weight"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -113,7 +113,6 @@
                 android:textStyle="bold|italic" />
 
             <TextView
-                android:id="@+id/textView26"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginLeft="150dp"
@@ -125,14 +124,15 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/logout_button"
-        android:layout_width="match_parent"
+        android:id="@+id/save"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/bottom_navigation"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="70dp"
         android:layout_marginBottom="20dp"
-        android:text="Logout"
+        android:text="Save"
         android:textSize="18sp" />
 
     <RelativeLayout
@@ -156,16 +156,7 @@
             android:id="@+id/edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/edit_button"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="right"
-                app:srcCompat="@android:drawable/ic_menu_edit" />
-
-        </LinearLayout>
+            android:orientation="vertical"/>
 
         <ImageView
             android:id="@+id/photo"
@@ -183,35 +174,40 @@
             android:layout_centerHorizontal="true"
             android:orientation="vertical">
 
-            <TextView
+            <EditText
                 android:id="@+id/Username"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
                 android:text="Username"
                 android:textAlignment="center"
-                android:textSize="30sp" />
+                android:textSize="18sp" />
 
-            <ImageView
-                android:id="@+id/male_icon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_below="@+id/Username"
+            <LinearLayout
+                android:id="@+id/hold_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Username"
                 android:layout_centerHorizontal="true"
-                android:layout_marginLeft="10dp"
-                app:srcCompat="@drawable/male_icon" />
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/male_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    app:srcCompat="@drawable/male_icon" />
+
+                <ImageView
+                    android:id="@+id/femail_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/female_icon" />
+            </LinearLayout>
 
         </RelativeLayout>
 
     </RelativeLayout>
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:background="?android:attr/windowBackground"
-        app:menu="@menu/bottom_navigation" />
 
 </RelativeLayout>

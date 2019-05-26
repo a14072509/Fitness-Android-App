@@ -49,6 +49,12 @@
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="377dp" />
+
+        <Button
+            android:id="@+id/detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Detail" />
     </LinearLayout>
 
     <android.support.design.widget.BottomNavigationView

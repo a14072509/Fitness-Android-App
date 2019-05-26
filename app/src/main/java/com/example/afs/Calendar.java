@@ -12,13 +12,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Calendar extends AppCompatActivity {
-
+    private Button calinfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar);
+
+
+        calinfo = (Button) findViewById(R.id.detail);
+        calinfo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterCalInfo();
+            }
+        });
+
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
@@ -55,6 +66,12 @@ public class Calendar extends AppCompatActivity {
             }
         });
     }
+
+    private void enterCalInfo() {
+        Intent intent = new Intent(this, CalInfo.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public void onPause() {
