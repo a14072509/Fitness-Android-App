@@ -13,18 +13,17 @@ import java.util.ArrayList;
 public class FoodHistory extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
     private Button addItemButton;
-    public ListView foodList;
-    public String[] names;
-    public String[] calories;
-    public ArrayList<String> namesDB;
-    public ArrayList<String> caloriesDB;
+    private ListView foodList;
+    private String[] names;
+    private String[] calories;
+    private ArrayList<String> namesDB;
+    private ArrayList<String> caloriesDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food_history);
 
-        foodList = (ListView)findViewById(R.id.foodHistoryList);
 
         namesDB = new ArrayList<String>();
         caloriesDB = new ArrayList<String>();
