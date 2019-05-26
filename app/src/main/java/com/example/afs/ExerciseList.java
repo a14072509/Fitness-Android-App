@@ -44,8 +44,13 @@ public class ExerciseList extends AppCompatActivity {
 
         imagesDB.add("abs14");
         imagesDB.add("abs117");
+        imagesDB.add("abs119");
+        imagesDB.add("abs135");
         exercisesDB.add("bird-dog");
         exercisesDB.add("BOSU Squat Jumps");
+        exercisesDB.add("BOSU Lateral Jumps");
+        exercisesDB.add("Bodyweight Squat");
+
 
 
         //store the list into array
