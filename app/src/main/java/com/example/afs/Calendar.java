@@ -13,10 +13,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.ImageButton;
+
+import java.util.Date;
 
 public class Calendar extends AppCompatActivity {
     private Button calinfo;
+    private CalendarView calenderView;
+    private int selYear;
+    private int selMonth;
+    private int selDay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +36,18 @@ public class Calendar extends AppCompatActivity {
                 enterCalInfo();
             }
         });
+        calenderView = (CalendarView) findViewById(R.id.calendarView);
 
+        calenderView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month,
+                                            int dayOfMonth) {
+                selYear = year;
+                selMonth = month;
+                selDay = dayOfMonth;
+            }
+        });
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
@@ -69,6 +87,9 @@ public class Calendar extends AppCompatActivity {
 
     private void enterCalInfo() {
         Intent intent = new Intent(this, CalInfo.class);
+        intent.putExtra("year", selYear);
+        intent.putExtra("month", selMonth);
+        intent.putExtra("day", selDay);
         startActivity(intent);
     }
 
