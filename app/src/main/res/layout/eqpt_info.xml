@@ -31,4 +31,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp" />
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/videoView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Insruction goes here" />
+
 </RelativeLayout>
