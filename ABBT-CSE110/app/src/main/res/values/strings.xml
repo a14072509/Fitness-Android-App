@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Artisan Fitness Support</string>
+    <string name="title_activity_workout">workout</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_profile">profile</string>
+    <string name="title_activity_dietplan">dietplan</string>
+    <string name="title_activity_calendar">calendar</string>
+    <string name="title_activity_work_out">WorkOut</string>
+    <string name="title_activity_login">login</string>
+    <string name="title_activity_test">test</string>
+</resources>
