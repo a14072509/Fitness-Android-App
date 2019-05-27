@@ -25,27 +25,21 @@
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageView11"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="40dp"
-            app:srcCompat="@drawable/calorie_burned_icon_calendar" />
-
         <TextView
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="40dp"
             android:text="Calories Burned:"
             android:textColor="#FF9800"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/burnt_calorie"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="60dp"
             android:text="cal"
             android:textSize="24sp" />
     </LinearLayout>
@@ -79,28 +73,22 @@
         android:layout_below="@+id/burnt_calorie_list"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageView12"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="40dp"
-            app:srcCompat="@drawable/calorie_intake_icon_calendar" />
-
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="40dp"
             android:gravity="center"
             android:text="Calories Intake:"
             android:textColor="#FF9800"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/taken_calorie"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="70dp"
             android:text="cal"
             android:textSize="24sp" />
     </LinearLayout>
@@ -133,7 +121,8 @@
             android:padding="15dp"
             android:text="Total Calories:"
             android:textColor="#000000"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/result_calorie"
