@@ -17,25 +17,25 @@
         app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/add_exercise_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/equipmentInfoToolbar"
         android:text="ADD TO CALENDAR" />
 
     <VideoView
-        android:id="@+id/videoView"
+        android:id="@+id/exer_gif"
         android:layout_width="360dp"
         android:layout_height="280dp"
-        android:layout_below="@+id/button4"
+        android:layout_below="@+id/add_exercise_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/instruction_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/videoView"
+        android:layout_below="@id/exer_gif"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:text="Insruction goes here" />

@@ -11,6 +11,11 @@ public class Exercise {
     //most likely going to be TreeMap to sort by weight for convenience
     private Map<Integer, Integer> weightCal; //the mapping between weight and calorie
 
+    public Exercise(String name, String imagePath)
+    {
+        setName(name);
+        setImagePath(imagePath);
+    }
 
     public Exercise(String name, String equipment, String instructions, String imagePath,
                     String gifPath, Map<Integer, Integer> weightCal)

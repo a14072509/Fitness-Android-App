@@ -6,31 +6,32 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ExerciseAdapter extends BaseAdapter {
+import java.util.List;
+
+public class ExerciseAdapter extends BaseAdapter implements AdapterView.OnItemClickListener{
     Context context;
-    String[] images;
-    String[] exercises;
+    List<Exercise> exercises;
     LayoutInflater inflter;
 
-    public ExerciseAdapter(Context applicationContext,String[] images, String[] exercises) {
+    public ExerciseAdapter(Context applicationContext,List<Exercise> exercises) {
         this.context = applicationContext;
-        this.images = images;
         this.exercises = exercises;
         inflter = (LayoutInflater.from(applicationContext));
     }
 
     @Override
     public int getCount() {
-        return exercises.length;
+        return exercises.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return exercises.get(position);
     }
 
     @Override
@@ -45,12 +46,17 @@ public class ExerciseAdapter extends BaseAdapter {
         ImageView image = (ImageView) view.findViewById(R.id.exercise_image);
         TextView exercise = (TextView) view.findViewById(R.id.exercise_name);
         Resources res = context.getResources();
-        String name = images[i]+"_1";
+        String name = exercises.get(i).getImagePath()+"_1";
         System.out.println(name);
         int resID = res.getIdentifier(name , "drawable", context.getPackageName());
         Drawable drawable = res.getDrawable(resID );
         image.setImageDrawable(drawable );
-        exercise.setText(exercises[i]);
+        exercise.setText(exercises.get(i).getName());
         return view;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        System.out.println(parent.getItemAtPosition(position));
     }
 }

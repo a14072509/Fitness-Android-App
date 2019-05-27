@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toolbar;
 
@@ -12,10 +13,7 @@ import java.util.ArrayList;
 public class ExerciseList extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
     private ListView exerList;
-    private String[] exercises;
-    private String[] images;
-    private ArrayList<String> exercisesDB;
-    private ArrayList<String> imagesDB;
+    private ArrayList<Exercise> exercisesDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,28 +32,28 @@ public class ExerciseList extends AppCompatActivity {
         });
 
 
-        exercisesDB = new ArrayList<String>();
-        imagesDB = new ArrayList<String>();
+        exercisesDB = new ArrayList<Exercise>();
 
         //TODO Read the list
 
 
         //These are jsut tests
-
-        imagesDB.add("abs14");
-        imagesDB.add("abs117");
-        imagesDB.add("abs119");
-        imagesDB.add("abs135");
-        exercisesDB.add("bird-dog");
-        exercisesDB.add("BOSU Squat Jumps");
-        exercisesDB.add("BOSU Lateral Jumps");
-        exercisesDB.add("Bodyweight Squat");
-
-
+        exercisesDB.add(new Exercise( "bird-dog","abs14"));
+        exercisesDB.add(new Exercise( "BOSU Squat Jumps", "abs117"));
+        exercisesDB.add(new Exercise("BOSU Lateral Jumps", "abs119" ));
+        exercisesDB.add(new Exercise( "Bodyweight Squat", "abs135"));
 
         //store the list into array
-        updateExerciseAdapter(imagesDB, exercisesDB);
+        updateExerciseAdapter(exercisesDB);
 
+        exerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Exercise clickedObj =  (Exercise)parent.getItemAtPosition(position);
+                exerDetail(clickedObj);
+
+            }
+        });
 
     }
 
@@ -64,19 +62,24 @@ public class ExerciseList extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void updateExerciseAdapter(ArrayList<String> imageList, ArrayList<String> exerciseList)
+    private void exerDetail(Exercise e) {
+        Intent intent = new Intent(this, EqptInfo.class);
+        intent.putExtra("gif", e.getGifPath());
+        intent.putExtra("name", e.getName());
+        intent.putExtra("eqpt", e.getEquipment());
+        intent.putExtra("instruction", e.getInstructions());
+        intent.putExtra("image", e.getImagePath());
+        startActivity(intent);
+    }
+    private void updateExerciseAdapter(ArrayList<Exercise> exerciseList)
     {
         //store the list into array
-        images = new String[imageList.size()];
-        exercises = new String[exerciseList.size()];
-        imageList.toArray(images);
-        exerciseList.toArray(exercises);
 
         //get the food list gadget
         exerList = (ListView)findViewById(R.id.exercise_list);
 
         //set up the adapter
-        ExerciseAdapter exerciseAdapter= new ExerciseAdapter(getApplicationContext(), images, exercises);
+        ExerciseAdapter exerciseAdapter= new ExerciseAdapter(getApplicationContext(), exerciseList);
         exerList.setAdapter(exerciseAdapter);
     }
 
