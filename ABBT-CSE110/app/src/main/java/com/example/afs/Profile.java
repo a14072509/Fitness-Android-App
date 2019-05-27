@@ -47,7 +47,7 @@ public class Profile extends AppCompatActivity {
         editButton.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v) {
-
+                updateUserInfo();
             }
         });
 
@@ -88,6 +88,10 @@ public class Profile extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    private void updateUserInfo() {
 
     }
 
