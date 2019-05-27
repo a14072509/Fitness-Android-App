@@ -8,6 +8,6 @@ public class AerobicToCal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.aerobic2cal);
+        setContentView(R.layout.add_aerobic);
     }
 }

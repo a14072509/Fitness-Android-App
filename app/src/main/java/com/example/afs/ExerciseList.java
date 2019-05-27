@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -20,7 +19,7 @@ public class ExerciseList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.exerciselist);
+        setContentView(R.layout.exercise_list);
 
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.ExerciseListToolbar);
         setSupportActionBar(toolbar);

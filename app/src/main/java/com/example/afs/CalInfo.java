@@ -29,7 +29,7 @@ public class CalInfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cal_info);
+        setContentView(R.layout.calandar_info);
 
         int year = getIntent().getIntExtra("year", 0);
         int month = getIntent().getIntExtra("month", 0);
