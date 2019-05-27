@@ -8,6 +8,6 @@ public class ExeToCal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_exercise);
+        setContentView(R.layout.exe2cal);
     }
 }
