@@ -7,12 +7,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class ExerciseList extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
     private ListView exerList;
-    private ArrayList<Exercise> exercisesDB;
+    private List<Exercise> exercisesDB;
+    private BodyPart bodyPart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +32,16 @@ public class ExerciseList extends AppCompatActivity {
         });
 
 
-        exercisesDB = new ArrayList<Exercise>();
-
         //TODO Read the list
-
+        bodyPart = new BodyPart(this);
+        String body = getIntent().getStringExtra("body");
+        exercisesDB = bodyPart.bodyToExercise.get(body);
 
         //These are jsut tests
-        exercisesDB.add(new Exercise( "bird-dog","abs14"));
-        exercisesDB.add(new Exercise( "BOSU Squat Jumps", "abs117"));
-        exercisesDB.add(new Exercise("BOSU Lateral Jumps", "abs119" ));
-        exercisesDB.add(new Exercise( "Bodyweight Squat", "abs135"));
+//        exercisesDB.add(new Exercise( "bird-dog","abs14"));
+//        exercisesDB.add(new Exercise( "BOSU Squat Jumps", "abs117"));
+//        exercisesDB.add(new Exercise("BOSU Lateral Jumps", "abs119" ));
+//        exercisesDB.add(new Exercise( "Bodyweight Squat", "abs135"));
 
         //store the list into array
         updateExerciseAdapter(exercisesDB);
@@ -69,7 +70,7 @@ public class ExerciseList extends AppCompatActivity {
         intent.putExtra("image", e.getImagePath());
         startActivity(intent);
     }
-    private void updateExerciseAdapter(ArrayList<Exercise> exerciseList)
+    private void updateExerciseAdapter(List<Exercise> exerciseList)
     {
         //store the list into array
 

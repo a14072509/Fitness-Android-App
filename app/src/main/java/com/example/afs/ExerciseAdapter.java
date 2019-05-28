@@ -26,6 +26,8 @@ public class ExerciseAdapter extends BaseAdapter implements AdapterView.OnItemCl
 
     @Override
     public int getCount() {
+        if(exercises == null)
+            return 0;
         return exercises.size();
     }
 
@@ -43,6 +45,7 @@ public class ExerciseAdapter extends BaseAdapter implements AdapterView.OnItemCl
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = inflter.inflate(R.layout.exercise_item, null);
+
         ImageView image = (ImageView) view.findViewById(R.id.exercise_image);
         TextView exercise = (TextView) view.findViewById(R.id.exercise_name);
         Resources res = context.getResources();

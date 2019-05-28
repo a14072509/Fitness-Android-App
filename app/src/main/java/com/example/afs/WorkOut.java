@@ -25,7 +25,7 @@ public class WorkOut extends AppCompatActivity {
         b1 = (Button) findViewById(R.id.button);
         b1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                enterExerciseList();
+                enterExerciseList("Back");
             }
         });
 
@@ -34,8 +34,6 @@ public class WorkOut extends AppCompatActivity {
         Menu menu = bottomNav.getMenu();
         MenuItem menuItem = menu.getItem(0);
         menuItem.setChecked(true);
-
-        BodyPart bp = new BodyPart(this);
 
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -67,8 +65,10 @@ public class WorkOut extends AppCompatActivity {
         });
     }
 
-    public void enterExerciseList() {
+    public void enterExerciseList(String body) {
         Intent intent = new Intent(this, ExerciseList.class);
+        System.out.println(body);
+        intent.putExtra("body", body);
         startActivity(intent);
     }
 
