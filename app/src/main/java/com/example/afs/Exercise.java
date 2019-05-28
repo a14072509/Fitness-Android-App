@@ -6,7 +6,6 @@ public class Exercise {
     private String equipment; //the equipment associated
     private String instructions; //the instruction
     private String imagePath; //the path to the image file
-    private String gifPath; //the path to the gif file
 
     //most likely going to be TreeMap to sort by weight for convenience
     private Map<Integer, Integer> weightCal; //the mapping between weight and calorie
@@ -18,13 +17,12 @@ public class Exercise {
     }
 
     public Exercise(String name, String equipment, String instructions, String imagePath,
-                    String gifPath, Map<Integer, Integer> weightCal)
+                    Map<Integer, Integer> weightCal)
     {
         setName(name);
         setEquipment(equipment);
         setInstructions(instructions);
         setImagePath(imagePath);
-        setGifPath(gifPath);
         setWeightCal(weightCal);
     }
 
@@ -58,14 +56,6 @@ public class Exercise {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
-    }
-
-    public String getGifPath() {
-        return gifPath;
-    }
-
-    public void setGifPath(String gifPath) {
-        this.gifPath = gifPath;
     }
 
     public Map<Integer, Integer> getWeightCal() {

@@ -63,7 +63,6 @@ public class ExerciseList extends AppCompatActivity {
 
     private void exerDetail(Exercise e) {
         Intent intent = new Intent(this, EqptInfo.class);
-        intent.putExtra("gif", e.getGifPath());
         intent.putExtra("name", e.getName());
         intent.putExtra("eqpt", e.getEquipment());
         intent.putExtra("instruction", e.getInstructions());

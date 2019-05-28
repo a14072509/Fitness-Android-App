@@ -79,11 +79,8 @@ public class CalInfo extends AppCompatActivity {
         exerList.setAdapter(exerAdapter);
         burntCalorie.setText("" + hist.getCalSpent());
 
-
         resultCalorie = (TextView)findViewById(R.id.result_calorie);
         resultCalorie.setText("" + hist.getResult());
-
-
 
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.calInfoToolbar);
         setSupportActionBar(toolbar);
