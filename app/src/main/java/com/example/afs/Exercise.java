@@ -26,6 +26,11 @@ public class Exercise {
         setWeightCal(weightCal);
     }
 
+    public String toString()
+    {
+        return getName() + ", " + getEquipment() + ", " + getImagePath() + ", " + getInstructions();
+    }
+
     public String getName() {
         return name;
     }
@@ -65,5 +70,4 @@ public class Exercise {
     public void setWeightCal(Map<Integer, Integer> weightCal) {
         this.weightCal = weightCal;
     }
-
 }
