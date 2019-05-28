@@ -33,11 +33,22 @@
             android:layout_height="439dp"
             android:background="@drawable/bodypart">
 
-            <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_add" />
+            <Button
+                android:id="@+id/head"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="18dp"
+                android:alpha="0" />
+
+            <Button
+                android:id="@+id/thigh"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="210dp"
+                android:alpha="0"
+                android:text="Button" />
         </FrameLayout>
 
     </LinearLayout>

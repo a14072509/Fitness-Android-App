@@ -8,11 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class login extends AppCompatActivity {
     private Button loginButton;
     private TextView signupText;
+    private EditText emailInput;
+    private EditText passwordInput;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,14 @@ public class login extends AppCompatActivity {
     }
 
     private void signIn() {
+
+        emailInput = (EditText) findViewById(R.id.Email);
+        passwordInput = (EditText) findViewById(R.id.Password);
+        String email = emailInput.getText().toString();
+        String password = passwordInput.getText().toString();
+        //TODO needs to confirm with database to sign in
+
+
         Intent intent = new Intent(this, WorkOut.class);
         startActivity(intent);
     }

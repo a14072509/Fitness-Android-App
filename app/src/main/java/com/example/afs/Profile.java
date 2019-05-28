@@ -3,22 +3,27 @@ package com.example.afs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Profile extends AppCompatActivity {
-
+     private ImageButton editButtom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
+
+        editButtom = (ImageButton) findViewById(R.id.edit_button);
+        editButtom.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterEditProfile();
+            }
+        });
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 
@@ -54,6 +59,11 @@ public class Profile extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void enterEditProfile() {
+        Intent intent = new Intent(this, EditProfile.class);
+        startActivity(intent);
     }
 
     @Override

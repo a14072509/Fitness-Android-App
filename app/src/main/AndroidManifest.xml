@@ -17,6 +17,9 @@
         <activity android:name=".ExerciseList" />
         <activity android:name=".Signup" />
         <activity android:name=".AddFood" />
+        <activity android:name=".EditProfile"/>
+        <activity android:name=".CalInfo"/>
+        <activity android:name=".EqptInfo"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -27,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FoodHistory" />
-        <activity android:name=".AddFood" />
+
     </application>
 
 </manifest>
