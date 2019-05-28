@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import android.widget.VideoView;
 public class EqptInfo extends AppCompatActivity {
 
     private Button addExerButton;
+    private Toolbar toolbar;
     VideoView videoView;
 
     @SuppressLint("ClickableViewAccessibility")
@@ -64,12 +66,13 @@ public class EqptInfo extends AppCompatActivity {
             }
         });
 
+        toolbar = (Toolbar)findViewById(R.id.equipmentInfoToolbar);
+        toolbar.setTitle(getIntent().getStringExtra("name"));
     }
 
     private void addItem()
     {
         //TODO
     }
-
 
 }
