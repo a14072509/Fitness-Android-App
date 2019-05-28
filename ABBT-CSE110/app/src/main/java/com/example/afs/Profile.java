@@ -13,25 +13,97 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+
+import java.util.Map;
 
 public class Profile extends AppCompatActivity {
     private Button logOutButton;
+    private DatabaseReference db;
+    private FirebaseAuth mAuth;
+    private FirebaseUser curUser;
     private ImageButton editButton;
     private TextView ageText;
     private TextView heightText;
     private TextView weightText;
+    private TextView usernameText;
+    private String userID;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
+
+        /*
+         * remove later
+        db = FirebaseDatabase.getInstance().getReference();
+
+        mAuth = FirebaseAuth.getInstance();
+
+        if(mAuth.getCurrentUser() != null)
+        {
+            curUser = mAuth.getCurrentUser();
+        }
+
+        userID = curUser.getUid();
+
+        usernameText = (TextView) findViewById(R.id.Username);
+        ageText = (TextView) findViewById(R.id.edit_age);
+        heightText = (TextView) findViewById(R.id.edit_height);
+        weightText = (TextView) findViewById(R.id.edit_weight);
+
+
+        db.child("Users").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                System.out.println("Debug message/n" + dataSnapshot.getValue());
+                //Map<String, Object> user = (Map<String, Object>) dataSnapshot;
+
+                usernameText.setText((String)dataSnapshot.child("userName").getValue());
+                System.out.println("Sava Method: " + dataSnapshot.child("age").getValue().getClass());
+                ageText.setText(dataSnapshot.child("age").getValue().toString());
+                heightText.setText(dataSnapshot.child("height").getValue().toString());
+                weightText.setText(dataSnapshot.child("weight").getValue().toString());
+                //usernameText.setText((char)user.get("userName"));
+                //ageText.setText((char)user.get("age"));
+                //heightText.setText((char)user.get("height"));
+                //weightText.setText((char)user.get("weight"));
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        */
 
         logOutButton = (Button) findViewById(R.id.logout_button);
         logOutButton.setOnClickListener(new View.OnClickListener()
@@ -44,10 +116,9 @@ public class Profile extends AppCompatActivity {
         });
 
         editButton = (ImageButton) findViewById(R.id.edit_button);
-        editButton.setOnClickListener(new View.OnClickListener()
-        {
+        editButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                updateUserInfo();
+                enterEditProfile();
             }
         });
 
@@ -93,6 +164,11 @@ public class Profile extends AppCompatActivity {
 
     private void updateUserInfo() {
 
+    }
+
+    private void enterEditProfile() {
+        Intent intent = new Intent(this, EditProfile.class);
+        startActivity(intent);
     }
 
     @Override

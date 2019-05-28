@@ -27,6 +27,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Map;
+
 public class Signup extends firebaseActivity {
 
 
@@ -142,10 +144,13 @@ public class Signup extends firebaseActivity {
 
     private void writeNewUser(String userId, String name, String email) {
         UserInfo user = new UserInfo();
-        user.setEmail(email);
         user.setUserName(name);
+        user.setEmail(email);
+        user.setGender(Gender.UNKNOWN);
+        user.setAge(0);
+        Map<String, Object> userValue = user.toMap();
 
-        db.child("Users").child(userId).setValue(user);
+        db.child("Users").child(userId).setValue(userValue);
     }
 
 }

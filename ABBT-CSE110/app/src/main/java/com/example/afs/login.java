@@ -125,30 +125,7 @@ public class login extends firebaseActivity {
         return result;
     }
 
-    private String usernameFromEmail(String email) {
-        if (email.contains("@")) {
-            return email.split("@")[0];
-        } else {
-            return email;
-        }
-    }
 
-    private void onAuthSuccess(FirebaseUser user) {
-        String username = usernameFromEmail(user.getEmail());
-
-        // Write new user
-        writeNewUser(user.getUid(), username, user.getEmail());
-
-        //finish();
-    }
-
-    private void writeNewUser(String userId, String name, String email) {
-        UserInfo user = new UserInfo();
-        user.setEmail(email);
-        user.setUserName(name);
-
-        db.child("users").child(userId).setValue(user);
-    }
 
 
 }
