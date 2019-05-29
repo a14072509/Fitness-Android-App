@@ -50,6 +50,7 @@ public class ExerciseAdapter extends BaseAdapter{
         TextView exercise = (TextView) view.findViewById(R.id.exercise_name);
         Resources res = context.getResources();
         String name = exercises.get(i).getImagePath()+"_1";
+        System.out.println(name);
         int resID = res.getIdentifier(name , "drawable", context.getPackageName());
         Drawable drawable = res.getDrawable(resID );
         image.setImageDrawable(drawable );
