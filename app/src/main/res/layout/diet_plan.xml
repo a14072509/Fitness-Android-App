@@ -50,7 +50,7 @@
         android:orientation="vertical">
 
         <ListView
-            android:id="@+id/dynamic_list"
+            android:id="@+id/todayFoodList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"

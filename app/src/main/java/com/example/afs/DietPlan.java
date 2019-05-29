@@ -8,17 +8,43 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
+
+import java.util.*;
 
 public class DietPlan extends AppCompatActivity {
 
     private ImageButton addFoodButton;
+    private ListView foodList;
+    private ImageButton deleteButton;
+    private boolean deleteMode = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diet_plan);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        foodList = (ListView)findViewById(R.id.todayFoodList);
+
+        List<Food> food = new ArrayList<Food>();
+        //TODO Retrieve from database the food of today.
+
+        //Tests
+        food.add(new Food("Apple", 500));
+        food.add(new Food("Pear", 300));
+        food.add(new Food("Banana", 200));
+
+        FoodAdapter foodAdapter = new FoodAdapter(this, food);
+        foodList.setAdapter(foodAdapter);
+
+        deleteButton = (ImageButton)findViewById(R.id.deleteFoodButton);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                deleteMode = true;
+            }
+        });
 
         Menu menu = bottomNav.getMenu();
         MenuItem menuItem = menu.getItem(1);

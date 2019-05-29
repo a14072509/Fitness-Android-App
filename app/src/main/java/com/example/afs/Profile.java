@@ -25,6 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Map;
 
@@ -39,6 +40,10 @@ public class Profile extends AppCompatActivity {
     private TextView weightText;
     private TextView usernameText;
     private String userID;
+    private String newUserName;
+    private String newAge;
+    private String newHeight;
+    private String newWeight;
 
 
 
@@ -47,8 +52,7 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
 
-        /*
-         * remove later
+
         db = FirebaseDatabase.getInstance().getReference();
 
         mAuth = FirebaseAuth.getInstance();
@@ -66,36 +70,21 @@ public class Profile extends AppCompatActivity {
         weightText = (TextView) findViewById(R.id.edit_weight);
 
 
-        db.child("Users").addChildEventListener(new ChildEventListener() {
+        db.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                newUserName = (String)dataSnapshot.child("userName").getValue();
+                System.out.println("Sava Method: \n" + dataSnapshot.getValue());
+                System.out.println("Sava Method asdfasdf: \n" + dataSnapshot.child("userName").getValue());
+                newAge = dataSnapshot.child("age").getValue().toString();
+                newHeight = dataSnapshot.child("height").getValue().toString();
+                newWeight = dataSnapshot.child("weight").getValue().toString();
 
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                System.out.println("Debug message/n" + dataSnapshot.getValue());
-                //Map<String, Object> user = (Map<String, Object>) dataSnapshot;
-
-                usernameText.setText((String)dataSnapshot.child("userName").getValue());
-                System.out.println("Sava Method: " + dataSnapshot.child("age").getValue().getClass());
-                ageText.setText(dataSnapshot.child("age").getValue().toString());
-                heightText.setText(dataSnapshot.child("height").getValue().toString());
-                weightText.setText(dataSnapshot.child("weight").getValue().toString());
-                //usernameText.setText((char)user.get("userName"));
-                //ageText.setText((char)user.get("age"));
-                //heightText.setText((char)user.get("height"));
-                //weightText.setText((char)user.get("weight"));
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                System.out.println("AAABBBCCC\n" + newUserName);
+                usernameText.setText(newUserName);
+                ageText.setText(newAge);
+                heightText.setText(newHeight);
+                weightText.setText(newWeight);
             }
 
             @Override
@@ -103,7 +92,7 @@ public class Profile extends AppCompatActivity {
 
             }
         });
-        */
+
 
         logOutButton = (Button) findViewById(R.id.logout_button);
         logOutButton.setOnClickListener(new View.OnClickListener()
@@ -168,6 +157,10 @@ public class Profile extends AppCompatActivity {
 
     private void enterEditProfile() {
         Intent intent = new Intent(this, EditProfile.class);
+        intent.putExtra("name", newUserName);
+        intent.putExtra("age", newAge);
+        intent.putExtra("height", newHeight);
+        intent.putExtra("weight", newWeight);
         startActivity(intent);
     }
 
