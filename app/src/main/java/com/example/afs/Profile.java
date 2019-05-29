@@ -157,6 +157,10 @@ public class Profile extends AppCompatActivity {
 
     private void enterEditProfile() {
         Intent intent = new Intent(this, EditProfile.class);
+        intent.putExtra("name", newUserName);
+        intent.putExtra("age", newAge);
+        intent.putExtra("height", newHeight);
+        intent.putExtra("weight", newWeight);
         startActivity(intent);
     }
 

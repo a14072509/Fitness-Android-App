@@ -36,6 +36,18 @@ public class EditProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_profile);
 
+        usernameText = (EditText) findViewById(R.id.Username);
+        ageText = (EditText) findViewById(R.id.edit_age);
+        heightText = (EditText) findViewById(R.id.edit_height);
+        weightText = (EditText) findViewById(R.id.edit_weight);
+
+        usernameText.setText(getIntent().getStringExtra("name"));
+        ageText.setText(getIntent().getStringExtra("age"));
+        heightText.setText(getIntent().getStringExtra("height"));
+        weightText.setText(getIntent().getStringExtra("weight"));
+
+
+
         db = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
@@ -58,18 +70,18 @@ public class EditProfile extends AppCompatActivity {
         double weight = 0;
         String userID = curUser.getUid();
 
-        usernameText = (EditText) findViewById(R.id.Username);
+
         String username = usernameText.getText().toString();
         db.child("Users").child(userID).child("userName").setValue(username);
 
-        ageText = (EditText) findViewById(R.id.edit_age);
+
         String ageStr = ageText.getText().toString();
         try {
             age = Integer.parseInt(ageStr);
         }catch (NumberFormatException e){
             System.out.println("Not a number");
         }
-        heightText = (EditText) findViewById(R.id.edit_height);
+
         String heightStr = heightText.getText().toString();
         try {
             height = Double.parseDouble(heightStr);
@@ -77,7 +89,7 @@ public class EditProfile extends AppCompatActivity {
             System.out.println("Not a number");
         }
 
-        weightText = (EditText) findViewById(R.id.edit_weight);
+
         String weightStr = weightText.getText().toString();
         try {
             weight = Double.parseDouble(weightStr);
