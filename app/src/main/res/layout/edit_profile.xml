@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginLeft="150dp"
-                android:text="age"
+                android:text="0"
                 android:textAlignment="textStart"
                 android:textSize="24sp" />
 
@@ -62,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginLeft="150dp"
-                android:text="height"
+                android:text="0"
                 android:textAlignment="textStart"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -89,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginLeft="150dp"
-                android:text="weight"
+                android:text="0"
                 android:textAlignment="textStart"
                 android:textSize="24sp" />
 
@@ -116,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginLeft="150dp"
-                android:text="BMI"
+                android:text="0"
                 android:textAlignment="textStart"
                 android:textSize="24sp" />
         </LinearLayout>
