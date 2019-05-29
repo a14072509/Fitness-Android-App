@@ -29,7 +29,7 @@ public class FoodHistory extends AppCompatActivity {
         //TODO Read the list of names and calories from database, store in namesDB and caloriesDB
 
 
-        //These are jsut tests
+        //These are just tests
         foodDB.add(new Food("Apple", 300));
 
         //store the list into array

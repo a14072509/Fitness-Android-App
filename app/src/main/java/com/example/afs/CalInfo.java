@@ -43,6 +43,7 @@ public class CalInfo extends AppCompatActivity {
         hist.addExercise("Bird-dog", 1000);
         hist.addExercise("Push_up", 300);
         hist.addExercise("Running", 500);
+        hist.addExercise("Pull-up", 300);
 
         //set up the adapters
         Map<String, Integer> foodDB = hist.getFood();

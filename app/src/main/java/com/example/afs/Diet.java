@@ -5,7 +5,6 @@ public class Diet
 
     private final int HISTORY_SIZE = 20;
     private Queue<Food> history; //The food-calorie entered by use. First in first out
-    private List<Food> given; //The food-calorie that are pre-registered
 
     public void addFood(String name, int calorie)
     {
@@ -15,7 +14,5 @@ public class Diet
         if(history.size() > HISTORY_SIZE )
             history.remove();
     }
-
-
 
 }

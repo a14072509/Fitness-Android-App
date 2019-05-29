@@ -83,7 +83,5 @@ public class AddFood extends AppCompatActivity {
             foodCalorie.setText("");
             return;
         }
-
-
     }
 }
