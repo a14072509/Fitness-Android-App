@@ -25,11 +25,21 @@
         app:title="Detail"
         app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
-    <ImageView
-        android:id="@+id/imageView10"
+    <TextView
+        android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/calInfoToolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="date goes here"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/notebook_page_1"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_below="@+id/date"
         android:adjustViewBounds="true"
         app:srcCompat="@drawable/notebook_page" />
 
@@ -38,6 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/calInfoToolbar"
+        android:layout_alignTop="@+id/notebook_page_1"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
@@ -56,7 +67,6 @@
             android:id="@+id/burnt_calorie"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
             android:text="cal"
             android:textColor="#000000"
             android:textSize="24sp" />
@@ -76,19 +86,29 @@
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:layout_below="@+id/burnt_calorie_container"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="10dp"
+        android:layout_alignLeft="@+id/notebook_page_1"
+        android:layout_alignRight="@+id/notebook_page_1"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:divider="#ffffff"
         android:dividerHeight="1dp"
         android:outlineProvider="bounds" />
+
+    <ImageView
+        android:id="@+id/notebook_page_2"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_below="@+id/notebook_page_1"
+        app:srcCompat="@drawable/notebook_page" />
 
     <LinearLayout
         android:id="@+id/taken_calorie_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/burnt_calorie_list"
+        android:layout_alignTop="@+id/notebook_page_2"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="40dp"
         android:orientation="horizontal">
 
