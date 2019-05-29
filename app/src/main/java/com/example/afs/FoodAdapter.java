@@ -8,27 +8,27 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.*;
+
 public class FoodAdapter extends BaseAdapter {
     Context context;
-    String[] names;
-    String[] calories;
+    List<Food> food;
     LayoutInflater inflter;
 
-    public FoodAdapter(Context applicationContext, String[] names, String[] calories) {
-        this.context = context;
-        this.names = names;
-        this.calories = calories;
+    public FoodAdapter(Context applicationContext, List<Food> food) {
+        this.context = applicationContext;
+        this.food = food;
         inflter = (LayoutInflater.from(applicationContext));
     }
 
     @Override
     public int getCount() {
-        return names.length;
+        return food.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return food.get(position);
     }
 
     @Override
@@ -42,8 +42,8 @@ public class FoodAdapter extends BaseAdapter {
         view = inflter.inflate(R.layout.food_text, null);
         TextView name = (TextView) view.findViewById(R.id.foodTextView);
         TextView calorie = (TextView) view.findViewById(R.id.calorieTextView);
-        name.setText(names[i]);
-        calorie.setText(calories[i]);
+        name.setText(food.get(i).getName());
+        calorie.setText(""+food.get(i).getCalorie());
         return view;
     }
 }

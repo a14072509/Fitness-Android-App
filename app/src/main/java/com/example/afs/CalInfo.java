@@ -7,8 +7,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.Date;
-import java.util.Map;
+import java.util.*;
 
 public class CalInfo extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
@@ -19,10 +18,8 @@ public class CalInfo extends AppCompatActivity {
     private TextView takenCalorie;
     private TextView burntCalorie;
     private TextView resultCalorie;
-    private String[] foodNames;
-    private String[] foodCalorie;
-    private String[] exerNames;
-    private String[] exerCalorie;
+    private List<Food> food;
+    private List<Food> exer;
 
 
 
@@ -48,34 +45,26 @@ public class CalInfo extends AppCompatActivity {
         hist.addExercise("Running", 500);
 
         //set up the adapters
-        Map<String, Integer> food = hist.getFood();
-        Map<String, Integer> exer = hist.getExercise();
+        Map<String, Integer> foodDB = hist.getFood();
+        Map<String, Integer> exerDB = hist.getExercise();
 
-        foodNames = new String[food.size()];
-        foodCalorie = new String[food.size()];
-        exerNames = new String[exer.size()];
-        exerCalorie = new String[exer.size()];
-        int i = 0;
-        for(String f : food.keySet()) {
-            foodNames[i] = f;
-            foodCalorie[i] = ""+food.get(f);
-            i++;
-        }
-        i = 0;
-        for(String e : exer.keySet()) {
-            exerNames[i] = e;
-            exerCalorie[i] = ""+exer.get(e);
-            i++;
-        }
+        food = new ArrayList<Food>();
+        exer = new ArrayList<Food>();
+
+        for(String f : foodDB.keySet())
+            food.add(new Food(f, foodDB.get(f)));
+        for(String e : exerDB.keySet())
+            exer.add(new Food(e, exerDB.get(e)));
+
         foodList = (ListView)findViewById(R.id.taken_calorie_list);
         takenCalorie = (TextView)findViewById(R.id.taken_calorie);
-        FoodAdapter foodAdapter = new FoodAdapter(getApplicationContext(), foodNames, foodCalorie);
+        FoodAdapter foodAdapter = new FoodAdapter(getApplicationContext(), food);
         foodList.setAdapter(foodAdapter);
         takenCalorie.setText("" + hist.getCalTaken());
 
         exerList = (ListView)findViewById(R.id.burnt_calorie_list);
         burntCalorie = (TextView)findViewById(R.id.burnt_calorie);
-        FoodAdapter exerAdapter = new FoodAdapter(getApplicationContext(), exerNames, exerCalorie);
+        FoodAdapter exerAdapter = new FoodAdapter(getApplicationContext(), exer);
         exerList.setAdapter(exerAdapter);
         burntCalorie.setText("" + hist.getCalSpent());
 

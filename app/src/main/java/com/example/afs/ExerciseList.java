@@ -32,16 +32,9 @@ public class ExerciseList extends AppCompatActivity {
         });
 
 
-        //TODO Read the list
         bodyPart = new BodyPart(this);
         String body = getIntent().getStringExtra("body");
         exercisesDB = bodyPart.bodyToExercise.get(body);
-
-        //These are jsut tests
-//        exercisesDB.add(new Exercise( "bird-dog","abs14"));
-//        exercisesDB.add(new Exercise( "BOSU Squat Jumps", "abs117"));
-//        exercisesDB.add(new Exercise("BOSU Lateral Jumps", "abs119" ));
-//        exercisesDB.add(new Exercise( "Bodyweight Squat", "abs135"));
 
         //store the list into array
         updateExerciseAdapter(exercisesDB);
@@ -76,7 +69,6 @@ public class ExerciseList extends AppCompatActivity {
 
         //get the food list gadget
         exerList = (ListView)findViewById(R.id.exercise_list);
-
         //set up the adapter
         ExerciseAdapter exerciseAdapter= new ExerciseAdapter(getApplicationContext(), exerciseList);
         exerList.setAdapter(exerciseAdapter);

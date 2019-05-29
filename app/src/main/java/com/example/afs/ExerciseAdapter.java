@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ExerciseAdapter extends BaseAdapter implements AdapterView.OnItemClickListener{
+public class ExerciseAdapter extends BaseAdapter{
     Context context;
     List<Exercise> exercises;
     LayoutInflater inflter;
@@ -58,8 +58,4 @@ public class ExerciseAdapter extends BaseAdapter implements AdapterView.OnItemCl
         return view;
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        System.out.println(parent.getItemAtPosition(position));
-    }
 }

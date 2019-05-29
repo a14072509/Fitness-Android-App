@@ -4,20 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 
 import java.util.ArrayList;
+import java.util.*;
 
 public class FoodHistory extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
     private Button addItemButton;
     private ListView foodList;
-    private String[] names;
-    private String[] calories;
-    private ArrayList<String> namesDB;
-    private ArrayList<String> caloriesDB;
+    private List<Food> foodDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,30 +24,24 @@ public class FoodHistory extends AppCompatActivity {
         setContentView(R.layout.food_history);
 
 
-        namesDB = new ArrayList<String>();
-        caloriesDB = new ArrayList<String>();
+        foodDB = new ArrayList<Food>();
 
         //TODO Read the list of names and calories from database, store in namesDB and caloriesDB
 
 
-
         //These are jsut tests
-        namesDB.add("Apple");
-        namesDB.add("Pineapple");
-        namesDB.add("Banana");
-        namesDB.add("Pork");
-        namesDB.add("Chicken");
-        namesDB.add("Bag");
-        caloriesDB.add(""+200);
-        caloriesDB.add(""+300);
-        caloriesDB.add(""+400);
-        caloriesDB.add(""+200);
-        caloriesDB.add(""+300);
-        caloriesDB.add(""+400);
-
+        foodDB.add(new Food("Apple", 300));
 
         //store the list into array
-        updateFoodAdapter(namesDB, caloriesDB);
+        updateFoodAdapter(foodDB);
+
+        foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Food clickedObj =  (Food)parent.getItemAtPosition(position);
+                addFood(clickedObj);
+            }
+        });
 
         //the search functionality is implemented here
         SearchView searchView = (SearchView) findViewById(R.id.foodHistorySearchBar);
@@ -70,16 +63,14 @@ public class FoodHistory extends AppCompatActivity {
              * @param query The search pattern entered by the user
              */
             public void callSearch(String query) {
-                ArrayList<String> tempName = new ArrayList<String>();
-                ArrayList<String> tempCalorie = new ArrayList<String>();
-                for(int i = 0; i < namesDB.size(); i++) {
-                    String curName = namesDB.get(i).toLowerCase();
+                List<Food> temp = new ArrayList<Food>();
+                for(int i = 0; i < foodDB.size(); i++) {
+                    String curName = foodDB.get(i).getName().toLowerCase();
                     if (curName.indexOf(query.toLowerCase()) != -1) {
-                        tempName.add(namesDB.get(i));
-                        tempCalorie.add(caloriesDB.get(i));
+                        temp.add(foodDB.get(i));
                     }
                 }
-                updateFoodAdapter(tempName, tempCalorie);
+                updateFoodAdapter(temp);
             }
 
         });
@@ -114,19 +105,18 @@ public class FoodHistory extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void updateFoodAdapter(ArrayList<String> nameList, ArrayList<String> calorieList)
+    private void updateFoodAdapter(List<Food> food)
     {
-        //store the list into array
-        names = new String[nameList.size()];
-        calories = new String[calorieList.size()];
-        nameList.toArray(names);
-        calorieList.toArray(calories);
-
         //get the food list gadget
         foodList = (ListView)findViewById(R.id.foodHistoryList);
 
         //set up the adapter
-        FoodAdapter foodAdapter= new FoodAdapter(getApplicationContext(), names, calories);
+        FoodAdapter foodAdapter= new FoodAdapter(getApplicationContext(), food);
         foodList.setAdapter(foodAdapter);
+    }
+
+    private void addFood(Food f) {
+
+        //TODO add the food selected to the database
     }
 }
