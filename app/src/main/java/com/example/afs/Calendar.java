@@ -21,14 +21,19 @@ import java.util.Date;
 public class Calendar extends AppCompatActivity {
     private Button calinfo;
     private CalendarView calenderView;
-    private int selYear;
-    private int selMonth;
-    private int selDay;
+    private String selDateText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar);
+        java.util.Calendar calendar = java.util.Calendar.getInstance();
+        calenderView = (CalendarView) findViewById(R.id.calendarView);
+        Date selDate = new Date(calenderView.getDate());
+        String temp = selDate.toString();
+        temp = temp.substring(temp.lastIndexOf(" ")+1);
 
+        selDateText = getMonthString(selDate.getMonth()) + " " + selDate.getDate() + " " + temp;
 
         calinfo = (Button) findViewById(R.id.detail);
         calinfo.setOnClickListener(new View.OnClickListener() {
@@ -36,16 +41,13 @@ public class Calendar extends AppCompatActivity {
                 enterCalInfo();
             }
         });
-        calenderView = (CalendarView) findViewById(R.id.calendarView);
 
         calenderView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
-                selYear = year;
-                selMonth = month;
-                selDay = dayOfMonth;
+                selDateText = getMonthString(month) + " " + dayOfMonth + " " + year;
             }
         });
 
@@ -87,9 +89,7 @@ public class Calendar extends AppCompatActivity {
 
     private void enterCalInfo() {
         Intent intent = new Intent(this, CalInfo.class);
-        intent.putExtra("year", selYear);
-        intent.putExtra("month", selMonth);
-        intent.putExtra("day", selDay);
+        intent.putExtra("date", selDateText);
         startActivity(intent);
     }
 
@@ -98,6 +98,38 @@ public class Calendar extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         overridePendingTransition(0, 0);
+    }
+
+    private String getMonthString(int month)
+    {
+        switch(month)
+        {
+            case 1:
+                return "January";
+            case 2:
+                return "February";
+            case 3:
+                return "March";
+            case 4:
+                return "April";
+            case 5:
+                return "May";
+            case 6:
+                return "June";
+            case 7:
+                return "July";
+            case 8:
+                return "August";
+            case 9:
+                return "September";
+            case 10:
+                return "October";
+            case 11:
+                return "November";
+            case 12:
+                return "December";
+        }
+        return "Unknown";
     }
 }
 

@@ -18,6 +18,7 @@ public class CalInfo extends AppCompatActivity {
     private TextView takenCalorie;
     private TextView burntCalorie;
     private TextView resultCalorie;
+    private TextView dateView;
     private List<Food> food;
     private List<Food> exer;
 
@@ -28,10 +29,10 @@ public class CalInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calandar_info);
 
-        int year = getIntent().getIntExtra("year", 0);
-        int month = getIntent().getIntExtra("month", 0);
-        int day = getIntent().getIntExtra("day", 0);
-        date = new Date(year, month, day);
+        String dateText = getIntent().getStringExtra("date");
+
+        dateView = (TextView)findViewById(R.id.date);
+        dateView.setText(dateText);
 
         //TODO retrieve the history from database and store in hist declared on top
 
@@ -87,4 +88,6 @@ public class CalInfo extends AppCompatActivity {
         Intent intent = new Intent(this, Calendar.class);
         startActivity(intent);
     }
+
+
 }

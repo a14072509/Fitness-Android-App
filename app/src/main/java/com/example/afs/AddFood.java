@@ -46,14 +46,14 @@ public class AddFood extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {back();
+            public void onClick(View v) {
+                back();
             }
         });
     }
 
     private void back() {
-        Intent intent = new Intent(this, FoodHistory.class);
-        startActivity(intent);
+        finish();
     }
 
     /**
@@ -75,9 +75,8 @@ public class AddFood extends AppCompatActivity {
             String userID = curUser.getUid();
             db.child("Users").child(userID).child("food_list").child("name").push();
 
-
             //After updating database, go back to the previous page
-            finish();
+            back();
 
         } catch(NumberFormatException e) {
             foodCalorie.setText("");

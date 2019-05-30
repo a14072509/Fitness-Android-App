@@ -103,8 +103,7 @@ public class EditProfile extends AppCompatActivity {
         db.child("Users").child(userID).updateChildren(userInfoMap);
 
 
-        Intent intent = new Intent(this, Profile.class);
-        startActivity(intent);
+        finish();
     }
 
 }
