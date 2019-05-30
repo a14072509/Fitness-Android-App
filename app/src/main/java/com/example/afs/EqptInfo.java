@@ -10,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -24,7 +23,7 @@ public class EqptInfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.eqpt_info);
+        setContentView(R.layout.equipment_info);
 
         addExerButton = (Button)findViewById(R.id.add_exercise_button);
         addExerButton.setOnClickListener(new View.OnClickListener() {

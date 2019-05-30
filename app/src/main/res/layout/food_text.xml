@@ -8,34 +8,23 @@
 
     <TextView
         android:id="@+id/foodTextView"
-        android:layout_width="163dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:padding="15dp"
+        android:layout_marginLeft="10dp"
+        android:padding="5dp"
+        android:text="food name"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/cal"
+        android:id="@+id/calorieTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:layout_toLeftOf="@+id/calorieTextView"
-        android:layout_toRightOf="@+id/foodTextView"
-        android:text="Cal: "
-        android:textAlignment="textEnd"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/calorieTextView"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:padding="15dp"
+        android:layout_marginRight="10dp"
+        android:padding="5dp"
+        android:text="cal"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp" />
 
