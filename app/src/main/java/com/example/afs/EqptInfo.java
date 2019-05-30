@@ -17,7 +17,7 @@ import android.widget.VideoView;
 public class EqptInfo extends AppCompatActivity {
 
     private Button addExerButton;
-    private Toolbar toolbar;
+    private TextView title;
     VideoView videoView;
 
     @SuppressLint("ClickableViewAccessibility")
@@ -66,8 +66,8 @@ public class EqptInfo extends AppCompatActivity {
             }
         });
 
-        toolbar = (Toolbar)findViewById(R.id.equipmentInfoToolbar);
-        toolbar.setTitle(getIntent().getStringExtra("name"));
+        title = (TextView)findViewById(R.id.equipmentTitle);
+        title.setText(getIntent().getStringExtra("name"));
     }
 
     private void addItem()

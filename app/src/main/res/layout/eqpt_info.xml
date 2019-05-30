@@ -17,7 +17,7 @@
         app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
     <TextView
-        android:id="@+id/Title"
+        android:id="@+id/equipmentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/equipmentInfoToolbar"
@@ -31,7 +31,7 @@
         android:id="@+id/exer_gif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Title"
+        android:layout_below="@+id/equipmentTitle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="0dp" />
