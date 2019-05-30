@@ -60,7 +60,7 @@ public class Exercise {
     }
 
     public void setImagePath(String imagePath) {
-        this.imagePath = imagePath.toLowerCase();
+        this.imagePath = imagePath.toLowerCase().replace(" ", "");
     }
 
     public Map<Integer, Integer> getWeightCal() {

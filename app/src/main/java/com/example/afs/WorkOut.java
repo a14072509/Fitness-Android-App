@@ -25,7 +25,7 @@ public class WorkOut extends AppCompatActivity {
         b1 = (Button) findViewById(R.id.button);
         b1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                enterExerciseList("Triceps");
+                enterExerciseList("Butt and Hips");
             }
         });
 
