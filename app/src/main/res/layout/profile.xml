@@ -214,11 +214,13 @@
 
             <TextView
                 android:id="@+id/BMI"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="100dp"
                 android:gravity="center_vertical"
+                android:maxLines="1"
+                android:singleLine="true"
                 android:text="0"
                 android:textAlignment="textStart"
                 android:textSize="24sp" />
