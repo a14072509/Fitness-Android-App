@@ -30,11 +30,13 @@ public class Profile extends AppCompatActivity {
     private TextView heightText;
     private TextView weightText;
     private TextView usernameText;
+    private TextView BMIText;
     private String userID;
     private String newUserName;
     private String newAge;
     private String newHeight;
     private String newWeight;
+    private Gender newGender = Gender.MALE;
 
 
 
@@ -59,6 +61,7 @@ public class Profile extends AppCompatActivity {
         ageText = (TextView) findViewById(R.id.edit_age);
         heightText = (TextView) findViewById(R.id.edit_height);
         weightText = (TextView) findViewById(R.id.edit_weight);
+        BMIText = (TextView) findViewById(R.id.BMI);
 
 
         db.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
@@ -71,6 +74,7 @@ public class Profile extends AppCompatActivity {
                 newHeight = dataSnapshot.child("height").getValue().toString();
                 newWeight = dataSnapshot.child("weight").getValue().toString();
 
+                updateBMI(newGender, newAge, newHeight, newWeight);
                 System.out.println("AAABBBCCC\n" + newUserName);
                 usernameText.setText(newUserName);
                 ageText.setText(newAge);
@@ -142,8 +146,9 @@ public class Profile extends AppCompatActivity {
 
     }
 
-    private void updateUserInfo() {
-
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
     }
 
     private void enterEditProfile() {
@@ -160,5 +165,34 @@ public class Profile extends AppCompatActivity {
         super.onPause();
         overridePendingTransition(0, 0);
     }
+
+    private void updateBMI(Gender gender, String age, String height, String weight)
+    {
+        try {
+            int ageV = Integer.parseInt(age);
+            int heightV = Integer.parseInt(height);
+            int weightV = Integer.parseInt(weight);
+
+            String bmiStr;
+            if(gender == Gender.FEMALE)
+            {
+                double bmi = 4.536 * weightV + 15.875 * heightV - 5 * ageV - 161;
+                bmiStr = String.format("%.2f", bmi);
+            }
+            else if(gender == Gender.MALE)
+            {
+                double bmi = 4.536 * weightV + 15.875 * heightV - 5 * ageV + 5;
+                bmiStr = String.format("%.2f", bmi);
+            }
+            else
+            {
+                bmiStr = "0";
+            }
+            BMIText.setText(bmiStr);
+        }
+        catch(Exception e){}
+
+    }
+
 }
 
