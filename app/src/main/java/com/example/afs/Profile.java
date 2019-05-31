@@ -103,7 +103,7 @@ public class Profile extends AppCompatActivity {
                 if(storage.getReferenceFromUrl("gs://abbt-a95ad.appspot.com/images/" + userID) != null) {
                     storageReference = storage
                             .getReferenceFromUrl("gs://abbt-a95ad.appspot.com/images/" + userID);
-                    Glide.with(Profile.this).load(storageReference).into(photo);
+                    //Glide.with(Profile.this).load(storageReference).into(photo);
                 }
 
                 //System.out.println("AAABBBCCC\n" + newUserName);
