@@ -1,28 +1,21 @@
 package com.example.afs;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.lang.Double;
-import java.util.HashMap;
 import java.util.Map;
 
 public class EditProfile extends AppCompatActivity {
-    private Button save;
+    private ImageButton save;
     private EditText ageText;
     private EditText heightText;
     private EditText weightText;
@@ -56,7 +49,7 @@ public class EditProfile extends AppCompatActivity {
             curUser = mAuth.getCurrentUser();
         }
 
-        save = (Button) findViewById(R.id.save);
+        save = (ImageButton) findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) { enterProfile();
             }
@@ -106,4 +99,9 @@ public class EditProfile extends AppCompatActivity {
         finish();
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        overridePendingTransition(0, 0);
+    }
 }
