@@ -38,9 +38,12 @@ public class MainActivity extends AppCompatActivity {
         if(mAuth.getCurrentUser() != null)
         {
             curUser = mAuth.getCurrentUser();
+            userID = curUser.getUid();
+
         }
 
         userID = curUser.getUid();
+
 
         //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate localDate = LocalDate.now();

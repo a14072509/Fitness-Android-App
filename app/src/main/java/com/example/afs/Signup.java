@@ -138,7 +138,7 @@ public class Signup extends firebaseActivity {
 
 
         // Go to MainActivity
-        startActivity(new Intent(Signup.this, login.class));
+        startActivity(new Intent(Signup.this, MainActivity.class));
         finish();
     }
 
