@@ -25,6 +25,7 @@
         android:layout_alignParentRight="false"
         android:layout_toLeftOf="@+id/deleteFoodButton"
         android:adjustViewBounds="true"
+        android:alpha="0.5"
         android:background="@drawable/add_button" />
 
     <ImageButton
@@ -33,6 +34,8 @@
         android:layout_height="50dp"
         android:layout_below="@+id/list"
         android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:alpha="0.5"
         android:background="@drawable/delete_button" />
 
     <ImageView
