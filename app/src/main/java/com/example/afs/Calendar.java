@@ -34,7 +34,6 @@ public class Calendar extends AppCompatActivity {
         temp = temp.substring(temp.lastIndexOf(" ")+1);
 
         selDateText = getMonthString(selDate.getMonth()) + " " + selDate.getDate() + " " + temp;
-
         calinfo = (Button) findViewById(R.id.detail);
         calinfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -48,6 +47,7 @@ public class Calendar extends AppCompatActivity {
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
                 selDateText = getMonthString(month+1) + " " + dayOfMonth + " " + year;
+                System.out.println("test date\n"+selDateText);
             }
         });
 

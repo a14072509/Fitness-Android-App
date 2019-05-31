@@ -36,6 +36,7 @@ public class CalInfo extends AppCompatActivity {
 
         //TODO retrieve the history from database and store in hist declared on top
 
+
         //test
         hist = new History(date, 500);
 

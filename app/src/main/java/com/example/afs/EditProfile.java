@@ -72,8 +72,6 @@ public class EditProfile extends AppCompatActivity {
 
 
         String username = usernameText.getText().toString();
-        db.child("Users").child(userID).child("userName").setValue(username);
-
 
         String ageStr = ageText.getText().toString();
         try {
