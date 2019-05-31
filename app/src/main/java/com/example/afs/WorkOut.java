@@ -3,15 +3,11 @@ package com.example.afs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 public class WorkOut extends AppCompatActivity {
@@ -22,7 +18,7 @@ public class WorkOut extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout);
 
-        b1 = (Button) findViewById(R.id.button);
+        b1 = (Button) findViewById(R.id.aerobic);
         b1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Leg");
