@@ -85,7 +85,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:gravity="center"
+            android:textSize="14sp" />
     </LinearLayout>
 
     <android.support.design.widget.BottomNavigationView

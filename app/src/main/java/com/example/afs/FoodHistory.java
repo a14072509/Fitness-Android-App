@@ -2,6 +2,7 @@ package com.example.afs;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,14 +10,26 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.*;
 
-public class FoodHistory extends AppCompatActivity {
+public class FoodHistory extends firebaseActivity {
     private android.support.v7.widget.Toolbar toolbar;
     private Button addItemButton;
     private ListView foodList;
     private List<Food> foodDB;
+    private DatabaseReference db;
+    private FirebaseAuth mAuth;
+    private FirebaseUser curUser;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +40,41 @@ public class FoodHistory extends AppCompatActivity {
         foodDB = new ArrayList<Food>();
 
         //TODO Read the list of names and calories from database, store in namesDB and caloriesDB
+        db = FirebaseDatabase.getInstance().getReference();
 
+        mAuth = FirebaseAuth.getInstance();
+
+        if(mAuth.getCurrentUser() != null)
+        {
+            curUser = mAuth.getCurrentUser();
+        }
+
+        userID = curUser.getUid();
+
+        db.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String foodListStr = dataSnapshot.child("foodDB").getValue().toString();
+                        //System.out.println(foodListStr);
+                        if(foodListStr.length() <= 4) {
+                            foodDB = null;
+                        }
+                        else {
+                            foodDB = parseStrToFoodlist(foodListStr);
+                            FoodAdapter foodAdapter = new FoodAdapter(FoodHistory.this, foodDB);
+                            foodList.setAdapter(foodAdapter);
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
 
         //These are just tests
-        foodDB.add(new Food("Apple", 300));
+        //foodDB.add(new Food("Apple", 300));
 
         //store the list into array
         updateFoodAdapter(foodDB);
@@ -118,5 +162,8 @@ public class FoodHistory extends AppCompatActivity {
     private void addFood(Food f) {
 
         //TODO add the food selected to the database
+        db.child("Users").child(userID).child(MainActivity.toDate).child("food_list")
+                .child(f.getName()).setValue(f.getCalorie());
+
     }
 }

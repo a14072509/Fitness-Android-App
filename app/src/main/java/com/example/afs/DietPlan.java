@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,17 +23,19 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.*;
 
-public class DietPlan extends AppCompatActivity {
+public class DietPlan extends firebaseActivity {
 
     private ImageButton addFoodButton;
     private ListView foodList;
     private ImageButton deleteButton;
+    private TextView totalCalText;
     private boolean deleteMode = false;
     private DatabaseReference db;
     private FirebaseAuth mAuth;
     private FirebaseUser curUser;
     private String userID;
     private List<Food> food;
+    private int totalCalories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class DietPlan extends AppCompatActivity {
         foodList = (ListView)findViewById(R.id.todayFoodList);
 
         food = new ArrayList<Food>();
+
+        totalCalText = (TextView)findViewById(R.id.total_calories);
 
 
         //TODO Retrieve from database the food of today.
@@ -62,12 +67,14 @@ public class DietPlan extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String foodListStr = dataSnapshot.child("food_list").getValue().toString();
-                System.out.println(foodListStr);
+                //System.out.println(foodListStr);
                 if(foodListStr.length() <= 4) {
                     food = null;
                 }
                 else {
                     food = parseStrToFoodlist(foodListStr);
+                    totalCalories = calculateCalories(foodListStr);
+                    totalCalText.setText(String.valueOf(totalCalories));
                     FoodAdapter foodAdapter = new FoodAdapter(DietPlan.this, food);
                     foodList.setAdapter(foodAdapter);
                 }
@@ -146,24 +153,5 @@ public class DietPlan extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public ArrayList<Food> parseStrToFoodlist(String foodStr) {
-        ArrayList<Food> parsedList = new ArrayList<Food>();
-        int len = foodStr.length();
-        foodStr = foodStr.substring(5, len - 1);
-        //System.out.println(foodStr);
-        while(foodStr != "") {
-            String[] nameTemp = foodStr.split("=", 2);
-            //System.out.println("nameaaaa\n"+nameTemp[0]+"split"+nameTemp[1]);
-            if(!nameTemp[1].contains("=")) {
-                parsedList.add(new Food(nameTemp[0], Integer.parseInt(nameTemp[1])));
-                return parsedList;
-            }
-            String[] caloTemp = nameTemp[1].split(", ", 2);
-            //System.out.println("caloaaaa\n"+caloTemp[0]+"divide"+caloTemp[1]);
-            parsedList.add(new Food(nameTemp[0], Integer.parseInt(caloTemp[0])));
-            foodStr = caloTemp[1];
-        }
-        return parsedList;
-    }
 }
 

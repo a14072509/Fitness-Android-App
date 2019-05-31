@@ -1,5 +1,6 @@
 package com.example.afs;
 
+
 public class Food
 {
     private String name;

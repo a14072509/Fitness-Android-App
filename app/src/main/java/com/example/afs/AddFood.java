@@ -76,6 +76,7 @@ public class AddFood extends AppCompatActivity {
 
             //TODO Need to add the food information into database
             String userID = curUser.getUid();
+            db.child("Users").child(userID).child("foodDB").child(name).setValue(calorie);
             db.child("Users").child(userID).child(MainActivity.toDate).child("food_list").child(name).setValue(calorie);
 
             //After updating database, go back to the previous page

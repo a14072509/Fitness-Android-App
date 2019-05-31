@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         toDate = localDate.toString();
         db.child("Users").child(userID).child(toDate).child("food_list").child(" ").setValue("");
         db.child("Users").child(userID).child(toDate).child("exercise_list").child(" ").setValue("");
+        db.child("Users").child(userID).child("foodDB").child(" ").setValue("");
+
 
 
 
