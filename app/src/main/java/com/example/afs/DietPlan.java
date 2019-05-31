@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -44,13 +45,20 @@ public class DietPlan extends firebaseActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         foodList = (ListView)findViewById(R.id.todayFoodList);
+        foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Food clickedObj =  (Food)parent.getItemAtPosition(position);
+                if(deleteMode)
+                    deleteFood(clickedObj);
+            }
+        });
 
         food = new ArrayList<Food>();
 
         totalCalText = (TextView)findViewById(R.id.total_calories);
 
 
-        //TODO Retrieve from database the food of today.
         db = FirebaseDatabase.getInstance().getReference();
 
         mAuth = FirebaseAuth.getInstance();
@@ -86,18 +94,11 @@ public class DietPlan extends firebaseActivity {
 
             }
         });
-        //Tests
-        //food.add(new Food("Apple", 500));
-        //food.add(new Food("Pear", 300));
-        //food.add(new Food("Banana", 200));
-
-        //FoodAdapter foodAdapter = new FoodAdapter(this, food);
-        //foodList.setAdapter(foodAdapter);
 
         deleteButton = (ImageButton)findViewById(R.id.deleteFoodButton);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                deleteMode = true;
+                deleteMode = !deleteMode;
             }
         });
 
@@ -141,6 +142,10 @@ public class DietPlan extends firebaseActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 
     @Override
     public void onPause() {
@@ -151,6 +156,13 @@ public class DietPlan extends firebaseActivity {
     public void addFood() {
         Intent intent = new Intent(this, FoodHistory.class);
         startActivity(intent);
+    }
+
+    private void deleteFood(Food f){
+        System.out.println("Deleting");
+        //TODO remove the food from today's history list
+
+
     }
 
 }

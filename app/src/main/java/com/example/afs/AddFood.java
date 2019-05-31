@@ -56,7 +56,8 @@ public class AddFood extends AppCompatActivity {
     }
 
     private void back() {
-        finish();
+        Intent intent = new Intent(this, DietPlan.class);
+        startActivity(intent);
     }
 
     /**

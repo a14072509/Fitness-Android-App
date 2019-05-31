@@ -31,7 +31,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="439dp"
-            android:background="@drawable/bodypart"/>
+            android:background="@drawable/bodypart" />
 
     </LinearLayout>
 

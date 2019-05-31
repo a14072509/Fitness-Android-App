@@ -145,8 +145,7 @@ public class FoodHistory extends firebaseActivity {
     }
 
     private void back() {
-        Intent intent = new Intent(this, DietPlan.class);
-        startActivity(intent);
+        finish();
     }
 
     private void updateFoodAdapter(List<Food> food)
@@ -164,6 +163,7 @@ public class FoodHistory extends firebaseActivity {
         //TODO add the food selected to the database
         db.child("Users").child(userID).child(MainActivity.toDate).child("food_list")
                 .child(f.getName()).setValue(f.getCalorie());
+        finish();
 
     }
 }

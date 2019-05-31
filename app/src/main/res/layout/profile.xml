@@ -213,7 +213,7 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/textView26"
+                android:id="@+id/BMI"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
