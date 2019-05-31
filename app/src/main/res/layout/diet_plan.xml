@@ -19,20 +19,24 @@
 
     <ImageButton
         android:id="@+id/addFoodButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/list"
         android:layout_alignParentRight="false"
         android:layout_toLeftOf="@+id/deleteFoodButton"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        android:adjustViewBounds="true"
+        android:alpha="0.5"
+        android:background="@drawable/add_button" />
 
     <ImageButton
         android:id="@+id/deleteFoodButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/list"
         android:layout_alignParentRight="true"
-        app:srcCompat="@android:drawable/ic_delete" />
+        android:layout_marginRight="20dp"
+        android:alpha="0.5"
+        android:background="@drawable/delete_button" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -46,7 +50,7 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        android:layout_below="@+id/imageView6"
+        android:layout_below="@+id/total_calorie_section"
         android:orientation="vertical">
 
         <ListView
@@ -59,22 +63,24 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/total_calorie_section"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:layout_below="@+id/addFoodButton"
+        android:layout_below="@+id/imageView6"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/total_calories_title"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#48D8D8D8"
             android:gravity="center"
-            android:text="TOTAL CALORIES:" />
+            android:text="TOTAL CALORIES:"
+            android:textColor="@color/colorPrimaryDark" />
 
         <TextView
-            android:id="@+id/input"
+            android:id="@+id/total_calories"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"

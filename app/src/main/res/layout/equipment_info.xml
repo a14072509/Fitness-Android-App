@@ -27,21 +27,28 @@
         android:textColor="#000000"
         android:textSize="24sp" />
 
-    <VideoView
-        android:id="@+id/exer_gif"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:id="@+id/video_section"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_below="@+id/equipmentTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="0dp" />
+        android:layout_centerHorizontal="true">
+
+        <VideoView
+            android:id="@+id/exer_gif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="0dp" />
+    </RelativeLayout>
 
     <ScrollView
         android:id="@+id/text_instruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/add_exercise_button"
-        android:layout_below="@+id/exer_gif"
+        android:layout_below="@+id/video_section"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"

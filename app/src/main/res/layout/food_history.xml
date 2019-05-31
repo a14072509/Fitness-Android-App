@@ -23,7 +23,8 @@
         android:layout_below="@+id/foodHistoryToolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:background="#b4b4b4">
+        android:background="#b4b4b4"
+        android:queryHint="search in history">
 
     </SearchView>
 
