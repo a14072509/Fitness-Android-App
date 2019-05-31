@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         userID = curUser.getUid();
 
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate localDate = LocalDate.now();
         toDate = localDate.toString();
         db.child("Users").child(userID).child(toDate).child("food_list").child(" ").setValue("");

@@ -73,5 +73,49 @@ public class firebaseActivity extends AppCompatActivity {
         return calories;
     }
 
-
+    public String parseDate(String date) {
+        String retStr = "";
+        String[] dateArray = date.split(" ", 3);
+        retStr = retStr.concat(dateArray[2] + "-");
+        switch (dateArray[0]) {
+            case "January":
+                retStr = retStr.concat("01");
+                break;
+            case "February":
+                retStr = retStr.concat("02");
+                break;
+            case "March":
+                retStr = retStr.concat("03");
+                break;
+            case "April":
+                retStr = retStr.concat("04");
+                break;
+            case "May":
+                retStr = retStr.concat("05");
+                break;
+            case "June":
+                retStr = retStr.concat("06");
+                break;
+            case "July":
+                retStr = retStr.concat("07");
+                break;
+            case "August":
+                retStr = retStr.concat("08");
+                break;
+            case "September":
+                retStr = retStr.concat("09");
+                break;
+            case "October":
+                retStr = retStr.concat("10");
+                break;
+            case "November":
+                retStr = retStr.concat("11");
+                break;
+            case "December":
+                retStr = retStr.concat("12");
+                break;
+        }
+        retStr = retStr.concat("-" + dateArray[1]);
+        return retStr;
+    }
 }
