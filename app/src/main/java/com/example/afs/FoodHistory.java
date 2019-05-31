@@ -61,7 +61,7 @@ public class FoodHistory extends firebaseActivity {
                         }
                         else {
                             foodDB = parseStrToFoodlist(foodListStr);
-                            FoodAdapter foodAdapter = new FoodAdapter(FoodHistory.this, foodDB);
+                            FoodAdapter foodAdapter = new FoodAdapter(FoodHistory.this, foodDB, "");
                             foodList.setAdapter(foodAdapter);
                         }
 
@@ -154,7 +154,7 @@ public class FoodHistory extends firebaseActivity {
         foodList = (ListView)findViewById(R.id.foodHistoryList);
 
         //set up the adapter
-        FoodAdapter foodAdapter= new FoodAdapter(getApplicationContext(), food);
+        FoodAdapter foodAdapter= new FoodAdapter(getApplicationContext(), food, "");
         foodList.setAdapter(foodAdapter);
     }
 

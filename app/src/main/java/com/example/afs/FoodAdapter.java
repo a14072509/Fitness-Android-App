@@ -14,11 +14,13 @@ public class FoodAdapter extends BaseAdapter {
     Context context;
     List<Food> food;
     LayoutInflater inflter;
+    private String mode;
 
-    public FoodAdapter(Context applicationContext, List<Food> food) {
+    public FoodAdapter(Context applicationContext, List<Food> food, String mode) {
         this.context = applicationContext;
         this.food = food;
         inflter = (LayoutInflater.from(applicationContext));
+        this.mode = mode;
     }
 
     @Override
@@ -39,7 +41,11 @@ public class FoodAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        view = inflter.inflate(R.layout.food_text, null);
+        if(!mode.equals("c"))
+            view = inflter.inflate(R.layout.food_text, null);
+        else
+            view = inflter.inflate(R.layout.calender_list_item, null);
+
         TextView name = (TextView) view.findViewById(R.id.foodTextView);
         TextView calorie = (TextView) view.findViewById(R.id.calorieTextView);
         name.setText(food.get(i).getName());

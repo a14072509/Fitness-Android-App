@@ -48,7 +48,6 @@ public class CalInfo extends firebaseActivity {
         dateView = (TextView)findViewById(R.id.date);
         dateView.setText(dateText);
 
-        //TODO retrieve the history from database and store in hist declared on top
         db = FirebaseDatabase.getInstance().getReference();
 
         mAuth = FirebaseAuth.getInstance();
@@ -80,7 +79,7 @@ public class CalInfo extends firebaseActivity {
                             caloriesTaken = calculateCalories(foodListStr);
                             foodList = (ListView)findViewById(R.id.taken_calorie_list);
                             takenCalorie = (TextView)findViewById(R.id.taken_calorie);
-                            FoodAdapter foodAdapter = new FoodAdapter(getApplicationContext(), food);
+                            FoodAdapter foodAdapter = new FoodAdapter(getApplicationContext(), food, "c");
                             foodList.setAdapter(foodAdapter);
                             takenCalorie.setText("" + caloriesTaken);
                         }
@@ -121,7 +120,7 @@ public class CalInfo extends firebaseActivity {
 
         exerList = (ListView)findViewById(R.id.burnt_calorie_list);
         burntCalorie = (TextView)findViewById(R.id.burnt_calorie);
-        FoodAdapter exerAdapter = new FoodAdapter(getApplicationContext(), exer);
+        FoodAdapter exerAdapter = new FoodAdapter(getApplicationContext(), exer, "c");
         exerList.setAdapter(exerAdapter);
         burntCalorie.setText("" + hist.getCalSpent());
 
