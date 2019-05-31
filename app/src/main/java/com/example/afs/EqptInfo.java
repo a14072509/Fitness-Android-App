@@ -1,6 +1,7 @@
 package com.example.afs;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -44,6 +45,7 @@ public class EqptInfo extends AppCompatActivity {
 
         videoView.setVideoURI(uri);
         videoView.start();
+
         //Video Loop
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             public void onCompletion(MediaPlayer mp) {
@@ -72,6 +74,10 @@ public class EqptInfo extends AppCompatActivity {
     private void addItem()
     {
         //TODO
+        Intent intent = new Intent(this, ExeToCal.class);
+        intent.putExtra("image", getIntent().getStringExtra("image"));
+        intent.putExtra("name", getIntent().getStringExtra("name"));
+        startActivity(intent);
     }
 
 }

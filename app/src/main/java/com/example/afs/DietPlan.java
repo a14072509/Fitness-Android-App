@@ -83,7 +83,7 @@ public class DietPlan extends firebaseActivity {
                     food = parseStrToFoodlist(foodListStr);
                     totalCalories = calculateCalories(foodListStr);
                     totalCalText.setText(String.valueOf(totalCalories));
-                    FoodAdapter foodAdapter = new FoodAdapter(DietPlan.this, food);
+                    FoodAdapter foodAdapter = new FoodAdapter(DietPlan.this, food, "");
                     foodList.setAdapter(foodAdapter);
                 }
 

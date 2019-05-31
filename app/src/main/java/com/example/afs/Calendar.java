@@ -34,7 +34,7 @@ public class Calendar extends AppCompatActivity {
         String temp = selDate.toString();
         temp = temp.substring(temp.lastIndexOf(" ")+1);
 
-        selDateText = getMonthString(selDate.getMonth()+1) + " " + selDate.getDate() + ", " + temp;
+        selDateText = getMonthString(selDate.getMonth()+1) + " " + selDate.getDate() + " " + temp;
         calinfo = (Button) findViewById(R.id.detail);
         calinfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

@@ -63,6 +63,7 @@ public class ExerciseList extends AppCompatActivity {
         intent.putExtra("image", e.getImagePath());
         startActivity(intent);
     }
+
     private void updateExerciseAdapter(List<Exercise> exerciseList)
     {
         //store the list into array
