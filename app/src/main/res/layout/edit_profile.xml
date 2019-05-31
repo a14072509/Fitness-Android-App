@@ -39,12 +39,22 @@
 
         <ImageView
             android:id="@+id/photo"
-            android:layout_width="138dp"
-            android:layout_height="134dp"
+            android:layout_width="109dp"
+            android:layout_height="120dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:layout_weight="0"
             app:srcCompat="@drawable/ic_profile_black_24dp" />
+
+        <Button
+            android:id="@+id/profile_photo"
+            android:layout_width="106dp"
+            android:layout_height="121dp"
+            android:layout_alignTop="@+id/photo"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="-3dp"
+            android:minHeight="88dip"
+            android:visibility="visible" />
 
         <RelativeLayout
             android:layout_width="match_parent"
