@@ -5,35 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/workout_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="60dp"
+        android:background="@drawable/toolbar_grad_yellow"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:theme="@style/ToolbarTheme"
+        app:title="Exercise List"
+        app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/toolbar_grad_yellow"
-            android:gravity="center"
-            android:paddingLeft="20dp"
-            android:text="WorkOut"
-            android:textAlignment="textStart"
-            android:textColor="#ffffff"
-            android:textSize="30sp"
-            android:textStyle="italic" />
+    <Button
+        android:id="@+id/aerobic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/workout_toolbar"
+        android:text="AEROBIC EXERCISE" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="AEROBIC EXERCISE" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="439dp"
+        android:layout_below="@+id/aerobic"
+        android:background="@drawable/bodypart">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="439dp"
-            android:background="@drawable/bodypart" />
-
-    </LinearLayout>
+    </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -41,6 +37,64 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="?android:attr/windowBackground"
-        app:menu="@menu/bottom_navigation" />
+        app:menu="@menu/bottom_navigation" >
+
+    </android.support.design.widget.BottomNavigationView>
+
+    <Button
+        android:id="@+id/abs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aerobic"
+        android:text="abs" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/abs"
+        android:text="back" />
+
+    <Button
+        android:id="@+id/biceps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/back"
+        android:text="biceps" />
+
+    <Button
+        android:id="@+id/butt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/biceps"
+        android:text="butt" />
+
+    <Button
+        android:id="@+id/chest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/butt"
+        android:text="chest" />
+
+    <Button
+        android:id="@+id/leg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chest"
+        android:text="leg" />
+
+    <Button
+        android:id="@+id/shoulders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/leg"
+        android:text="shoulders" />
+
+    <Button
+        android:id="@+id/triceps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shoulders"
+        android:text="triceps" />
 
 </RelativeLayout>
