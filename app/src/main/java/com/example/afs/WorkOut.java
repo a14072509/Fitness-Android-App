@@ -25,7 +25,7 @@ public class WorkOut extends AppCompatActivity {
         b1 = (Button) findViewById(R.id.button);
         b1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                enterExerciseList("Butt and Hips");
+                enterExerciseList("Leg");
             }
         });
 
@@ -63,6 +63,11 @@ public class WorkOut extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
     }
 
     public void enterExerciseList(String body) {

@@ -29,12 +29,12 @@ public class Calendar extends AppCompatActivity {
         setContentView(R.layout.calendar);
         java.util.Calendar calendar = java.util.Calendar.getInstance();
         calenderView = (CalendarView) findViewById(R.id.calendarView);
-        Date selDate = new Date(calenderView.getDate());
+
+        Date selDate = calendar.getTime();
         String temp = selDate.toString();
         temp = temp.substring(temp.lastIndexOf(" ")+1);
 
-        selDateText = getMonthString(selDate.getMonth()) + " " + selDate.getDate() + " " + temp;
-
+        selDateText = getMonthString(selDate.getMonth()+1) + " " + selDate.getDate() + ", " + temp;
         calinfo = (Button) findViewById(R.id.detail);
         calinfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -48,6 +48,7 @@ public class Calendar extends AppCompatActivity {
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
                 selDateText = getMonthString(month+1) + " " + dayOfMonth + " " + year;
+                System.out.println("test date\n"+selDateText);
             }
         });
 
@@ -85,6 +86,11 @@ public class Calendar extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
     }
 
     private void enterCalInfo() {

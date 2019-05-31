@@ -2,6 +2,7 @@ package com.example.afs;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Map;
 
 public class AddFood extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
@@ -53,7 +56,8 @@ public class AddFood extends AppCompatActivity {
     }
 
     private void back() {
-        finish();
+        Intent intent = new Intent(this, DietPlan.class);
+        startActivity(intent);
     }
 
     /**
@@ -73,7 +77,8 @@ public class AddFood extends AppCompatActivity {
 
             //TODO Need to add the food information into database
             String userID = curUser.getUid();
-            db.child("Users").child(userID).child("food_list").child("name").push();
+            db.child("Users").child(userID).child("foodDB").child(name).setValue(calorie);
+            db.child("Users").child(userID).child(MainActivity.toDate).child("food_list").child(name).setValue(calorie);
 
             //After updating database, go back to the previous page
             back();

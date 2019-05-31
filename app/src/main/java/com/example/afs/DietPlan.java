@@ -8,18 +8,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.*;
 
-public class DietPlan extends AppCompatActivity {
+public class DietPlan extends firebaseActivity {
 
     private ImageButton addFoodButton;
     private ListView foodList;
     private ImageButton deleteButton;
+    private TextView totalCalText;
     private boolean deleteMode = false;
+    private DatabaseReference db;
+    private FirebaseAuth mAuth;
+    private FirebaseUser curUser;
+    private String userID;
+    private List<Food> food;
+    private int totalCalories;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,22 +45,60 @@ public class DietPlan extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         foodList = (ListView)findViewById(R.id.todayFoodList);
+        foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Food clickedObj =  (Food)parent.getItemAtPosition(position);
+                if(deleteMode)
+                    deleteFood(clickedObj);
+            }
+        });
 
-        List<Food> food = new ArrayList<Food>();
-        //TODO Retrieve from database the food of today.
+        food = new ArrayList<Food>();
 
-        //Tests
-        food.add(new Food("Apple", 500));
-        food.add(new Food("Pear", 300));
-        food.add(new Food("Banana", 200));
+        totalCalText = (TextView)findViewById(R.id.total_calories);
 
-        FoodAdapter foodAdapter = new FoodAdapter(this, food);
-        foodList.setAdapter(foodAdapter);
+
+        db = FirebaseDatabase.getInstance().getReference();
+
+        mAuth = FirebaseAuth.getInstance();
+
+        if(mAuth.getCurrentUser() != null)
+        {
+            curUser = mAuth.getCurrentUser();
+        }
+
+        userID = curUser.getUid();
+
+        db.child("Users").child(userID).child(MainActivity.toDate)
+                .addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String foodListStr = dataSnapshot.child("food_list").getValue().toString();
+                //System.out.println(foodListStr);
+                if(foodListStr.length() <= 4) {
+                    food = null;
+                }
+                else {
+                    food = parseStrToFoodlist(foodListStr);
+                    totalCalories = calculateCalories(foodListStr);
+                    totalCalText.setText(String.valueOf(totalCalories));
+                    FoodAdapter foodAdapter = new FoodAdapter(DietPlan.this, food);
+                    foodList.setAdapter(foodAdapter);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         deleteButton = (ImageButton)findViewById(R.id.deleteFoodButton);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                deleteMode = true;
+                deleteMode = !deleteMode;
             }
         });
 
@@ -86,6 +142,10 @@ public class DietPlan extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 
     @Override
     public void onPause() {
@@ -97,5 +157,13 @@ public class DietPlan extends AppCompatActivity {
         Intent intent = new Intent(this, FoodHistory.class);
         startActivity(intent);
     }
+
+    private void deleteFood(Food f){
+        System.out.println("Deleting");
+        //TODO remove the food from today's history list
+
+
+    }
+
 }
 

@@ -2,14 +2,23 @@ package com.example.afs;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.*;
 
-public class CalInfo extends AppCompatActivity {
+public class CalInfo extends firebaseActivity {
     private android.support.v7.widget.Toolbar toolbar;
     private Date date;
     private History hist;
@@ -21,6 +30,11 @@ public class CalInfo extends AppCompatActivity {
     private TextView dateView;
     private List<Food> food;
     private List<Food> exer;
+    private DatabaseReference db;
+    private FirebaseAuth mAuth;
+    private FirebaseUser curUser;
+    private String userID;
+    private int caloriesTaken;
 
 
 
@@ -35,34 +49,75 @@ public class CalInfo extends AppCompatActivity {
         dateView.setText(dateText);
 
         //TODO retrieve the history from database and store in hist declared on top
+        db = FirebaseDatabase.getInstance().getReference();
+
+        mAuth = FirebaseAuth.getInstance();
+
+        if(mAuth.getCurrentUser() != null)
+        {
+            curUser = mAuth.getCurrentUser();
+        }
+
+        userID = curUser.getUid();
+
+        dateText = parseDate(dateText);
+
+        db.child("Users").child(userID).child(dateText).child("food_list").child(" ").setValue("");
+        db.child("Users").child(userID).child(dateText).child("exercise_list").child(" ").setValue("");
+
+
+        db.child("Users").child(userID).child(dateText)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String foodListStr = dataSnapshot.child("food_list").getValue().toString();
+                        //System.out.println(foodListStr);
+                        if(foodListStr.length() <= 4) {
+                            food = null;
+                        }
+                        else {
+                            food = parseStrToFoodlist(foodListStr);
+                            caloriesTaken = calculateCalories(foodListStr);
+                            foodList = (ListView)findViewById(R.id.taken_calorie_list);
+                            takenCalorie = (TextView)findViewById(R.id.taken_calorie);
+                            FoodAdapter foodAdapter = new FoodAdapter(getApplicationContext(), food);
+                            foodList.setAdapter(foodAdapter);
+                            takenCalorie.setText("" + caloriesTaken);
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
 
         //test
         hist = new History(date, 500);
 
-        hist.addFood("Apple", 500);
-        hist.addFood("Pear", 20);
+        //hist.addFood("Apple", 500);
+        //hist.addFood("Pear", 20);
         hist.addExercise("Bird-dog", 1000);
         hist.addExercise("Push_up", 300);
         hist.addExercise("Running", 500);
         hist.addExercise("Pull-up", 300);
 
         //set up the adapters
-        Map<String, Integer> foodDB = hist.getFood();
+        //Map<String, Integer> foodDB = hist.getFood();
         Map<String, Integer> exerDB = hist.getExercise();
 
-        food = new ArrayList<Food>();
+        //food = new ArrayList<Food>();
         exer = new ArrayList<Food>();
 
-        for(String f : foodDB.keySet())
-            food.add(new Food(f, foodDB.get(f)));
+        //for(String f : foodDB.keySet())
+            //food.add(new Food(f, foodDB.get(f)));
         for(String e : exerDB.keySet())
             exer.add(new Food(e, exerDB.get(e)));
 
-        foodList = (ListView)findViewById(R.id.taken_calorie_list);
+        /*foodList = (ListView)findViewById(R.id.taken_calorie_list);
         takenCalorie = (TextView)findViewById(R.id.taken_calorie);
         FoodAdapter foodAdapter = new FoodAdapter(getApplicationContext(), food);
         foodList.setAdapter(foodAdapter);
-        takenCalorie.setText("" + hist.getCalTaken());
+        takenCalorie.setText("" + hist.getCalTaken());*/
 
         exerList = (ListView)findViewById(R.id.burnt_calorie_list);
         burntCalorie = (TextView)findViewById(R.id.burnt_calorie);
@@ -88,6 +143,5 @@ public class CalInfo extends AppCompatActivity {
         Intent intent = new Intent(this, Calendar.class);
         startActivity(intent);
     }
-
 
 }
