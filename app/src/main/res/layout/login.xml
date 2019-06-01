@@ -74,6 +74,7 @@
             android:layout_below="@+id/loginbutton"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:clickable="true"
             android:text="Forget Password?"
             android:textColor="#ffffff"
             android:textSize="18sp" />
