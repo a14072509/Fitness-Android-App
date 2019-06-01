@@ -38,19 +38,18 @@ public class MainActivity extends AppCompatActivity {
         if(mAuth.getCurrentUser() != null)
         {
             curUser = mAuth.getCurrentUser();
-
+            userID = curUser.getUid();
+            LocalDate localDate = LocalDate.now();
+            toDate = localDate.toString();
+            db.child("Users").child(userID).child(toDate).child("food_list").child(" ").setValue("");
+            db.child("Users").child(userID).child(toDate).child("exercise_list").child(" ").setValue("");
+            db.child("Users").child(userID).child("foodDB").child(" ").setValue("");
+            db.child("Users").child(userID).child("Photo_Path").setValue("");
         }
 
-        userID = curUser.getUid();
 
 
-        //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDate localDate = LocalDate.now();
-        toDate = localDate.toString();
-        db.child("Users").child(userID).child(toDate).child("food_list").child(" ").setValue("");
-        db.child("Users").child(userID).child(toDate).child("exercise_list").child(" ").setValue("");
-        db.child("Users").child(userID).child("foodDB").child(" ").setValue("");
-        db.child("Users").child(userID).child("Photo_Path").setValue("");
+
 
 
 

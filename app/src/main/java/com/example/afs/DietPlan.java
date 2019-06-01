@@ -67,8 +67,9 @@ public class DietPlan extends firebaseActivity {
         {
             curUser = mAuth.getCurrentUser();
         }
-
         userID = curUser.getUid();
+
+
 
         db.child("Users").child(userID).child(MainActivity.toDate)
                 .addValueEventListener(new ValueEventListener() {
