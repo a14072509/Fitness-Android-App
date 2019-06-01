@@ -91,7 +91,7 @@ public class login extends firebaseActivity {
                 {
                     Toast.makeText(login.this, "Sign In Failed",
                             Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(login.this, MainActivity.class);
+                    Intent intent = new Intent(login.this, login.class);
                     startActivity(intent);
                 }
             }
