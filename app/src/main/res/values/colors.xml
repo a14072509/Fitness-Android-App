@@ -6,5 +6,5 @@
     <color name="backgroundWhite">#ffffff</color>
     <color name="gradStart">#FFB907</color>
     <color name="gradEnd">#F7EB8D</color>
-    <color name="textFieldColor">#26D8D8D8</color>
+    <color name="textFieldColor">#40D8D8D8</color>
 </resources>

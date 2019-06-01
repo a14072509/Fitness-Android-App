@@ -23,7 +23,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:alpha="0.8"
-        android:background="#B3B3B3">
+        android:background="#9E9E9E">
 
         <EditText
             android:id="@+id/Email"
@@ -63,7 +63,9 @@
             android:layout_marginLeft="80dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="80dp"
-            android:text="Sign in" />
+            android:background="#ffffff"
+            android:text="Sign in"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/forget_password_text"
