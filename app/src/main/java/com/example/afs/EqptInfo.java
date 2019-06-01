@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 public class EqptInfo extends AppCompatActivity {
-
+    private android.support.v7.widget.Toolbar toolbar;
     private Button addExerButton;
     private TextView title;
     VideoView videoView;
@@ -25,6 +25,17 @@ public class EqptInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.equipment_info);
+
+        /*toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.equipmentInfoToolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                back();
+            }
+        });*/
 
         addExerButton = (Button)findViewById(R.id.add_exercise_button);
         addExerButton.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +80,11 @@ public class EqptInfo extends AppCompatActivity {
 
         title = (TextView)findViewById(R.id.equipmentTitle);
         title.setText(getIntent().getStringExtra("name"));
+    }
+
+    private void back() {
+        Intent intent = new Intent(this, ExerciseList.class);
+        startActivity(intent);
     }
 
     private void addItem()
