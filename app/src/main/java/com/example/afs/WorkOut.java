@@ -20,6 +20,8 @@ public class WorkOut extends AppCompatActivity {
     private RelativeLayout maleBack;
     private RelativeLayout femaleFront;
     private RelativeLayout femaleBack;
+    private Gender gender = Gender.MALE;
+    private boolean front;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +35,23 @@ public class WorkOut extends AppCompatActivity {
             }
         });
 
-        // todo: can add state variable to track
+        // todo: get gender information from profile
+
+
+
         flipButton = (ImageButton) findViewById(R.id.flip_button);
         maleFront = (RelativeLayout) findViewById(R.id.male_front_section);
         maleBack = (RelativeLayout) findViewById(R.id.male_back_section);
         femaleFront = (RelativeLayout) findViewById(R.id.female_front_section);
         femaleBack = (RelativeLayout) findViewById(R.id.female_back_section);
+        front = true;
+        updateBodyShadow();
+
+
         flipButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                maleFront.setVisibility(View.GONE);
+                System.err.println("Hi");
+                updateBodyShadow();
             }
         });
 
@@ -97,6 +107,30 @@ public class WorkOut extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         overridePendingTransition(0, 0);
+    }
+
+    private void updateBodyShadow()
+    {
+        maleFront.setVisibility(View.INVISIBLE);
+        femaleFront.setVisibility(View.INVISIBLE);
+        maleBack.setVisibility(View.INVISIBLE);
+        femaleBack.setVisibility(View.INVISIBLE);
+
+        if(gender != Gender.FEMALE)
+        {
+            if(front)
+                maleFront.setVisibility(View.VISIBLE);
+            else
+                maleBack.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            if(front)
+                femaleFront.setVisibility(View.VISIBLE);
+            else
+                femaleBack.setVisibility(View.VISIBLE);
+        }
+        front = !front;
     }
 }
 
