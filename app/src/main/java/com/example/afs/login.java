@@ -149,7 +149,9 @@ public class login extends firebaseActivity {
 
     private void forgetPassword() {
         setContentView(R.layout.forget_password);
-        //String id = String.format("%04d", Random.nextInt(10000));
+        Random rnd = new Random();
+        String id = String.format("%04d", rnd.nextInt(10000));
+        //mAuth.c
     }
 
 
