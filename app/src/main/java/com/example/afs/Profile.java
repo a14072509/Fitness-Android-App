@@ -2,6 +2,7 @@ package com.example.afs;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -20,6 +21,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -44,7 +47,7 @@ public class Profile extends AppCompatActivity {
     FirebaseStorage storage;
     StorageReference storageReference;
     private ImageButton editButton;
-    public static ImageView photo;
+    private ImageView photo;
     private TextView ageText;
     private TextView heightText;
     private TextView weightText;
@@ -99,13 +102,27 @@ public class Profile extends AppCompatActivity {
                 newWeight = dataSnapshot.child("weight").getValue().toString();
 
                 updateBMI(newGender, newAge, newHeight, newWeight);
-                path = dataSnapshot.child("Photo_Path").getValue().toString();
-                if(storage.getReferenceFromUrl("gs://abbt-a95ad.appspot.com/images/" + userID) != null) {
-                    storageReference = storage
-                            .getReferenceFromUrl("gs://abbt-a95ad.appspot.com/images/" + userID);
-                    Glide.with(Profile.this).load(storageReference).into(photo);
-                }
+                //path = dataSnapshot.child("Photo_Path").getValue().toString();
+                //System.out.println("aaa\n\n"+path);
 
+                storageReference = storage
+                        .getReferenceFromUrl("gs://abbt-a95ad.appspot.com/images/" + userID);
+                final long ONE_MEGABYTE = 1024 * 1024;
+                storageReference.getBytes(ONE_MEGABYTE)
+                        .addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                            @Override
+                            public void onSuccess(byte[] bytes) {
+                                Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                                photo.setImageBitmap(bm);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception exception) {
+                                // Handle any errors
+                            }
+                        });
+                //Glide.with(Profile.this).load(storageReference).into(photo);
                 //System.out.println("AAABBBCCC\n" + newUserName);
                 usernameText.setText(newUserName);
                 ageText.setText(newAge);
@@ -118,6 +135,7 @@ public class Profile extends AppCompatActivity {
 
             }
         });
+
 
 
 

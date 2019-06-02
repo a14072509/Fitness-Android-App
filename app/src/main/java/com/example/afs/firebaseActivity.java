@@ -37,7 +37,7 @@ public class firebaseActivity extends AppCompatActivity {
         ArrayList<Food> parsedList = new ArrayList<Food>();
         int len = foodStr.length();
         foodStr = foodStr.substring(5, len - 1);
-        System.out.println(foodStr);
+        //System.out.println(foodStr);
         while(foodStr != "") {
             String[] nameTemp = foodStr.split("=", 2);
             //System.out.println("nameaaaa\n"+nameTemp[0]+"split"+nameTemp[1]);

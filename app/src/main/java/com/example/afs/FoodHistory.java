@@ -85,6 +85,7 @@ public class FoodHistory extends firebaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Food clickedObj =  (Food)parent.getItemAtPosition(position);
+                System.out.println("tapped\n\n"+clickedObj);
                 addFood(clickedObj);
             }
         });

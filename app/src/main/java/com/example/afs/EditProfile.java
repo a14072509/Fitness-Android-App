@@ -191,7 +191,7 @@ public class EditProfile extends AppCompatActivity {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                 photo.setImageBitmap(bitmap);
-                Profile.photo.setImageBitmap(bitmap);
+                //Profile.photo.setImageBitmap(bitmap);
             }
             catch (IOException e)
             {
@@ -214,7 +214,7 @@ public class EditProfile extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             //progressDialog.dismiss();
-                            //Toast.makeText(EditProfile.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EditProfile.this, "Uploaded", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
