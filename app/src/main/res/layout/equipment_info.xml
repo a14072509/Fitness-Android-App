@@ -20,7 +20,7 @@
         android:id="@+id/equipmentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/equipmentInfoToolbar"
+        android:layout_below="@+id/video_section"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="Title goes here"
@@ -30,9 +30,10 @@
     <RelativeLayout
         android:id="@+id/video_section"
         android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_below="@+id/equipmentTitle"
-        android:layout_centerHorizontal="true">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/equipmentInfoToolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
 
         <VideoView
             android:id="@+id/exer_gif"
@@ -48,9 +49,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/add_exercise_button"
-        android:layout_below="@+id/video_section"
+        android:layout_below="@+id/equipmentTitle"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp">
 

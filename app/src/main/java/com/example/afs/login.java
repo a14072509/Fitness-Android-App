@@ -29,6 +29,7 @@ public class login extends firebaseActivity {
     private Button loginButton;
     private TextView forgetButton;
     private TextView signupText;
+    private TextView forgetPasswordText;
     private EditText emailInput;
     private EditText passwordInput;
     private DatabaseReference db;
@@ -57,6 +58,13 @@ public class login extends firebaseActivity {
         signupText.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 signUp();
+            }
+        });
+
+        forgetPasswordText = (TextView) findViewById(R.id.forget_password_text);
+        forgetPasswordText.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                resetPassword();
             }
         });
 
@@ -112,6 +120,11 @@ public class login extends firebaseActivity {
 
     private void signUp() {
         Intent intent = new Intent(this, Signup.class);
+        startActivity(intent);
+    }
+
+    private void resetPassword() {
+        Intent intent = new Intent(this, ForgetPassword.class);
         startActivity(intent);
     }
 

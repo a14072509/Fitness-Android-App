@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.*;
@@ -42,7 +41,7 @@ public class FoodAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if(!mode.equals("c"))
-            view = inflter.inflate(R.layout.food_text, null);
+            view = inflter.inflate(R.layout.diet_plan_list_item, null);
         else
             view = inflter.inflate(R.layout.calender_list_item, null);
 

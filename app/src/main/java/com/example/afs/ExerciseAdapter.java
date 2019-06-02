@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -44,7 +43,7 @@ public class ExerciseAdapter extends BaseAdapter{
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        view = inflter.inflate(R.layout.exercise_item, null);
+        view = inflter.inflate(R.layout.exercise_list_item, null);
 
         ImageView image = (ImageView) view.findViewById(R.id.exercise_image);
         TextView exercise = (TextView) view.findViewById(R.id.exercise_name);

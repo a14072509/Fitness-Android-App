@@ -19,10 +19,12 @@
 
     <ImageButton
         android:id="@+id/addFoodButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/list"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/bottom_navigation"
         android:layout_alignParentRight="false"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="20dp"
         android:layout_toLeftOf="@+id/deleteFoodButton"
         android:adjustViewBounds="true"
         android:alpha="0.5"
@@ -30,11 +32,12 @@
 
     <ImageButton
         android:id="@+id/deleteFoodButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/list"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/bottom_navigation"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         android:alpha="0.5"
         android:background="@drawable/delete_button" />
 
@@ -44,13 +47,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView5"
         android:adjustViewBounds="true"
-        app:srcCompat="@drawable/vegetables" />
+        app:srcCompat="@drawable/fitness_diet2" />
 
     <LinearLayout
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="300dp"
+        android:layout_above="@+id/addFoodButton"
         android:layout_below="@+id/total_calorie_section"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical">
 
         <ListView
@@ -58,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="20dp" />
 
     </LinearLayout>
@@ -71,9 +77,8 @@
 
         <TextView
             android:id="@+id/total_calories_title"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:background="#48D8D8D8"
             android:gravity="center"
             android:text="TOTAL CALORIES:"
@@ -81,12 +86,12 @@
 
         <TextView
             android:id="@+id/total_calories"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
+            android:background="@drawable/underline"
             android:gravity="center"
-            android:textSize="14sp" />
+            android:textColor="#000000"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <android.support.design.widget.BottomNavigationView

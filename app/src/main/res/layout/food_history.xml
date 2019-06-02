@@ -16,17 +16,6 @@
         app:title="Food History"
         app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
-    <SearchView
-        android:id="@+id/foodHistorySearchBar"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/foodHistoryToolbar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:background="#b4b4b4"
-        android:queryHint="search in history">
-
-    </SearchView>
 
     <ImageView
         android:id="@+id/imageView3"
@@ -34,25 +23,88 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/foodHistoryToolbar"
         android:adjustViewBounds="true"
-        android:alpha="0.7"
         app:srcCompat="@drawable/food_history_image" />
 
-    <Button
-        android:id="@+id/addItemButton"
+    <RelativeLayout
+        android:id="@+id/add"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/imageView3"
-        android:layout_centerHorizontal="true"
-        android:background="#ffffff"
-        android:text="ADD NEW ITEM" />
+        android:background="@drawable/add_pressed"
+        android:clickable="true"
+        android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="Add A New Item"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:text=">"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/add"
+        android:background="@android:color/black" />
+
+    <RelativeLayout
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/add"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="Search In History"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <SearchView
+            android:id="@+id/foodHistorySearchBar"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:queryHint="search in history">
+
+        </SearchView>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/search_bar"
+        android:background="@android:color/black" />
 
     <ListView
         android:id="@+id/foodHistoryList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/addItemButton"
-        android:divider="@color/material_blue_grey_800"
-        android:dividerHeight="1dp" />
+        android:layout_below="@+id/divider2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp" />
 
 </RelativeLayout>

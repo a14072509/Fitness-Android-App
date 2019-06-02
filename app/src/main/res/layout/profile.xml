@@ -94,7 +94,7 @@
 
             <TextView
                 android:id="@+id/textView13"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
                 android:gravity="center_vertical"
@@ -104,10 +104,10 @@
 
             <TextView
                 android:id="@+id/edit_age"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="100dp"
+                android:layout_marginRight="50dp"
                 android:gravity="center_vertical"
                 android:text="0"
                 android:textAlignment="textStart"
@@ -123,35 +123,25 @@
 
             <TextView
                 android:id="@+id/textView23"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
                 android:gravity="center_vertical"
-                android:text="Height:"
+                android:text="Height(ft):"
                 android:textColor="#000000"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/edit_height"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="100dp"
+                android:layout_marginRight="50dp"
                 android:gravity="center_vertical"
                 android:text="0"
                 android:textAlignment="textStart"
                 android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/inch"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="50dp"
-                android:gravity="center_vertical"
-                android:text="inch"
-                android:textColor="#000000"
-                android:textSize="24sp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -162,35 +152,24 @@
 
             <TextView
                 android:id="@+id/textView24"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
                 android:gravity="center_vertical"
-                android:text="Weight:"
+                android:text="Weight(lbs):"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/edit_weight"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="100dp"
-                android:gravity="center_vertical"
-                android:text="0"
-                android:textAlignment="textStart"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/lbs"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="50dp"
                 android:gravity="center_vertical"
-                android:text="lbs"
-                android:textColor="#000000"
+                android:text="0"
+                android:textAlignment="textStart"
                 android:textSize="24sp" />
 
         </RelativeLayout>
@@ -203,7 +182,7 @@
 
             <TextView
                 android:id="@+id/textView25"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
                 android:gravity="center_vertical"
@@ -217,7 +196,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="100dp"
+                android:layout_marginRight="50dp"
                 android:gravity="center_vertical"
                 android:maxLines="1"
                 android:singleLine="true"

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +31,7 @@ public class FoodHistory extends firebaseActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser curUser;
     private String userID;
+    private RelativeLayout addItemText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,8 +121,15 @@ public class FoodHistory extends firebaseActivity {
 
         });
 
-        addItemButton = (Button) findViewById(R.id.addItemButton);
+        /*addItemButton = (Button) findViewById(R.id.addItemButton);
         addItemButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                addItem();
+            }
+        });*/
+
+        addItemText = (RelativeLayout) findViewById(R.id.add);
+        addItemText.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 addItem();
             }
