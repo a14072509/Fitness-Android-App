@@ -45,14 +45,7 @@ public class DietPlan extends firebaseActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         foodList = (ListView)findViewById(R.id.todayFoodList);
-        foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Food clickedObj =  (Food)parent.getItemAtPosition(position);
-                if(deleteMode)
-                    deleteFood(clickedObj);
-            }
-        });
+
 
         food = new ArrayList<Food>();
 
@@ -84,7 +77,7 @@ public class DietPlan extends firebaseActivity {
                     food = parseStrToFoodlist(foodListStr);
                     totalCalories = calculateCalories(foodListStr);
                     totalCalText.setText(String.valueOf(totalCalories));
-                    FoodAdapter foodAdapter = new FoodAdapter(DietPlan.this, food, "");
+                    DietFoodAdapter foodAdapter = new DietFoodAdapter(DietPlan.this, food, deleteMode);
                     foodList.setAdapter(foodAdapter);
                 }
 
@@ -100,6 +93,8 @@ public class DietPlan extends firebaseActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 deleteMode = !deleteMode;
+                DietFoodAdapter foodAdapter = new DietFoodAdapter(DietPlan.this, food, deleteMode);
+                foodList.setAdapter(foodAdapter);
             }
         });
 
@@ -111,6 +106,16 @@ public class DietPlan extends firebaseActivity {
         addFoodButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 addFood();
+            }
+        });
+
+        foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Food clickedObj =  (Food)parent.getItemAtPosition(position);
+                System.out.println("Hi");
+                if(deleteMode)
+                    deleteFood(clickedObj);
             }
         });
 
