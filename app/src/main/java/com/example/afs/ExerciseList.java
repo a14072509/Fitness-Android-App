@@ -34,6 +34,7 @@ public class ExerciseList extends AppCompatActivity {
 
         bodyPart = new BodyPart(this);
         String body = getIntent().getStringExtra("body");
+        getSupportActionBar().setTitle(body);
         exercisesDB = bodyPart.bodyToExercise.get(body);
 
         //store the list into array
