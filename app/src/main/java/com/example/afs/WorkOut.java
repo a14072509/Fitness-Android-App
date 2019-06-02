@@ -9,11 +9,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 public class WorkOut extends AppCompatActivity {
 
     private Button b1;
+    private ImageButton flipButton;
+    private RelativeLayout bodyFront;
+    private RelativeLayout bodyBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,15 @@ public class WorkOut extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Leg");
+            }
+        });
+
+        flipButton = (ImageButton) findViewById(R.id.flip);
+        bodyFront = (RelativeLayout) findViewById(R.id.body_section_front);
+        bodyBack = (RelativeLayout) findViewById(R.id.body_section_back);
+        flipButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                bodyFront.setVisibility(View.GONE);
             }
         });
 

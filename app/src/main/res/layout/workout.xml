@@ -43,8 +43,25 @@
         android:layout_below="@+id/choose_title"
         android:background="@android:color/black" />
 
+    <ImageButton
+        android:id="@+id/flip"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/divider"
+        android:background="@drawable/flip" />
+
     <RelativeLayout
-        android:id="@+id/body_section"
+        android:id="@+id/body_section_back"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_below="@+id/divider"
+        android:layout_marginTop="10dp">
+
+        <include layout="@layout/male_body_back" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/body_section_front"
         android:layout_width="match_parent"
         android:layout_height="420dp"
         android:layout_below="@+id/divider"
@@ -58,8 +75,7 @@
         android:id="@+id/divider2"
         android:layout_width="wrap_content"
         android:layout_height="1dp"
-        android:layout_below="@+id/body_section"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="600dp"
         android:background="@android:color/black" />
 
     <Button
