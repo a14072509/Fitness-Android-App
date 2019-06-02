@@ -37,7 +37,8 @@ import java.util.Map;
 import java.util.UUID;
 
 public class EditProfile extends AppCompatActivity {
-    private ImageButton save;
+    private android.support.v7.widget.Toolbar toolbar;
+    private Button save;
     private EditText ageText;
     private EditText heightText;
     private EditText weightText;
@@ -59,6 +60,17 @@ public class EditProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_profile);
+
+        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.edit_profile_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                back();
+            }
+        });
 
         usernameText = (EditText) findViewById(R.id.Username);
         ageText = (EditText) findViewById(R.id.edit_age);
@@ -101,7 +113,7 @@ public class EditProfile extends AppCompatActivity {
                 sendPasswordReset();
             }
         });
-        save = (ImageButton) findViewById(R.id.save);
+        save = (Button) findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterProfile();
@@ -109,6 +121,11 @@ public class EditProfile extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void back() {
+        Intent intent = new Intent(this, Profile.class);
+        startActivity(intent);
     }
 
     private void enterProfile() {

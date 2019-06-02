@@ -28,7 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_below="@+id/edit_profile_toolbar"
-        android:layout_marginTop="20dp"
         android:background="@color/textFieldColor">
 
         <TextView
@@ -59,16 +58,6 @@
             android:minHeight="88dip"
             android:visibility="visible" />
     </RelativeLayout>
-
-    <ImageButton
-        android:id="@+id/save"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/info"
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/transparent"
-        android:elevation="1dp"
-        app:srcCompat="@android:drawable/ic_menu_save" />
 
     <RelativeLayout
         android:id="@+id/username_section"
@@ -133,6 +122,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginRight="10dp"
+                android:background="@drawable/border"
                 app:srcCompat="@drawable/male_icon" />
 
             <ImageView
@@ -140,6 +130,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="10dp"
+                android:background="@drawable/border"
                 app:srcCompat="@drawable/female_icon" />
         </LinearLayout>
     </RelativeLayout>
@@ -151,14 +142,6 @@
         android:layout_above="@+id/logout_button"
         android:layout_below="@+id/gender_section"
         android:orientation="vertical">
-
-        <Button
-            android:id="@+id/change_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/info_section"
-            android:layout_centerHorizontal="true"
-            android:text="Reset Password" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -252,38 +235,29 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/textFieldColor"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView25"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:gravity="center_vertical"
-                android:text="BMI:"
-                android:textAlignment="textStart"
-                android:textColor="#000000"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:text="0"
-                android:textAlignment="textStart"
-                android:textColor="#000000"
-                android:textSize="24sp" />
-        </RelativeLayout>
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/change_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Reset Password"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/change_password"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:text="save"
+        android:textSize="18sp" />
 
 </RelativeLayout>

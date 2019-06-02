@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
         app:srcCompat="@drawable/male_body_front" />
 
     <Button
