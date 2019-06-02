@@ -34,6 +34,7 @@ public class ExerciseList extends AppCompatActivity {
 
         bodyPart = new BodyPart(this);
         String body = getIntent().getStringExtra("body");
+        getSupportActionBar().setTitle(body);
         exercisesDB = bodyPart.bodyToExercise.get(body);
 
         //store the list into array
@@ -56,7 +57,7 @@ public class ExerciseList extends AppCompatActivity {
     }
 
     private void exerDetail(Exercise e) {
-        Intent intent = new Intent(this, EqptInfo.class);
+        Intent intent = new Intent(this, EquipmentInfo.class);
         intent.putExtra("name", e.getName());
         intent.putExtra("eqpt", e.getEquipment());
         intent.putExtra("instruction", e.getInstructions());

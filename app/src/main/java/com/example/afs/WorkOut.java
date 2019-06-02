@@ -9,21 +9,39 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 public class WorkOut extends AppCompatActivity {
 
-    private Button b1;
+    private Button aerobicButton;
+    private ImageButton flipButton;
+    private RelativeLayout maleFront;
+    private RelativeLayout maleBack;
+    private RelativeLayout femaleFront;
+    private RelativeLayout femaleBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout);
 
-        b1 = (Button) findViewById(R.id.aerobic);
-        b1.setOnClickListener(new View.OnClickListener() {
+        aerobicButton = (Button) findViewById(R.id.aerobic);
+        aerobicButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Leg");
+            }
+        });
+
+        // todo: can add state variable to track
+        flipButton = (ImageButton) findViewById(R.id.flip_button);
+        maleFront = (RelativeLayout) findViewById(R.id.male_front_section);
+        maleBack = (RelativeLayout) findViewById(R.id.male_back_section);
+        femaleFront = (RelativeLayout) findViewById(R.id.female_front_section);
+        femaleBack = (RelativeLayout) findViewById(R.id.female_back_section);
+        flipButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                maleFront.setVisibility(View.GONE);
             }
         });
 
