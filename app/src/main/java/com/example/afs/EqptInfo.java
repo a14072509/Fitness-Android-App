@@ -26,16 +26,16 @@ public class EqptInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.equipment_info);
 
-        /*toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.equipmentInfoToolbar);
+        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.equipmentInfoToolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                back();
+                finish();
             }
-        });*/
+        });
 
         addExerButton = (Button)findViewById(R.id.add_exercise_button);
         addExerButton.setOnClickListener(new View.OnClickListener() {
@@ -82,10 +82,6 @@ public class EqptInfo extends AppCompatActivity {
         title.setText(getIntent().getStringExtra("name"));
     }
 
-    private void back() {
-        Intent intent = new Intent(this, ExerciseList.class);
-        startActivity(intent);
-    }
 
     private void addItem()
     {
