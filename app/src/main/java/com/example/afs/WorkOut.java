@@ -14,7 +14,7 @@ import android.widget.RelativeLayout;
 
 public class WorkOut extends AppCompatActivity {
 
-    private Button b1;
+    private Button aerobicButton;
     private ImageButton flipButton;
     private RelativeLayout bodyFront;
     private RelativeLayout bodyBack;
@@ -24,8 +24,8 @@ public class WorkOut extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout);
 
-        b1 = (Button) findViewById(R.id.aerobic);
-        b1.setOnClickListener(new View.OnClickListener() {
+        aerobicButton = (Button) findViewById(R.id.aerobic);
+        aerobicButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Leg");
             }

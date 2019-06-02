@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-public class EqptInfo extends AppCompatActivity {
+public class EquipmentInfo extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
     private Button addExerButton;
     private TextView title;

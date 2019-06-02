@@ -57,7 +57,7 @@ public class ExerciseList extends AppCompatActivity {
     }
 
     private void exerDetail(Exercise e) {
-        Intent intent = new Intent(this, EqptInfo.class);
+        Intent intent = new Intent(this, EquipmentInfo.class);
         intent.putExtra("name", e.getName());
         intent.putExtra("eqpt", e.getEquipment());
         intent.putExtra("instruction", e.getInstructions());
