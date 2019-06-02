@@ -31,7 +31,7 @@ public class WorkOut extends AppCompatActivity {
             }
         });
 
-        // todo: can add
+        // todo: can add state variable to track
         flipButton = (ImageButton) findViewById(R.id.flip);
         bodyFront = (RelativeLayout) findViewById(R.id.body_section_front);
         bodyBack = (RelativeLayout) findViewById(R.id.body_section_back);
