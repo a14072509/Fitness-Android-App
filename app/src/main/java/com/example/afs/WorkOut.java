@@ -14,8 +14,11 @@ import android.widget.RelativeLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class WorkOut extends AppCompatActivity {
 
@@ -26,13 +29,26 @@ public class WorkOut extends AppCompatActivity {
     private RelativeLayout femaleFront;
     private RelativeLayout femaleBack;
     private Gender gender = Gender.MALE;
+    private DatabaseReference db;
+    private FirebaseAuth mAuth;
+    private FirebaseUser curUser;
+    private String userID;
     private boolean front;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout);
-        
+
+        db = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+
+        if(mAuth.getCurrentUser() != null)
+        {
+            curUser = mAuth.getCurrentUser();
+        }
+
+        userID = curUser.getUid();
 
         aerobicButton = (Button) findViewById(R.id.aerobic);
         aerobicButton.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +58,18 @@ public class WorkOut extends AppCompatActivity {
         });
 
         // todo: get gender information from profile
+        db.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //System.out.println(dataSnapshot.child("Gender").getValue());
+                gender = Gender.valueOf(dataSnapshot.child("Gender").getValue().toString());
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
         flipButton = (ImageButton) findViewById(R.id.flip_button);
