@@ -22,6 +22,15 @@ public class WorkOut extends AppCompatActivity {
     private RelativeLayout femaleBack;
     private Gender gender = Gender.MALE;
     private boolean front;
+    private Button absButton;
+    private Button legButton;
+    private Button buttButton;
+    private Button rightShoulderButton;
+    private Button leftShoulderButton;
+    private Button leftTricepButton;
+    private Button rightTricepButton;
+    private Button blegButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +43,60 @@ public class WorkOut extends AppCompatActivity {
                 enterExerciseList("Leg");
             }
         });
+        absButton = (Button) findViewById(R.id.abs);
+        absButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Abs");
+            }
+        });
 
+        legButton = (Button) findViewById(R.id.legs);
+        legButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Leg");
+            }
+        });
+        blegButton = (Button) findViewById(R.id.b_legs);
+        blegButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Leg");
+            }
+        });
+
+        buttButton = (Button) findViewById(R.id.butt);
+        buttButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Butt and Hips");
+            }
+        });
+
+        leftShoulderButton = (Button) findViewById(R.id.shoulder_left);
+        leftShoulderButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Shoulders");
+            }
+        });
+
+        rightShoulderButton = (Button) findViewById(R.id.shoulder_right);
+        rightShoulderButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Shoulders");
+            }
+        });
+
+        leftTricepButton = (Button) findViewById(R.id.ticep_left);
+        leftTricepButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Triceps");
+            }
+        });
+
+        rightTricepButton = (Button) findViewById(R.id.ticep_right);
+        rightTricepButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Triceps");
+            }
+        });
         // todo: get gender information from profile
 
 
@@ -50,6 +112,7 @@ public class WorkOut extends AppCompatActivity {
 
         flipButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                updateFrontBack();
                 updateBodyShadow();
             }
         });
@@ -108,6 +171,8 @@ public class WorkOut extends AppCompatActivity {
         overridePendingTransition(0, 0);
     }
 
+    private void updateFrontBack() { front = !front; }
+
     private void updateBodyShadow()
     {
         maleFront.setVisibility(View.INVISIBLE);
@@ -129,7 +194,6 @@ public class WorkOut extends AppCompatActivity {
             else
                 femaleBack.setVisibility(View.VISIBLE);
         }
-        front = !front;
     }
 }
 
