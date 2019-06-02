@@ -22,4 +22,8 @@
         <item name="colorControlNormal">#ffffff</item>
     </style>
 
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">30dp</item>
+    </style>
+
 </resources>

@@ -18,6 +18,13 @@
         app:title="Add Your Food"
         app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
+    <View
+        android:id="@+id/shadow2"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@+id/addFoodToolbar"
+        android:background="@drawable/below_shadow" />
+
     <ImageView
         android:id="@+id/AddFoodImage"
         android:layout_width="wrap_content"

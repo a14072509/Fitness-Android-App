@@ -16,6 +16,13 @@
         app:title="Equipment Name"
         app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
+    <View
+        android:id="@+id/shadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@+id/equipmentInfoToolbar"
+        android:background="@drawable/below_shadow" />
+
     <TextView
         android:id="@+id/equipmentTitle"
         android:layout_width="wrap_content"

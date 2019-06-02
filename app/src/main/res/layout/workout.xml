@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/workout_toolbar"
@@ -13,23 +14,60 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:theme="@style/ToolbarTheme"
-        app:title="Exercise List"
+        app:title="Workout"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
         app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
+
+    <View
+        android:id="@+id/shadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@+id/workout_toolbar"
+        android:background="@drawable/below_shadow" />
+
+    <TextView
+        android:id="@+id/choose_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shadow"
+        android:layout_marginLeft="20dp"
+        android:padding="10dp"
+        android:text="Choose a muscle to exercise on:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@+id/choose_title"
+        android:background="@android:color/black" />
+
+    <RelativeLayout
+        android:id="@+id/body_section"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_below="@+id/divider"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <include layout="@layout/male_body_front" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@+id/body_section"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/black" />
 
     <Button
         android:id="@+id/aerobic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/workout_toolbar"
+        android:layout_below="@+id/divider2"
         android:text="AEROBIC EXERCISE" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="439dp"
-        android:layout_below="@+id/aerobic"
-        android:background="@drawable/bodypart">
-
-    </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -37,64 +75,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="?android:attr/windowBackground"
-        app:menu="@menu/bottom_navigation" >
+        app:menu="@menu/bottom_navigation">
 
     </android.support.design.widget.BottomNavigationView>
-
-    <Button
-        android:id="@+id/abs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/aerobic"
-        android:text="abs" />
-
-    <Button
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/abs"
-        android:text="back" />
-
-    <Button
-        android:id="@+id/biceps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/back"
-        android:text="biceps" />
-
-    <Button
-        android:id="@+id/butt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/biceps"
-        android:text="butt" />
-
-    <Button
-        android:id="@+id/chest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/butt"
-        android:text="chest" />
-
-    <Button
-        android:id="@+id/leg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/chest"
-        android:text="leg" />
-
-    <Button
-        android:id="@+id/shoulders"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/leg"
-        android:text="shoulders" />
-
-    <Button
-        android:id="@+id/triceps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/shoulders"
-        android:text="triceps" />
 
 </RelativeLayout>

@@ -17,11 +17,18 @@
         app:theme="@style/ToolbarTheme" >
     </android.support.v7.widget.Toolbar>
 
+    <View
+        android:id="@+id/shadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@+id/ExerciseListToolbar"
+        android:background="@drawable/below_shadow" />
+
     <ListView
         android:id="@+id/exercise_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ExerciseListToolbar"
+        android:layout_below="@+id/shadow"
         android:dividerHeight="1dp" />
 
 </RelativeLayout>

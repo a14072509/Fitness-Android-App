@@ -13,8 +13,15 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:theme="@style/ToolbarTheme"
-        app:title="Exercise List"
+        app:title="Edit Your Profile"
         app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
+
+    <View
+        android:id="@+id/shadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@+id/edit_profile_toolbar"
+        android:background="@drawable/below_shadow" />
 
     <RelativeLayout
         android:id="@+id/photo_section"
