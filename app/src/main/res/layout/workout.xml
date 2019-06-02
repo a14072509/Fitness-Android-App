@@ -44,40 +44,53 @@
         android:background="@android:color/black" />
 
     <ImageButton
-        android:id="@+id/flip"
+        android:id="@+id/flip_button"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_below="@+id/divider"
+        android:layout_marginTop="10dp"
         android:background="@drawable/flip" />
 
-    <android.support.constraint.ConstraintLayout
+    <RelativeLayout
         android:id="@+id/fixed"
         android:layout_width="match_parent"
         android:layout_height="420dp"
         android:layout_below="@+id/divider"
         android:layout_marginTop="10dp">
 
-    </android.support.constraint.ConstraintLayout>
+        <RelativeLayout
+            android:id="@+id/male_front_section"
+            android:layout_width="match_parent"
+            android:layout_height="420dp"
+            android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/body_section_back"
-        android:layout_width="match_parent"
-        android:layout_height="420dp"
-        android:layout_below="@+id/divider"
-        android:layout_marginTop="10dp">
+            <include layout="@layout/male_body_front" />
+        </RelativeLayout>
 
-        <include layout="@layout/male_body_back" />
-    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/male_back_section"
+            android:layout_width="match_parent"
+            android:layout_height="420dp">
 
-    <RelativeLayout
-        android:id="@+id/body_section_front"
-        android:layout_width="match_parent"
-        android:layout_height="420dp"
-        android:layout_below="@+id/divider"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
+            <include layout="@layout/male_body_back" />
+        </RelativeLayout>
 
-        <include layout="@layout/male_body_front" />
+        <RelativeLayout
+            android:id="@+id/female_front_section"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/female_body_front" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/female_back_section"
+            android:layout_width="match_parent"
+            android:layout_height="420dp">
+
+            <include layout="@layout/female_body_back" />
+        </RelativeLayout>
+
     </RelativeLayout>
 
     <View

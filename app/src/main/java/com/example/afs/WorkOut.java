@@ -16,8 +16,10 @@ public class WorkOut extends AppCompatActivity {
 
     private Button aerobicButton;
     private ImageButton flipButton;
-    private RelativeLayout bodyFront;
-    private RelativeLayout bodyBack;
+    private RelativeLayout maleFront;
+    private RelativeLayout maleBack;
+    private RelativeLayout femaleFront;
+    private RelativeLayout femaleBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +34,14 @@ public class WorkOut extends AppCompatActivity {
         });
 
         // todo: can add state variable to track
-        flipButton = (ImageButton) findViewById(R.id.flip);
-        bodyFront = (RelativeLayout) findViewById(R.id.body_section_front);
-        bodyBack = (RelativeLayout) findViewById(R.id.body_section_back);
+        flipButton = (ImageButton) findViewById(R.id.flip_button);
+        maleFront = (RelativeLayout) findViewById(R.id.male_front_section);
+        maleBack = (RelativeLayout) findViewById(R.id.male_back_section);
+        femaleFront = (RelativeLayout) findViewById(R.id.female_front_section);
+        femaleBack = (RelativeLayout) findViewById(R.id.female_back_section);
         flipButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                bodyFront.setVisibility(View.GONE);
+                maleFront.setVisibility(View.GONE);
             }
         });
 
