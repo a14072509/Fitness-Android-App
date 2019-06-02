@@ -50,6 +50,15 @@
         android:layout_below="@+id/divider"
         android:background="@drawable/flip" />
 
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fixed"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_below="@+id/divider"
+        android:layout_marginTop="10dp">
+
+    </android.support.constraint.ConstraintLayout>
+
     <RelativeLayout
         android:id="@+id/body_section_back"
         android:layout_width="match_parent"
@@ -75,7 +84,8 @@
         android:id="@+id/divider2"
         android:layout_width="wrap_content"
         android:layout_height="1dp"
-        android:layout_marginTop="600dp"
+        android:layout_below="@+id/fixed"
+        android:layout_marginTop="10dp"
         android:background="@android:color/black" />
 
     <Button
