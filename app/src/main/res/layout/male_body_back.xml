@@ -52,7 +52,7 @@
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/legs"
+            android:id="@+id/b_legs"
             android:layout_width="65dp"
             android:layout_height="170dp"
             android:layout_alignParentBottom="true"

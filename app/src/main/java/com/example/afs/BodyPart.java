@@ -28,7 +28,6 @@ public class BodyPart
             return;
         }
         System.err.println("Successful");
-        System.err.println(bodyToExercise);
     }
 
     /**
@@ -66,7 +65,6 @@ public class BodyPart
 
         String instruction = str;
 
-        System.out.println(number + ", " + name + ", " + eqpt + ", " + bodyPart + ", " + instruction);
         Exercise curExer = new Exercise(name, eqpt, instruction, bodyPart+number, null);
         if(!bodyToExercise.containsKey(bodyPart))
             bodyToExercise.put(bodyPart, new ArrayList<Exercise>());

@@ -11,19 +11,17 @@ import android.widget.TextView;
 
 import java.util.*;
 
-public class FoodAdapter extends BaseAdapter {
+public class DietFoodAdapter extends BaseAdapter {
     Context context;
     List<Food> food;
     LayoutInflater inflter;
-    private String mode;
     private ImageButton deleteButton;
     private boolean deleteMode;
 
-    public FoodAdapter(Context applicationContext, List<Food> food, String mode, boolean delete) {
+    public DietFoodAdapter(Context applicationContext, List<Food> food, boolean delete) {
         this.context = applicationContext;
         this.food = food;
         inflter = (LayoutInflater.from(applicationContext));
-        this.mode = mode;
         deleteMode = delete;
     }
 
@@ -45,8 +43,11 @@ public class FoodAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-
-        view = inflter.inflate(R.layout.calender_list_item, null);
+        view = inflter.inflate(R.layout.diet_plan_list_item, null);
+        deleteButton = (ImageButton)view.findViewById(R.id.deleteButton);
+        deleteButton.setVisibility(View.INVISIBLE);
+        if(deleteMode)
+            deleteButton.setVisibility(View.VISIBLE);
 
         TextView name = (TextView) view.findViewById(R.id.foodTextView);
         TextView calorie = (TextView) view.findViewById(R.id.calorieTextView);

@@ -82,7 +82,7 @@ public class CalInfo extends firebaseActivity {
                             caloriesTaken = calculateCalories(foodListStr);
                             foodList = (ListView)findViewById(R.id.taken_calorie_list);
                             takenCalorie = (TextView)findViewById(R.id.taken_calorie);
-                            FoodAdapter foodAdapter = new FoodAdapter(getApplicationContext(), food, "c");
+                            FoodAdapter foodAdapter = new FoodAdapter(getApplicationContext(), food, "c",false);
                             foodList.setAdapter(foodAdapter);
                             takenCalorie.setText("" + caloriesTaken);
 
@@ -96,7 +96,7 @@ public class CalInfo extends firebaseActivity {
                             caloriesBurned = calculateCalories(exerListStr);
                             exerList = (ListView)findViewById(R.id.burnt_calorie_list);
                             burntCalorie = (TextView)findViewById(R.id.burnt_calorie);
-                            FoodAdapter exerAdapter = new FoodAdapter(getApplicationContext(), exer, "c");
+                            FoodAdapter exerAdapter = new FoodAdapter(getApplicationContext(), exer, "c", false);
                             exerList.setAdapter(exerAdapter);
                             burntCalorie.setText("" + caloriesBurned);
 
