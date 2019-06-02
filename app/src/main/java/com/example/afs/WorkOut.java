@@ -12,6 +12,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class WorkOut extends AppCompatActivity {
 
     private Button aerobicButton;
@@ -20,11 +25,25 @@ public class WorkOut extends AppCompatActivity {
     private RelativeLayout maleBack;
     private RelativeLayout femaleFront;
     private RelativeLayout femaleBack;
+    private DatabaseReference db;
+    private FirebaseAuth mAuth;
+    private FirebaseUser curUser;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout);
+
+        db = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+
+        if(mAuth.getCurrentUser() != null)
+        {
+            curUser = mAuth.getCurrentUser();
+        }
+
+        userID = curUser.getUid();
 
         aerobicButton = (Button) findViewById(R.id.aerobic);
         aerobicButton.setOnClickListener(new View.OnClickListener() {
