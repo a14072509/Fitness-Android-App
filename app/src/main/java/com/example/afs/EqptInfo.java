@@ -80,6 +80,7 @@ public class EqptInfo extends AppCompatActivity {
 
         title = (TextView)findViewById(R.id.equipmentTitle);
         title.setText(getIntent().getStringExtra("name"));
+        getSupportActionBar().setTitle(getIntent().getStringExtra("name"));
     }
 
 
