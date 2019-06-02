@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@+id/imageView3"
-        android:background="@drawable/add_pressed"
+        android:background="@drawable/add_new_item_pressed"
         android:clickable="true"
         android:orientation="horizontal">
 

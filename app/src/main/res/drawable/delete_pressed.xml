@@ -6,5 +6,5 @@
         </shape>
     </item>
 
-    <item android:drawable="@drawable/add_button" />
+    <item android:drawable="@drawable/delete_button" />
 </selector>

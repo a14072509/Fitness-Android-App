@@ -75,18 +75,12 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/add_exercise_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="ADD TO CALENDAR" />
-
     <RelativeLayout
         android:id="@+id/add_section"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_above="@+id/add_exercise_button"
+        android:layout_alignBottom="@+id/add_exercise_button"
+        android:layout_alignParentBottom="true"
         android:background="@color/backgroundWhite"
         android:orientation="horizontal">
 
