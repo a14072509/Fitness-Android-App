@@ -125,6 +125,7 @@ public class WorkOut extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //System.out.println(dataSnapshot.child("Gender").getValue());
                 gender = Gender.valueOf(dataSnapshot.child("Gender").getValue().toString());
+                updateBodyShadow();
             }
 
             @Override
@@ -140,7 +141,7 @@ public class WorkOut extends AppCompatActivity {
         femaleFront = (RelativeLayout) findViewById(R.id.female_front_section);
         femaleBack = (RelativeLayout) findViewById(R.id.female_back_section);
         front = true;
-        updateBodyShadow();
+        //updateBodyShadow();
 
 
         flipButton.setOnClickListener(new View.OnClickListener() {
