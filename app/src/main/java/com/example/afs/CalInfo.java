@@ -45,6 +45,7 @@ public class CalInfo extends firebaseActivity {
 
         String dateText = getIntent().getStringExtra("date");
 
+        System.out.println(dateText);
         dateView = (TextView)findViewById(R.id.date);
         dateView.setText(dateText);
 

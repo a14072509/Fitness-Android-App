@@ -115,7 +115,7 @@ public class firebaseActivity extends AppCompatActivity {
                 retStr = retStr.concat("12");
                 break;
         }
-        retStr = retStr.concat("-" + dateArray[1]);
+        retStr = retStr.concat("-" + (Integer.parseInt(dateArray[1]) > 9 ? dateArray[1] : "0" + dateArray[1]));
         return retStr;
     }
 }

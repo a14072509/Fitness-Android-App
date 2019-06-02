@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,8 +18,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -41,6 +44,7 @@ public class EditProfile extends AppCompatActivity {
     private EditText usernameText;
     private ImageView photo;
     private Button changePhoto;
+    private Button resetPassword;
     private DatabaseReference db;
     private FirebaseAuth mAuth;
     private FirebaseUser curUser;
@@ -60,6 +64,7 @@ public class EditProfile extends AppCompatActivity {
         ageText = (EditText) findViewById(R.id.edit_age);
         heightText = (EditText) findViewById(R.id.edit_height);
         weightText = (EditText) findViewById(R.id.edit_weight);
+        resetPassword = (Button) findViewById(R.id.change_password);
 
         //initialize database
         db = FirebaseDatabase.getInstance().getReference();
@@ -91,7 +96,11 @@ public class EditProfile extends AppCompatActivity {
         heightText.setText(getIntent().getStringExtra("height"));
         weightText.setText(getIntent().getStringExtra("weight"));
 
-
+        resetPassword.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                sendPasswordReset();
+            }
+        });
         save = (ImageButton) findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -208,5 +217,25 @@ public class EditProfile extends AppCompatActivity {
                     });
         }
     }
+
+
+    private void sendPasswordReset() {
+        // [START send_password_reset]
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        String emailAddress = curUser.getEmail();
+
+        auth.sendPasswordResetEmail(emailAddress)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("login", "Email sent.");
+                        }
+                    }
+                });
+        // [END send_password_reset]
+    }
+
+
 }
 

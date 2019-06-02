@@ -113,6 +113,14 @@
         android:layout_below="@+id/shadow2"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/change_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/info_section"
+            android:layout_centerHorizontal="true"
+            android:text="Reset Password" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"

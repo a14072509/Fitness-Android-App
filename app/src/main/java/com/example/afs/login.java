@@ -23,8 +23,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Random;
+
 public class login extends firebaseActivity {
     private Button loginButton;
+    private TextView forgetButton;
     private TextView signupText;
     private EditText emailInput;
     private EditText passwordInput;
@@ -41,6 +44,12 @@ public class login extends firebaseActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 signIn();
+            }
+        });
+
+        forgetButton = (TextView) findViewById(R.id.forget_password_text);
+        forgetButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { forgetPassword();
             }
         });
 
@@ -125,7 +134,10 @@ public class login extends firebaseActivity {
         return result;
     }
 
-
+    private void forgetPassword() {
+        setContentView(R.layout.forget_password);
+        //String id = String.format("%04d", Random.nextInt(10000));
+    }
 
 
 }
