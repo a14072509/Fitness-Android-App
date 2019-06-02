@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -18,7 +19,9 @@ public class EquipmentInfo extends AppCompatActivity {
     private android.support.v7.widget.Toolbar toolbar;
     private Button addExerButton;
     private TextView title;
-    VideoView videoView;
+    private EditText minInput;
+
+    private VideoView videoView;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -37,10 +40,11 @@ public class EquipmentInfo extends AppCompatActivity {
             }
         });
 
-        addExerButton = (Button)findViewById(R.id.add_exercise_button);
+        addExerButton = (Button)findViewById(R.id.add_button);
+
         addExerButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                addItem();
+                addExer();
             }
         });
 
@@ -84,13 +88,22 @@ public class EquipmentInfo extends AppCompatActivity {
     }
 
 
-    private void addItem()
+    private void addExer()
     {
-        //TODO
-        Intent intent = new Intent(this, ExeToCal.class);
-        intent.putExtra("image", getIntent().getStringExtra("image"));
-        intent.putExtra("name", getIntent().getStringExtra("name"));
-        startActivity(intent);
+        try {
+            minInput = (EditText)findViewById(R.id.time_input);
+            int min = Integer.parseInt(minInput.getText().toString());
+            String name = getIntent().getStringExtra("name");
+
+            //TODO Add the calculation of calorie, need database to retrieve user information
+
+            finish();
+        }
+        catch(Exception e) {
+            System.out.println(e);
+            return;
+        }
+
     }
 
 }

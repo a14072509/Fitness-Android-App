@@ -50,7 +50,6 @@ public class WorkOut extends AppCompatActivity {
 
         flipButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                System.err.println("Hi");
                 updateBodyShadow();
             }
         });
