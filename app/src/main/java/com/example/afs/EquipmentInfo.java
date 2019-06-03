@@ -119,8 +119,9 @@ public class EquipmentInfo extends AppCompatActivity {
     {
         try {
             minInput = (EditText)findViewById(R.id.time_input);
-            int min = Integer.parseInt(minInput.getText().toString());
+
             String name = getIntent().getStringExtra("name");
+
 
             //TODO Add the calculation of calorie, need database to retrieve user information
             db.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
@@ -130,6 +131,23 @@ public class EquipmentInfo extends AppCompatActivity {
                     height = Double.parseDouble(dataSnapshot.child("height").getValue().toString());
                     weight = Integer.parseInt(dataSnapshot.child("weight").getValue().toString());
                     gender = Gender.valueOf(dataSnapshot.child("Gender").getValue().toString());
+
+                    double BMR;
+                    if(gender == Gender.FEMALE)
+                    {
+                        BMR = 655 + 4.3 * weight + 4.7 * 12 * height - 4.7 * age;
+                    }
+                    else
+                    {
+                        BMR = 66 + 6.3 * weight + 12.9 * 12 * height - 6.8 * age;
+                    }
+
+                    double met = getIntent().getDoubleExtra("met", 0);
+                    double min = Double.parseDouble(minInput.getText().toString());
+                    weight /= 2.2;
+                    double calorieBurnt = weight * met * min/60;
+                    //TODO
+
                 }
 
                 @Override

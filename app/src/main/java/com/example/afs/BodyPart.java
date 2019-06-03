@@ -63,11 +63,16 @@ public class BodyPart
         String bodyPart = str.substring(0, comma);
         str = str.substring(comma+1);
 
+        comma = str.indexOf(",");
+        String met = str.substring(0, comma);
+        str = str.substring(comma+1);
+
         String instruction = str;
 
-        Exercise curExer = new Exercise(name, eqpt, instruction, bodyPart+number, null);
+        Exercise curExer = new Exercise(name, eqpt, instruction, bodyPart+number, Double.parseDouble(met));
         if(!bodyToExercise.containsKey(bodyPart))
             bodyToExercise.put(bodyPart, new ArrayList<Exercise>());
         bodyToExercise.get(bodyPart).add(curExer);
+        System.out.println(curExer);
     }
 }

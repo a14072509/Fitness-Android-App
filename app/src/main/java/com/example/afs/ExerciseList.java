@@ -62,6 +62,7 @@ public class ExerciseList extends AppCompatActivity {
         intent.putExtra("eqpt", e.getEquipment());
         intent.putExtra("instruction", e.getInstructions());
         intent.putExtra("image", e.getImagePath());
+        intent.putExtra("met", e.getMet());
         startActivity(intent);
     }
 

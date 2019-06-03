@@ -70,10 +70,10 @@ public class DietPlan extends firebaseActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String foodListStr = dataSnapshot.child("food_list").getValue().toString();
-                //System.out.println(foodListStr);
                 if(foodListStr.length() <= 4) {
                     foodList.removeFooterView(foodList);
                     //TODO refresh the current page
+
                     
                 }
                 else {

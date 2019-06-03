@@ -6,6 +6,7 @@ public class Exercise {
     private String equipment; //the equipment associated
     private String instructions; //the instruction
     private String imagePath; //the path to the image file
+    private double met;
 
     //most likely going to be TreeMap to sort by weight for convenience
     private Map<Integer, Integer> weightCal; //the mapping between weight and calorie
@@ -16,19 +17,18 @@ public class Exercise {
         setImagePath(imagePath);
     }
 
-    public Exercise(String name, String equipment, String instructions, String imagePath,
-                    Map<Integer, Integer> weightCal)
+    public Exercise(String name, String equipment, String instructions, String imagePath, double met)
     {
         setName(name);
         setEquipment(equipment);
         setInstructions(instructions);
         setImagePath(imagePath);
-        setWeightCal(weightCal);
+        setMet(met);
     }
 
     public String toString()
     {
-        return getName() + ", " + getEquipment() + ", " + getImagePath() + ", " + getInstructions();
+        return getName() + ", " + getEquipment() + ", " + getImagePath() + ", " + getMet() + ", " + getInstructions();
     }
 
     public String getName() {
@@ -63,11 +63,11 @@ public class Exercise {
         this.imagePath = imagePath.toLowerCase().replace(" ", "");
     }
 
-    public Map<Integer, Integer> getWeightCal() {
-        return weightCal;
+    public double getMet() {
+        return met;
     }
 
-    public void setWeightCal(Map<Integer, Integer> weightCal) {
-        this.weightCal = weightCal;
+    public void setMet(double met) {
+        this.met = met;
     }
 }

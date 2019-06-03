@@ -54,7 +54,7 @@ public class Profile extends AppCompatActivity {
     private TextView heightText;
     private TextView weightText;
     private TextView usernameText;
-    private TextView BMIText;
+    private TextView BMRText;
     private String userID;
     private String newUserName;
     private String newAge;
@@ -88,7 +88,7 @@ public class Profile extends AppCompatActivity {
         ageText = (TextView) findViewById(R.id.edit_age);
         heightText = (TextView) findViewById(R.id.edit_height);
         weightText = (TextView) findViewById(R.id.edit_weight);
-        BMIText = (TextView) findViewById(R.id.BMI);
+        BMRText = (TextView) findViewById(R.id.BMR);
         photo = (ImageView) findViewById(R.id.photo);
         genderIcon = (ImageView) findViewById(R.id.male_icon);
 
@@ -237,18 +237,18 @@ public class Profile extends AppCompatActivity {
             int heightV = Integer.parseInt(height);
             int weightV = Integer.parseInt(weight);
 
-            String bmiStr;
+            String BMRStr;
             if(gender == Gender.FEMALE)
             {
-                double bmi = 4.536 * weightV + 15.875 * heightV - 5 * ageV - 161;
-                bmiStr = String.format("%.2f", bmi);
+                double BMR = 655 + 4.3 * weightV + 4.7 * 12 * heightV - 4.7 * ageV;
+                BMRStr = String.format("%.2f", BMR);
             }
             else
             {
-                double bmi = 4.536 * weightV + 15.875 * heightV - 5 * ageV + 5;
-                bmiStr = String.format("%.2f", bmi);
+                double BMR = 66 + 6.3 * weightV + 12.9 * 12 * heightV - 6.8 * ageV;
+                BMRStr = String.format("%.2f", BMR);
             }
-            BMIText.setText(bmiStr);
+            BMRText.setText(BMRStr);
         }
         catch(Exception e){}
 

@@ -185,13 +185,13 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="50dp"
                 android:gravity="center_vertical"
-                android:text="BMI:"
+                android:text="BMR:"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/BMI"
+                android:id="@+id/BMR"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
