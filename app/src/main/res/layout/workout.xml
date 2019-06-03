@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/shadow"
-        android:layout_marginLeft="10dp"
+        android:background="#4DB3ADAD"
         android:padding="10dp"
         android:text="Choose a muscle to exercise on:"
         android:textColor="@android:color/black"

@@ -99,6 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/mins"
             android:layout_toRightOf="@+id/clock_icon"
+            android:gravity="center"
             android:inputType="number" />
 
         <TextView
