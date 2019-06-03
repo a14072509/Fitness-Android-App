@@ -71,7 +71,8 @@ public class DietPlan extends firebaseActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String foodListStr = dataSnapshot.child("food_list").getValue().toString();
                 if(foodListStr.length() <= 4) {
-                    foodList.removeFooterView(foodList);
+                    DietFoodAdapter foodAdapter = new DietFoodAdapter(DietPlan.this, food, deleteMode);
+                    foodList.setAdapter(foodAdapter);
                     //TODO refresh the current page
 
                     
@@ -114,6 +115,8 @@ public class DietPlan extends firebaseActivity {
                 DietFoodAdapter foodAdapter = new DietFoodAdapter(DietPlan.this, food, deleteMode);
                 foodList.setAdapter(foodAdapter);
                 doneButton.setVisibility(View.INVISIBLE);
+                Intent intent2 = new Intent(DietPlan.this, DietPlan.class);
+                startActivity(intent2);
             }
         });
 
