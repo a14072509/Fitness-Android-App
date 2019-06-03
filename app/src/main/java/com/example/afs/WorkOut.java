@@ -63,7 +63,7 @@ public class WorkOut extends AppCompatActivity {
     private Button fbLeg;
     private Button fbRightShoulder;
     private Button fbLeftShoulder;
-
+    private RelativeLayout aerobic_section;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -320,6 +320,13 @@ public class WorkOut extends AppCompatActivity {
         MenuItem menuItem = menu.getItem(0);
         menuItem.setChecked(true);
 
+        aerobic_section = (RelativeLayout)findViewById(R.id.aerobic_section);
+        aerobic_section.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                aerobic();
+            }
+        });
+
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -366,6 +373,11 @@ public class WorkOut extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         overridePendingTransition(0, 0);
+    }
+
+    public void aerobic() {
+        Intent intent = new Intent(this, AerobicToCal.class);
+        startActivity(intent);
     }
 
     private void updateFrontBack() { front = !front; }
