@@ -36,7 +36,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:hint="Enter aerobic exercise you did"
+            android:hint="aerobic exercise name you did"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -59,7 +59,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:hint="Enter calories burned"
+            android:hint="calories burned"
             android:inputType="textPersonName" />
     </LinearLayout>
 
