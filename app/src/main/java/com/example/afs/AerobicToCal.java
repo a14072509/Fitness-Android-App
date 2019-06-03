@@ -1,5 +1,6 @@
 package com.example.afs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -52,6 +53,12 @@ public class AerobicToCal extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Aerobic Exercise");
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                back();
+            }
+        });
 
         addExer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +68,11 @@ public class AerobicToCal extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void back() {
+        Intent intent = new Intent(this, WorkOut.class);
+        startActivity(intent);
     }
 
     private void add(final Food f) {

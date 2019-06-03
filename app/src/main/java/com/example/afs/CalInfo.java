@@ -157,7 +157,8 @@ public class CalInfo extends firebaseActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {back();
+            public void onClick(View v) {
+                back();
             }
         });
 
