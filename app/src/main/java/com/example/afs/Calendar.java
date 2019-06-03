@@ -15,18 +15,52 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Date;
+import java.util.List;
 
-public class Calendar extends AppCompatActivity {
+public class Calendar extends firebaseActivity {
     private Button calinfo;
     private CalendarView calenderView;
     private String selDateText;
+    private TextView dailyCalorie;
+    private DatabaseReference db;
+    private FirebaseAuth mAuth;
+    private FirebaseUser curUser;
+    private String userID;
+    private List<Food> food;
+    private List<Food> exer;
+    private int caloriesTaken;
+    private int caloriesBurned;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar);
+
+        db = FirebaseDatabase.getInstance().getReference();
+
+        mAuth = FirebaseAuth.getInstance();
+
+        if(mAuth.getCurrentUser() != null)
+        {
+            curUser = mAuth.getCurrentUser();
+        }
+
+        userID = curUser.getUid();
+
+
         java.util.Calendar calendar = java.util.Calendar.getInstance();
         calenderView = (CalendarView) findViewById(R.id.calendarView);
 
@@ -51,6 +85,61 @@ public class Calendar extends AppCompatActivity {
                 System.out.println("test date\n"+selDateText);
             }
         });
+
+        db.child("Users").child(userID)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        int age = Integer.parseInt(dataSnapshot.child("age").getValue().toString());
+                        double height = Double.parseDouble(dataSnapshot.child("height").getValue().toString());
+                        double weight = Double.parseDouble(dataSnapshot.child("weight").getValue().toString());
+                        Gender gender = Gender.valueOf(dataSnapshot.child("Gender").getValue().toString());
+
+                        double BMR;
+                        if(gender == Gender.FEMALE)
+                        {
+                            BMR = 655 + 4.3 * weight + 4.7 * 12 * height - 4.7 * age;
+                        }
+                        else
+                        {
+                            BMR = 66 + 6.3 * weight + 12.9 * 12 * height - 6.8 * age;
+                        }
+
+                        String foodListStr = dataSnapshot.child(MainActivity.toDate)
+                                .child("food_list").getValue().toString();
+                        String exerListStr = dataSnapshot.child(MainActivity.toDate)
+                                .child("exercise_list").getValue().toString();
+
+
+                        //System.out.println(foodListStr);
+                        if(foodListStr.length() <= 4) {
+                            food = null;
+                        }
+                        else {
+                            food = parseStrToFoodlist(foodListStr);
+                            caloriesTaken = calculateCalories(foodListStr);
+                        }
+
+                        if(exerListStr.length() <= 4) {
+                            exer = null;
+                        }
+                        else {
+                            exer = parseStrToFoodlist(exerListStr);
+                            caloriesBurned = calculateCalories(exerListStr);
+                        }
+
+                        //System.out.println(foodListStr);
+
+                        dailyCalorie = (TextView)findViewById(R.id.daily_cal);
+                        dailyCalorie.setText("" + (caloriesTaken - caloriesBurned - BMR));
+
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 

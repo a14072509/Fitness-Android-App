@@ -47,7 +47,7 @@
             android:background="@drawable/underline"
             android:gravity="center"
             android:inputType="textPersonName"
-            android:text="cal goes here"
+            android:text="0"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
     </LinearLayout>

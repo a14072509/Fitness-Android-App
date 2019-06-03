@@ -50,7 +50,7 @@ public class login extends firebaseActivity {
 
         forgetButton = (TextView) findViewById(R.id.forget_password_text);
         forgetButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) { forgetPassword();
+            public void onClick(View v) { resetPassword();
             }
         });
 
@@ -58,13 +58,6 @@ public class login extends firebaseActivity {
         signupText.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 signUp();
-            }
-        });
-
-        forgetPasswordText = (TextView) findViewById(R.id.forget_password_text);
-        forgetPasswordText.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                resetPassword();
             }
         });
 
@@ -148,13 +141,6 @@ public class login extends firebaseActivity {
         }
 
         return result;
-    }
-
-    private void forgetPassword() {
-        setContentView(R.layout.forget_password);
-        Random rnd = new Random();
-        String id = String.format("%04d", rnd.nextInt(10000));
-        //mAuth.c
     }
 
 

@@ -26,7 +26,7 @@ public class CalInfo extends firebaseActivity {
     private ListView exerList;
     private TextView takenCalorie;
     private TextView burntCalorie;
-    private TextView resultCalorie;
+    public static TextView resultCalorie;
     //private TextView dateView;
     private List<Food> food;
     private List<Food> exer;
@@ -61,18 +61,20 @@ public class CalInfo extends firebaseActivity {
 
         userID = curUser.getUid();
 
-        dateText = parseDate(dateText);
+        final String newDateText = parseDate(dateText);
 
-        db.child("Users").child(userID).child(dateText).child("food_list").child(" ").setValue("");
-        db.child("Users").child(userID).child(dateText).child("exercise_list").child(" ").setValue("");
+        db.child("Users").child(userID).child(newDateText).child("food_list").child(" ").setValue("");
+        db.child("Users").child(userID).child(newDateText).child("exercise_list").child(" ").setValue("");
 
 
-        db.child("Users").child(userID).child(dateText)
+        db.child("Users").child(userID)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        String foodListStr = dataSnapshot.child("food_list").getValue().toString();
-                        String exerListStr = dataSnapshot.child("exercise_list").getValue().toString();
+                        String foodListStr = dataSnapshot.child(newDateText).child("food_list").getValue().toString();
+                        String exerListStr = dataSnapshot.child(newDateText).child("exercise_list").getValue().toString();
+
+
                         //System.out.println(foodListStr);
                         if(foodListStr.length() <= 4) {
                             food = null;
@@ -104,6 +106,7 @@ public class CalInfo extends firebaseActivity {
 
                         resultCalorie = (TextView)findViewById(R.id.result_calorie);
                         resultCalorie.setText("" + (caloriesTaken - caloriesBurned));
+
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
