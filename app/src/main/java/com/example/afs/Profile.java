@@ -234,8 +234,8 @@ public class Profile extends AppCompatActivity {
     {
         try {
             int ageV = Integer.parseInt(age);
-            int heightV = Integer.parseInt(height);
-            int weightV = Integer.parseInt(weight);
+            double heightV = Double.parseDouble(height);
+            double weightV = Double.parseDouble(weight);
 
             String BMRStr;
             if(gender == Gender.FEMALE)
