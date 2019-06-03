@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.*;
@@ -15,7 +16,7 @@ public class DietFoodAdapter extends BaseAdapter {
     Context context;
     List<Food> food;
     LayoutInflater inflter;
-    private ImageButton deleteButton;
+    private ImageView deleteButton;
     private boolean deleteMode;
 
     public DietFoodAdapter(Context applicationContext, List<Food> food, boolean delete) {
@@ -44,7 +45,7 @@ public class DietFoodAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = inflter.inflate(R.layout.diet_plan_list_item, null);
-        deleteButton = (ImageButton)view.findViewById(R.id.deleteButton);
+        deleteButton = (ImageView)view.findViewById(R.id.deleteButton);
         deleteButton.setVisibility(View.INVISIBLE);
         if(deleteMode)
             deleteButton.setVisibility(View.VISIBLE);

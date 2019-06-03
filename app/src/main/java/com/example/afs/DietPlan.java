@@ -37,6 +37,7 @@ public class DietPlan extends firebaseActivity {
     private String userID;
     private List<Food> food;
     private int totalCalories;
+    private Button doneButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,9 +93,25 @@ public class DietPlan extends firebaseActivity {
         deleteButton = (ImageButton)findViewById(R.id.deleteFoodButton);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                deleteMode = !deleteMode;
+                deleteMode = true;
                 DietFoodAdapter foodAdapter = new DietFoodAdapter(DietPlan.this, food, deleteMode);
                 foodList.setAdapter(foodAdapter);
+
+                deleteButton.setVisibility(View.INVISIBLE);
+                addFoodButton.setVisibility(View.INVISIBLE);
+                doneButton.setVisibility(View.VISIBLE);
+            }
+        });
+
+        doneButton = (Button)findViewById(R.id.done_button);
+        doneButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                deleteButton.setVisibility(View.VISIBLE);
+                addFoodButton.setVisibility(View.VISIBLE);
+                deleteMode = false;
+                DietFoodAdapter foodAdapter = new DietFoodAdapter(DietPlan.this, food, deleteMode);
+                foodList.setAdapter(foodAdapter);
+                doneButton.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -118,6 +135,11 @@ public class DietPlan extends firebaseActivity {
                     deleteFood(clickedObj);
             }
         });
+
+        deleteButton.setVisibility(View.VISIBLE);
+        addFoodButton.setVisibility(View.VISIBLE);
+        doneButton.setVisibility(View.INVISIBLE);
+
 
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -168,7 +190,6 @@ public class DietPlan extends firebaseActivity {
         System.out.println("Deleting");
         //TODO remove the food from today's history list
         db.child(userID).child(MainActivity.toDate).child("food_list").child(f.getName()).removeValue();
-
     }
 
 }

@@ -104,6 +104,15 @@ public class EditProfile extends AppCompatActivity {
             }
         });
         //System.out.println(gender.toString());
+
+        if (gender == Gender.FEMALE) {
+            femaleButton.setBackgroundResource(R.drawable.border);
+            maleButton.setBackgroundColor(Color.TRANSPARENT);
+        } else {
+            maleButton.setBackgroundResource(R.drawable.border);
+            femaleButton.setBackgroundColor(Color.TRANSPARENT);
+        }
+
         femaleButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 System.out.println("Bye");
@@ -146,6 +155,12 @@ public class EditProfile extends AppCompatActivity {
         ageText.setText(getIntent().getStringExtra("age"));
         heightText.setText(getIntent().getStringExtra("height"));
         weightText.setText(getIntent().getStringExtra("weight"));
+        String tempGender = getIntent().getStringExtra("gender");
+
+        if(tempGender.equals("f"))
+            gender = Gender.FEMALE;
+        else
+            gender = Gender.MALE;
 
         resetPassword.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -158,6 +173,16 @@ public class EditProfile extends AppCompatActivity {
                 enterProfile();
             }
         });
+
+
+        if(gender == Gender.FEMALE) {
+            femaleButton.setBackgroundResource(R.drawable.border);
+            maleButton.setBackgroundColor(Color.TRANSPARENT);
+        }
+        else {
+            maleButton.setBackgroundResource(R.drawable.border);
+            femaleButton.setBackgroundColor(Color.TRANSPARENT);
+        }
 
     }
 
