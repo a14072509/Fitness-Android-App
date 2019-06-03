@@ -159,6 +159,16 @@ public class EditProfile extends AppCompatActivity {
             }
         });
 
+
+        if(gender == Gender.FEMALE) {
+            femaleButton.setBackgroundResource(R.drawable.border);
+            maleButton.setBackgroundColor(Color.TRANSPARENT);
+        }
+        else {
+            maleButton.setBackgroundResource(R.drawable.border);
+            femaleButton.setBackgroundColor(Color.TRANSPARENT);
+        }
+
     }
 
     private void back() {
