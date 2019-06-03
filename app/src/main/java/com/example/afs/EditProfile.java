@@ -53,6 +53,7 @@ public class EditProfile extends AppCompatActivity {
     private FirebaseUser curUser;
     private String userID;
     private Uri filePath;
+    private Gender gender;
     FirebaseStorage storage;
     StorageReference storageReference;
 
@@ -80,12 +81,14 @@ public class EditProfile extends AppCompatActivity {
         femaleButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 System.out.println("Bye");
+                gender = Gender.FEMALE;
             }
         });
 
         maleButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 System.out.println("Hi");
+                gender = Gender.MALE;
             }
         });
 
