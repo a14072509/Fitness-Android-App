@@ -41,7 +41,7 @@ public class FoodHistoryAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        view = inflter.inflate(R.layout.calender_list_item, null);
+        view = inflter.inflate(R.layout.food_history_list_item, null);
 
         TextView name = (TextView) view.findViewById(R.id.foodTextView);
         TextView calorie = (TextView) view.findViewById(R.id.calorieTextView);
