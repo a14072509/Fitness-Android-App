@@ -131,10 +131,10 @@ public class Profile extends AppCompatActivity {
                 ageText.setText(newAge);
                 heightText.setText(newHeight);
                 weightText.setText(newWeight);
-                if(newGender.toString() == "MALE") {
-                    genderIcon.setImageResource(R.drawable.male_icon);
+                if(newGender.toString() == "FEMALE") {
+                    genderIcon.setImageResource(R.drawable.female_icon);
                 }
-                else genderIcon.setImageResource(R.drawable.female_icon);
+                else genderIcon.setImageResource(R.drawable.male_icon);
 
 
             }
