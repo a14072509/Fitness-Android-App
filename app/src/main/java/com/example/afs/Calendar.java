@@ -132,7 +132,8 @@ public class Calendar extends firebaseActivity {
                         //System.out.println(foodListStr);
 
                         dailyCalorie = (TextView)findViewById(R.id.daily_cal);
-                        dailyCalorie.setText("" + (caloriesTaken - caloriesBurned - BMR));
+                        String dailyCalorieText = String.format("%.2f", (caloriesTaken - caloriesBurned - BMR));
+                        dailyCalorie.setText(dailyCalorieText);
 
                     }
                     @Override
