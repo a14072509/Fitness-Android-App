@@ -115,7 +115,7 @@ public class EditProfile extends AppCompatActivity {
 
         femaleButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                System.out.println("Bye");
+                //System.out.println("Bye");
                 gender = Gender.FEMALE;
                 femaleButton.setBackgroundResource(R.drawable.border);
                 maleButton.setBackgroundColor(Color.TRANSPARENT);
@@ -124,7 +124,7 @@ public class EditProfile extends AppCompatActivity {
 
         maleButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                System.out.println("Hi");
+                //System.out.println("Hi");
                 gender = Gender.MALE;
                 maleButton.setBackgroundResource(R.drawable.border);
                 femaleButton.setBackgroundColor(Color.TRANSPARENT);
