@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/shadow"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:padding="10dp"
         android:text="Choose a muscle to exercise on:"
         android:textColor="@android:color/black"
@@ -101,12 +101,43 @@
         android:layout_marginTop="10dp"
         android:background="@android:color/black" />
 
-    <Button
-        android:id="@+id/aerobic"
+    <RelativeLayout
+        android:id="@+id/aerobic_section"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/divider2"
-        android:text="AEROBIC EXERCISE" />
+        android:background="@drawable/add_new_item_pressed"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/aerobic_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="Aerobic Exercise"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text=">"
+            android:textColor="#99000000"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/aerobic_section"
+        android:background="@android:color/black" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"

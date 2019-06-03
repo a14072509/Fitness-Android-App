@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class WorkOut extends AppCompatActivity {
 
-    private Button aerobicButton;
+    private RelativeLayout aerobicButton;
     private ImageButton flipButton;
     private RelativeLayout maleFront;
     private RelativeLayout maleBack;
@@ -59,7 +60,7 @@ public class WorkOut extends AppCompatActivity {
 
         userID = curUser.getUid();
 
-        aerobicButton = (Button) findViewById(R.id.aerobic);
+        aerobicButton = (RelativeLayout) findViewById(R.id.aerobic_section);
         aerobicButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Leg");
