@@ -243,14 +243,10 @@ public class Profile extends AppCompatActivity {
                 double bmi = 4.536 * weightV + 15.875 * heightV - 5 * ageV - 161;
                 bmiStr = String.format("%.2f", bmi);
             }
-            else if(gender == Gender.MALE)
+            else
             {
                 double bmi = 4.536 * weightV + 15.875 * heightV - 5 * ageV + 5;
                 bmiStr = String.format("%.2f", bmi);
-            }
-            else
-            {
-                bmiStr = "0";
             }
             BMIText.setText(bmiStr);
         }
