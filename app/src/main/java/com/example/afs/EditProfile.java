@@ -104,6 +104,15 @@ public class EditProfile extends AppCompatActivity {
             }
         });
         //System.out.println(gender.toString());
+
+        if (gender == Gender.FEMALE) {
+            femaleButton.setBackgroundResource(R.drawable.border);
+            maleButton.setBackgroundColor(Color.TRANSPARENT);
+        } else {
+            maleButton.setBackgroundResource(R.drawable.border);
+            femaleButton.setBackgroundColor(Color.TRANSPARENT);
+        }
+
         femaleButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 System.out.println("Bye");
