@@ -178,7 +178,7 @@ public class EditProfile extends AppCompatActivity {
         }
 
         FirebaseUser fUser = mAuth.getCurrentUser();
-        UserInfo user = new UserInfo(username, weight, height, Gender.UNKNOWN, age, fUser.getEmail());
+        UserInfo user = new UserInfo(username, weight, height, gender, age, fUser.getEmail());
         Map<String, Object> userInfoMap = user.toMap();
         db.child("Users").child(userID).updateChildren(userInfoMap);
 

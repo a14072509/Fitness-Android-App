@@ -3,6 +3,7 @@ package com.example.afs;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -48,6 +49,7 @@ public class Profile extends AppCompatActivity {
     StorageReference storageReference;
     private ImageButton editButton;
     private ImageView photo;
+    private ImageView genderIcon;
     private TextView ageText;
     private TextView heightText;
     private TextView weightText;
@@ -58,7 +60,7 @@ public class Profile extends AppCompatActivity {
     private String newAge;
     private String newHeight;
     private String newWeight;
-    private Gender newGender = Gender.MALE;
+    private Gender newGender;
     private String path;
     private static final String TAG = "Profile";
 
@@ -89,6 +91,7 @@ public class Profile extends AppCompatActivity {
         weightText = (TextView) findViewById(R.id.edit_weight);
         BMIText = (TextView) findViewById(R.id.BMI);
         photo = (ImageView) findViewById(R.id.photo);
+        genderIcon = (ImageView) findViewById(R.id.male_icon);
 
 
         db.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
@@ -100,6 +103,7 @@ public class Profile extends AppCompatActivity {
                 newAge = dataSnapshot.child("age").getValue().toString();
                 newHeight = dataSnapshot.child("height").getValue().toString();
                 newWeight = dataSnapshot.child("weight").getValue().toString();
+                newGender = Gender.valueOf(dataSnapshot.child("Gender").getValue().toString());
 
                 updateBMI(newGender, newAge, newHeight, newWeight);
                 //path = dataSnapshot.child("Photo_Path").getValue().toString();
@@ -128,6 +132,12 @@ public class Profile extends AppCompatActivity {
                 ageText.setText(newAge);
                 heightText.setText(newHeight);
                 weightText.setText(newWeight);
+                if(newGender.toString() == "MALE") {
+                    genderIcon.setImageResource(R.drawable.male_icon);
+                }
+                else genderIcon.setImageResource(R.drawable.female_icon);
+
+
             }
 
             @Override
