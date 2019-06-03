@@ -11,12 +11,12 @@ import android.widget.TextView;
 
 import java.util.*;
 
-public class FoodAdapter extends BaseAdapter {
+public class FoodHistoryAdapter extends BaseAdapter {
     Context context;
     List<Food> food;
     LayoutInflater inflter;
 
-    public FoodAdapter(Context applicationContext, List<Food> food, String mode, boolean delete) {
+    public FoodHistoryAdapter(Context applicationContext, List<Food> food) {
         this.context = applicationContext;
         this.food = food;
         inflter = (LayoutInflater.from(applicationContext));
