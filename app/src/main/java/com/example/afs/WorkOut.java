@@ -35,14 +35,34 @@ public class WorkOut extends AppCompatActivity {
     private FirebaseUser curUser;
     private String userID;
     private boolean front;
-    private Button absButton;
-    private Button legButton;
-    private Button buttButton;
-    private Button rightShoulderButton;
-    private Button leftShoulderButton;
-    private Button leftTricepButton;
-    private Button rightTricepButton;
-    private Button blegButton;
+    private Button mAbs;
+    private Button mLeg;
+    private Button mButt;
+    private Button mRightShoulder;
+    private Button mLeftShoulder;
+    private Button mLeftTricep;
+    private Button mRightTricep;
+    private Button mChest;
+    private Button mRightBicep;
+    private Button mLeftBicep;
+    private Button mBack;
+    private Button mbLeg;
+    private Button mbRightShoulder;
+    private Button mbLeftShoulder;
+    private Button fAbs;
+    private Button fLeg;
+    private Button fButt;
+    private Button fRightShoulder;
+    private Button fLeftShoulder;
+    private Button fLeftTricep;
+    private Button fRightTricep;
+    private Button fChest;
+    private Button fRightBicep;
+    private Button fLeftBicep;
+    private Button fBack;
+    private Button fbLeg;
+    private Button fbRightShoulder;
+    private Button fbLeftShoulder;
 
 
     @Override
@@ -63,63 +83,204 @@ public class WorkOut extends AppCompatActivity {
         aerobicButton = (RelativeLayout) findViewById(R.id.aerobic_section);
         aerobicButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                enterExerciseList("Leg");
+
             }
         });
-        absButton = (Button) findViewById(R.id.male_front_abs);
-        absButton.setOnClickListener(new View.OnClickListener() {
+        mAbs = (Button) findViewById(R.id.male_front_abs);
+        mAbs.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Abs");
             }
         });
 
-        legButton = (Button) findViewById(R.id.male_front_legs);
-        legButton.setOnClickListener(new View.OnClickListener() {
+        mLeg = (Button) findViewById(R.id.male_front_legs);
+        mLeg.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Leg");
             }
         });
-        blegButton = (Button) findViewById(R.id.male_back_legs);
-        blegButton.setOnClickListener(new View.OnClickListener() {
+        mbLeg = (Button) findViewById(R.id.male_back_legs);
+        mbLeg.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Leg");
             }
         });
 
-        buttButton = (Button) findViewById(R.id.male_back_butt);
-        buttButton.setOnClickListener(new View.OnClickListener() {
+        mButt = (Button) findViewById(R.id.male_back_butt);
+        mButt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Butt and Hips");
             }
         });
 
-        leftShoulderButton = (Button) findViewById(R.id.male_back_shoulder_left);
-        leftShoulderButton.setOnClickListener(new View.OnClickListener() {
+        mLeftShoulder = (Button) findViewById(R.id.male_front_shoulder_left);
+        mLeftShoulder.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Shoulders");
             }
         });
 
-        rightShoulderButton = (Button) findViewById(R.id.male_back_shoulder_right);
-        rightShoulderButton.setOnClickListener(new View.OnClickListener() {
+        mRightShoulder = (Button) findViewById(R.id.male_front_shoulder_right);
+        mRightShoulder.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Shoulders");
             }
         });
 
-        leftTricepButton = (Button) findViewById(R.id.male_back_ticep_left);
-        leftTricepButton.setOnClickListener(new View.OnClickListener() {
+        mLeftTricep = (Button) findViewById(R.id.male_back_ticep_left);
+        mLeftTricep.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Triceps");
             }
         });
 
-        rightTricepButton = (Button) findViewById(R.id.male_back_ticep_right);
-        rightTricepButton.setOnClickListener(new View.OnClickListener() {
+        mRightTricep = (Button) findViewById(R.id.male_back_ticep_right);
+        mRightTricep.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Triceps");
             }
         });
+
+        mChest = (Button) findViewById(R.id.male_front_chest);
+        mChest.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Chest");
+            }
+        });
+
+        mLeftBicep = (Button) findViewById(R.id.male_front_bicep_left);
+        mLeftBicep.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Biceps");
+            }
+        });
+
+        mRightBicep = (Button) findViewById(R.id.male_front_bicep_right);
+        mRightBicep.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Biceps");
+            }
+        });
+
+        mBack = (Button) findViewById(R.id.male_back_back);
+        mBack.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Back");
+            }
+        });
+
+        mbLeftShoulder = (Button) findViewById(R.id.male_back_shoulder_left);
+        mbLeftShoulder.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Shoulders");
+            }
+        });
+
+        mbRightShoulder = (Button) findViewById(R.id.male_back_shoulder_right);
+        mbRightShoulder.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Shoulders");
+            }
+        });
+
+
+        fAbs = (Button) findViewById(R.id.female_front_abs);
+        fAbs.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Abs");
+            }
+        });
+
+        fLeg = (Button) findViewById(R.id.female_front_legs);
+        fLeg.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Leg");
+            }
+        });
+        fbLeg = (Button) findViewById(R.id.female_back_legs);
+        fbLeg.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Leg");
+            }
+        });
+
+        fButt = (Button) findViewById(R.id.female_back_butt);
+        fButt.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Butt and Hips");
+            }
+        });
+
+        fLeftShoulder = (Button) findViewById(R.id.female_front_shoulder_left);
+        fLeftShoulder.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Shoulders");
+            }
+        });
+
+        fRightShoulder = (Button) findViewById(R.id.female_front_shoulder_right);
+        fRightShoulder.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Shoulders");
+            }
+        });
+
+        fLeftTricep = (Button) findViewById(R.id.female_back_ticep_left);
+        fLeftTricep.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Triceps");
+            }
+        });
+
+        fRightTricep = (Button) findViewById(R.id.female_back_ticep_right);
+        fRightTricep.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Triceps");
+            }
+        });
+
+        fChest = (Button) findViewById(R.id.female_front_chest);
+        fChest.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Chest");
+            }
+        });
+
+        fLeftBicep = (Button) findViewById(R.id.female_front_bicep_left);
+        fLeftBicep.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Biceps");
+            }
+        });
+
+        fRightBicep = (Button) findViewById(R.id.female_front_bicep_right);
+        fRightBicep.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Biceps");
+            }
+        });
+
+        fBack = (Button) findViewById(R.id.female_back_back);
+        fBack.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Back");
+            }
+        });
+
+        fbLeftShoulder = (Button) findViewById(R.id.female_back_shoulder_left);
+        fbLeftShoulder.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Shoulders");
+            }
+        });
+
+        fbRightShoulder = (Button) findViewById(R.id.female_back_shoulder_right);
+        fbRightShoulder.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enterExerciseList("Shoulders");
+            }
+        });
+
         // todo: get gender information from profile
         db.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
             @Override
