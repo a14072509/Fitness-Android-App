@@ -175,15 +175,23 @@ public class FoodHistory extends firebaseActivity {
         db.child("Users").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                calorieNum = Integer.parseInt(dataSnapshot.child(MainActivity.toDate).child("food_list")
-                        .child(f.getName()).getValue().toString());
-                System.out.println("testname\n"+f.getName());
-                //System.out.println("test\n"+calorieNum);
-                cal = calorieNum + f.getCalorie();
-                db.child("Users").child(userID).child(MainActivity.toDate).child("food_list")
-                        .child(f.getName()).setValue(cal);
+                try {
+                    calorieNum = Integer.parseInt(dataSnapshot.child(MainActivity.toDate).child("food_list")
+                            .child(f.getName()).getValue().toString());
+                    //System.out.println("testname\n" + f.getName());
+                    //System.out.println("test\n"+calorieNum);
+                    cal = calorieNum + f.getCalorie();
+                    db.child("Users").child(userID).child(MainActivity.toDate).child("food_list")
+                            .child(f.getName()).setValue(cal);
+                }
                 //System.out.println("etasdfas\n"+f.getCalorie());
 
+                catch (Exception e) {
+                    //System.out.println("testname\n" + f.getName());
+                    //System.out.println("test\n"+calorieNum);
+                    db.child("Users").child(userID).child(MainActivity.toDate).child("food_list")
+                            .child(f.getName()).setValue(f.getCalorie());
+                }
                 //System.out.println("etes\n"+calorieNum);
             }
 

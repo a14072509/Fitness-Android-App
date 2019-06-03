@@ -72,7 +72,9 @@ public class DietPlan extends firebaseActivity {
                 String foodListStr = dataSnapshot.child("food_list").getValue().toString();
                 //System.out.println(foodListStr);
                 if(foodListStr.length() <= 4) {
-                    food = null;
+                    foodList.removeFooterView(foodList);
+                    //TODO refresh the current page
+                    
                 }
                 else {
                     food = parseStrToFoodlist(foodListStr);
@@ -187,9 +189,9 @@ public class DietPlan extends firebaseActivity {
     }
 
     private void deleteFood(Food f){
-        System.out.println("Deleting");
+        //System.out.println("Deleting");
         //TODO remove the food from today's history list
-        System.out.println("test312313\n"+f.getName());
+        //System.out.println("test312313\n"+f.getName());
         db.child("Users").child(userID).child(MainActivity.toDate).child("food_list").child(f.getName()).removeValue();
     }
 
