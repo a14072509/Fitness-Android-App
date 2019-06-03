@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:background="#4DB3ADAD"
             android:gravity="center"
-            android:text="Daily Calories:"
+            android:text="Today's Calories:"
             android:textColor="#000000"
             android:textSize="18sp" />
 
