@@ -85,6 +85,7 @@
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
+            android:singleLine="true"
             android:text="Username"
             android:textSize="24sp" />
 
@@ -124,16 +125,14 @@
                 android:layout_height="30dp"
                 android:layout_marginRight="10dp"
                 android:clickable="true"
-                android:background="@drawable/border"
                 app:srcCompat="@drawable/male_icon" />
 
             <ImageView
                 android:id="@+id/female_icon"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:clickable="true"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/border"
+                android:clickable="true"
                 app:srcCompat="@drawable/female_icon" />
         </LinearLayout>
     </RelativeLayout>
