@@ -286,6 +286,7 @@ public class WorkOut extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //System.out.println(dataSnapshot.child("Gender").getValue());
+                //db.child("Users").child(userID).child("Gender").setValue()
                 gender = Gender.valueOf(dataSnapshot.child("Gender").getValue().toString());
                 updateBodyShadow();
             }

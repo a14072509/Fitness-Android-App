@@ -35,15 +35,18 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        LocalDate localDate = LocalDate.now();
+        toDate = localDate.toString();
+
         if(mAuth.getCurrentUser() != null)
         {
             curUser = mAuth.getCurrentUser();
             userID = curUser.getUid();
-            LocalDate localDate = LocalDate.now();
-            toDate = localDate.toString();
             db.child("Users").child(userID).child(toDate).child("food_list").child(" ").setValue("");
             db.child("Users").child(userID).child(toDate).child("exercise_list").child(" ").setValue("");
             db.child("Users").child(userID).child("foodDB").child(" ").setValue("");
+            //db.child("Users").child(userID).child("Gender").setValue(Gender.UNKNOWN);
+
             //db.child("Users").child(userID).child("Photo_Path").setValue(" ");
 
         }

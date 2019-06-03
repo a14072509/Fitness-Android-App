@@ -111,11 +111,14 @@ public class login extends firebaseActivity {
                     Intent intent = new Intent(login.this, login.class);
                     startActivity(intent);
                 }
+
+                else {
+                    Intent intent = new Intent(login.this, WorkOut.class);
+                    startActivity(intent);
+                }
             }
         });
 
-        Intent intent = new Intent(this, WorkOut.class);
-        startActivity(intent);
     }
 
     private void signUp() {

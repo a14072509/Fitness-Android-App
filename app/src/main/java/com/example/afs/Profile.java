@@ -48,7 +48,7 @@ public class Profile extends AppCompatActivity {
     FirebaseStorage storage;
     StorageReference storageReference;
     private ImageButton editButton;
-    private ImageView photo;
+    public static ImageView photo;
     private ImageView genderIcon;
     private TextView ageText;
     private TextView heightText;

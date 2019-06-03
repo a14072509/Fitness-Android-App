@@ -24,8 +24,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -64,6 +67,17 @@ public class EditProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_profile);
 
+        //initialize database
+        db = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+
+        if(mAuth.getCurrentUser() != null)
+        {
+            curUser = mAuth.getCurrentUser();
+        }
+
+        userID = curUser.getUid();
+
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.edit_profile_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -78,6 +92,18 @@ public class EditProfile extends AppCompatActivity {
         femaleButton = (ImageView) findViewById(R.id.female_icon);
         maleButton = (ImageView) findViewById(R.id.male_icon);
 
+        db.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                gender = Gender.valueOf(dataSnapshot.child("Gender").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        //System.out.println(gender.toString());
         femaleButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 System.out.println("Bye");
@@ -97,17 +123,6 @@ public class EditProfile extends AppCompatActivity {
         heightText = (EditText) findViewById(R.id.edit_height);
         weightText = (EditText) findViewById(R.id.edit_weight);
         resetPassword = (Button) findViewById(R.id.change_password);
-
-        //initialize database
-        db = FirebaseDatabase.getInstance().getReference();
-        mAuth = FirebaseAuth.getInstance();
-
-        if(mAuth.getCurrentUser() != null)
-        {
-            curUser = mAuth.getCurrentUser();
-        }
-
-        userID = curUser.getUid();
 
         //profile photo part
         storage = FirebaseStorage.getInstance();
@@ -137,7 +152,6 @@ public class EditProfile extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterProfile();
-                uploadImage();
             }
         });
 
@@ -153,6 +167,7 @@ public class EditProfile extends AppCompatActivity {
         double height = 0;
         double weight = 0;
 
+        //gender = Gender.valueOf(dataSnapshot.child("Gender").getValue().toString());
         String username = usernameText.getText().toString();
 
         String ageStr = ageText.getText().toString();
@@ -179,9 +194,9 @@ public class EditProfile extends AppCompatActivity {
 
         FirebaseUser fUser = mAuth.getCurrentUser();
         UserInfo user = new UserInfo(username, weight, height, gender, age, fUser.getEmail());
+        //System.out.println(gender.toString());
         Map<String, Object> userInfoMap = user.toMap();
         db.child("Users").child(userID).updateChildren(userInfoMap);
-
 
         finish();
     }
@@ -197,27 +212,30 @@ public class EditProfile extends AppCompatActivity {
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+        System.out.println("TEst\n");
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null )
         {
             filePath = data.getData();
-            db.child("Users").child(userID).child("Photo_Path")
-                    .setValue("gs://abbt-a95ad.appspot.com/images/" + userID);
+            //db.child("Users").child(userID).child("Photo_Path").setValue("gs://abbt-a95ad.appspot.com/images/" + userID);
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                 photo.setImageBitmap(bitmap);
-                //Profile.photo.setImageBitmap(bitmap);
+                Profile.photo.setImageBitmap(bitmap);
             }
             catch (IOException e)
             {
                 e.printStackTrace();
             }
         }
+        uploadImage();
+
     }
 
     private void uploadImage() {

@@ -150,7 +150,7 @@ public class Signup extends firebaseActivity {
         user.setAge(0);
         Map<String, Object> userValue = user.toMap();
 
-        db.child("Users").child(userId).setValue(userValue);
+        db.child("Users").child(userId).updateChildren(userValue);
     }
 
 }
