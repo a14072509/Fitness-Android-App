@@ -189,7 +189,8 @@ public class DietPlan extends firebaseActivity {
     private void deleteFood(Food f){
         System.out.println("Deleting");
         //TODO remove the food from today's history list
-        db.child(userID).child(MainActivity.toDate).child("food_list").child(f.getName()).removeValue();
+        System.out.println("test312313\n"+f.getName());
+        db.child("Users").child(userID).child(MainActivity.toDate).child("food_list").child(f.getName()).removeValue();
     }
 
 }
