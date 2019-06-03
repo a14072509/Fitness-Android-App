@@ -218,6 +218,10 @@ public class Profile extends AppCompatActivity {
         intent.putExtra("age", newAge);
         intent.putExtra("height", newHeight);
         intent.putExtra("weight", newWeight);
+        if(newGender == Gender.FEMALE)
+            intent.putExtra("gender", "f");
+        else
+            intent.putExtra("gender", "m");
         startActivity(intent);
     }
 

@@ -155,6 +155,12 @@ public class EditProfile extends AppCompatActivity {
         ageText.setText(getIntent().getStringExtra("age"));
         heightText.setText(getIntent().getStringExtra("height"));
         weightText.setText(getIntent().getStringExtra("weight"));
+        String tempGender = getIntent().getStringExtra("gender");
+
+        if(tempGender.equals("f"))
+            gender = Gender.FEMALE;
+        else
+            gender = Gender.MALE;
 
         resetPassword.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
