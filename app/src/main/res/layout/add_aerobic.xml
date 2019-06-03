@@ -55,7 +55,8 @@
             android:layout_toRightOf="@+id/imageView8"
             android:gravity="center"
             android:hint="aerobic exercise you did"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:singleLine="true" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -81,7 +82,8 @@
             android:layout_toRightOf="@+id/imageView9"
             android:gravity="center"
             android:hint="calories burned"
-            android:inputType="textPersonName" />
+            android:inputType="number"
+            android:singleLine="true" />
     </RelativeLayout>
 
     <Button
