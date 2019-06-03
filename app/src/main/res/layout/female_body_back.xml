@@ -19,40 +19,40 @@
             app:srcCompat="@drawable/female_body_back" />
 
         <Button
-            android:id="@+id/ticep_left"
+            android:id="@+id/female_back_ticep_left"
             android:layout_width="22dp"
             android:layout_height="80dp"
-            android:layout_below="@+id/shoulder_left"
-            android:layout_toLeftOf="@+id/back"
+            android:layout_below="@+id/female_back_shoulder_left"
+            android:layout_toLeftOf="@+id/female_back_back"
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/ticep_right"
+            android:id="@+id/female_back_ticep_right"
             android:layout_width="22dp"
             android:layout_height="80dp"
-            android:layout_below="@+id/shoulder_right"
+            android:layout_below="@+id/female_back_shoulder_right"
             android:layout_marginRight="1dp"
-            android:layout_toRightOf="@+id/back"
+            android:layout_toRightOf="@+id/female_back_back"
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/butt"
+            android:id="@+id/female_back_butt"
             android:layout_width="80dp"
             android:layout_height="35dp"
-            android:layout_above="@+id/legs"
+            android:layout_above="@+id/female_back_legs"
             android:layout_centerHorizontal="true"
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/back"
+            android:id="@+id/female_back_back"
             android:layout_width="65dp"
             android:layout_height="95dp"
-            android:layout_above="@+id/butt"
+            android:layout_above="@+id/female_back_butt"
             android:layout_centerHorizontal="true"
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/legs"
+            android:id="@+id/female_back_legs"
             android:layout_width="65dp"
             android:layout_height="180dp"
             android:layout_alignParentBottom="true"
@@ -61,18 +61,18 @@
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/shoulder_left"
+            android:id="@+id/female_back_shoulder_left"
             android:layout_width="45dp"
             android:layout_height="20dp"
-            android:layout_above="@+id/back"
+            android:layout_above="@+id/female_back_back"
             android:layout_marginLeft="10dp"
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/shoulder_right"
+            android:id="@+id/female_back_shoulder_right"
             android:layout_width="45dp"
             android:layout_height="20dp"
-            android:layout_above="@+id/back"
+            android:layout_above="@+id/female_back_back"
             android:layout_alignRight="@+id/female_body_back"
             android:layout_marginRight="10dp"
             android:background="@android:color/transparent" />

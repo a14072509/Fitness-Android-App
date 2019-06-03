@@ -26,4 +26,8 @@
         <item name="android:textSize">30dp</item>
     </style>
 
+    <style name="Toolbar.TitleText24dp" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">24dp</item>
+    </style>
+
 </resources>

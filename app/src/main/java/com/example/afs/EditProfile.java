@@ -43,6 +43,8 @@ public class EditProfile extends AppCompatActivity {
     private EditText heightText;
     private EditText weightText;
     private EditText usernameText;
+    private ImageView femaleButton;
+    private ImageView maleButton;
     private ImageView photo;
     private Button changePhoto;
     private Button resetPassword;
@@ -51,6 +53,7 @@ public class EditProfile extends AppCompatActivity {
     private FirebaseUser curUser;
     private String userID;
     private Uri filePath;
+    private Gender gender;
     FirebaseStorage storage;
     StorageReference storageReference;
 
@@ -69,6 +72,23 @@ public class EditProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 back();
+            }
+        });
+
+        femaleButton = (ImageView) findViewById(R.id.female_icon);
+        maleButton = (ImageView) findViewById(R.id.male_icon);
+
+        femaleButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.out.println("Bye");
+                gender = Gender.FEMALE;
+            }
+        });
+
+        maleButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.out.println("Hi");
+                gender = Gender.MALE;
             }
         });
 

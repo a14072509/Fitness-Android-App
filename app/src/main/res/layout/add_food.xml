@@ -16,6 +16,7 @@
         android:theme="?attr/actionBarTheme"
         app:theme="@style/ToolbarTheme"
         app:title="Add Your Food"
+        app:titleTextAppearance="@style/Toolbar.TitleText24dp"
         app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
     <View
