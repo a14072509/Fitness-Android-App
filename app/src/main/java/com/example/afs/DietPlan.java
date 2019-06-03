@@ -71,11 +71,10 @@ public class DietPlan extends firebaseActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String foodListStr = dataSnapshot.child("food_list").getValue().toString();
                 if(foodListStr.length() <= 4) {
+                    food = new ArrayList<Food>();
+                    totalCalText.setText(String.valueOf(0));
                     DietFoodAdapter foodAdapter = new DietFoodAdapter(DietPlan.this, food, deleteMode);
                     foodList.setAdapter(foodAdapter);
-                    //TODO refresh the current page
-
-                    
                 }
                 else {
                     food = parseStrToFoodlist(foodListStr);
