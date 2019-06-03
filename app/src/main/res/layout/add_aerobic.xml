@@ -6,6 +6,13 @@
     android:background="@color/backgroundWhite"
     android:orientation="vertical">
 
+    <View
+        android:id="@+id/shadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_below="@+id/aerobicToolbar"
+        android:background="#B9B9B9" />
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/aerobicToolbar"
         android:layout_width="match_parent"
@@ -16,58 +23,73 @@
         app:theme="@style/ToolbarTheme"
         app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
-    <LinearLayout
-        android:id="@+id/aerobic_name_section"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/aerobicToolbar"
-        android:layout_marginTop="50dp"
+        android:layout_below="@+id/shadow"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/aerobics" />
+
+    <RelativeLayout
+        android:id="@+id/aerobic_name_section"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/imageView5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
             app:srcCompat="@drawable/aerobic_icon" />
 
         <EditText
             android:id="@+id/input1"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:hint="aerobic exercise name you did"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/imageView8"
+            android:gravity="center"
+            android:hint="aerobic exercise you did"
             android:inputType="textPersonName" />
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/calorie_burned_section"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/aerobic_name_section"
+        android:layout_centerHorizontal="true"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/imageView9"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
             app:srcCompat="@drawable/calorie_burned_icon" />
 
         <EditText
             android:id="@+id/input2"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/imageView9"
+            android:gravity="center"
             android:hint="calories burned"
             android:inputType="textPersonName" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <Button
         android:id="@+id/aerobic_add_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/calorie_burned_section"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:text="ADD" />
 </RelativeLayout>

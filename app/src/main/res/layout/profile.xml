@@ -208,11 +208,10 @@
 
     <Button
         android:id="@+id/logout_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:layout_above="@+id/bottom_navigation"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="70dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_style"
         android:text="Logout"

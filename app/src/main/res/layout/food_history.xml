@@ -13,7 +13,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:theme="@style/ToolbarTheme"
-        app:title="Food History"
+        app:title="Add Your Food"
         app:titleTextAppearance="@style/Toolbar.TitleText24dp"
         app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="4dp"
         android:layout_below="@+id/foodHistoryToolbar"
-        android:background="@drawable/below_shadow" />
+        android:background="#B9B9B9" />
 
     <ImageView
         android:id="@+id/imageView3"
