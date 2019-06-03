@@ -19,40 +19,40 @@
             app:srcCompat="@drawable/male_body_front" />
 
         <Button
-            android:id="@+id/abs"
+            android:id="@+id/male_front_abs"
             android:layout_width="71dp"
             android:layout_height="60dp"
-            android:layout_above="@+id/legs"
+            android:layout_above="@+id/male_front_legs"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="45dp"
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/bicep_left"
+            android:id="@+id/male_front_bicep_left"
             android:layout_width="29dp"
             android:layout_height="80dp"
-            android:layout_below="@+id/shoulder_left"
-            android:layout_toLeftOf="@+id/chest"
+            android:layout_below="@+id/male_front_shoulder_left"
+            android:layout_toLeftOf="@+id/male_front_chest"
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/bicep_right"
+            android:id="@+id/male_front_bicep_right"
             android:layout_width="29dp"
             android:layout_height="80dp"
-            android:layout_below="@+id/shoulder_right"
-            android:layout_toRightOf="@+id/chest"
+            android:layout_below="@+id/male_front_shoulder_right"
+            android:layout_toRightOf="@+id/male_front_chest"
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/chest"
+            android:id="@+id/male_front_chest"
             android:layout_width="75dp"
             android:layout_height="40dp"
-            android:layout_above="@+id/abs"
+            android:layout_above="@+id/male_front_abs"
             android:layout_centerHorizontal="true"
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/legs"
+            android:id="@+id/male_front_legs"
             android:layout_width="65dp"
             android:layout_height="170dp"
             android:layout_alignParentBottom="true"
@@ -61,19 +61,19 @@
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/shoulder_left"
+            android:id="@+id/male_front_shoulder_left"
             android:layout_width="45dp"
             android:layout_height="20dp"
-            android:layout_above="@+id/chest"
+            android:layout_above="@+id/male_front_chest"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="5dp"
             android:background="@android:color/transparent" />
 
         <Button
-            android:id="@+id/shoulder_right"
+            android:id="@+id/male_front_shoulder_right"
             android:layout_width="45dp"
             android:layout_height="20dp"
-            android:layout_above="@+id/chest"
+            android:layout_above="@+id/male_front_chest"
             android:layout_alignRight="@+id/male_body_front"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"

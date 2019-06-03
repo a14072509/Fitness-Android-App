@@ -27,7 +27,7 @@ public class CalInfo extends firebaseActivity {
     private TextView takenCalorie;
     private TextView burntCalorie;
     private TextView resultCalorie;
-    private TextView dateView;
+    //private TextView dateView;
     private List<Food> food;
     private List<Food> exer;
     private DatabaseReference db;
@@ -47,8 +47,8 @@ public class CalInfo extends firebaseActivity {
         String dateText = getIntent().getStringExtra("date");
 
         System.out.println(dateText);
-        dateView = (TextView)findViewById(R.id.date);
-        dateView.setText(dateText);
+        //dateView = (TextView)findViewById(R.id.date);
+        //dateView.setText(dateText);
 
         db = FirebaseDatabase.getInstance().getReference();
 
@@ -157,6 +157,8 @@ public class CalInfo extends firebaseActivity {
             public void onClick(View v) {back();
             }
         });
+
+        getSupportActionBar().setTitle(dateText);
     }
 
     private void back() {

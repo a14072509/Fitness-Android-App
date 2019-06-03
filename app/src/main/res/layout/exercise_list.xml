@@ -12,10 +12,10 @@
         android:background="@drawable/toolbar_grad_yellow"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        app:theme="@style/ToolbarTheme"
         app:title="Exercise List"
-        app:titleTextColor="#ffffff"
-        app:theme="@style/ToolbarTheme" >
-    </android.support.v7.widget.Toolbar>
+        app:titleTextAppearance="@style/Toolbar.TitleText24dp"
+        app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
     <View
         android:id="@+id/shadow"

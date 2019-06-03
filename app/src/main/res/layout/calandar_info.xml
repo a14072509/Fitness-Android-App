@@ -6,14 +6,6 @@
     android:background="@color/backgroundWhite"
     android:orientation="vertical">
 
-    <View
-        android:id="@+id/shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="4dp"
-        android:layout_below="@+id/calInfoToolbar"
-        android:background="@drawable/below_shadow"
-        android:elevation="1dp" />
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/calInfoToolbar"
         android:layout_width="match_parent"
@@ -23,24 +15,53 @@
         android:theme="?attr/actionBarTheme"
         app:theme="@style/ToolbarTheme"
         app:title="Daily Detail"
+        app:titleTextAppearance="@style/Toolbar.TitleText24dp"
         app:titleTextColor="#ffffff"></android.support.v7.widget.Toolbar>
 
-    <TextView
-        android:id="@+id/date"
+    <View
+        android:id="@+id/shadow"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="4dp"
         android:layout_below="@+id/calInfoToolbar"
-        android:layout_marginLeft="65dp"
-        android:layout_marginTop="10dp"
-        android:text="date goes here"
-        android:textColor="#000000"
-        android:textSize="24sp" />
+        android:background="@drawable/below_shadow"
+        android:elevation="1dp" />
+
+    <LinearLayout
+        android:id="@+id/result_container"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/shadow"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:background="#4DB3ADAD"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Total Calories:"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/result_calorie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/underline"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:text="cal"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/notebook_page_1"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
         android:layout_below="@+id/result_container"
+        android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         app:srcCompat="@drawable/notebook_page" />
 
@@ -159,34 +180,6 @@
         android:layout_marginBottom="20dp"
         android:divider="#ffffff"
         android:dividerHeight="1dp" />
-
-    <LinearLayout
-        android:id="@+id/result_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/date"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:padding="10dp"
-            android:text="Total Calories:"
-            android:textColor="#000000"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/result_calorie"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:inputType="textPersonName"
-            android:text="cal"
-            android:textColor="#000000"
-            android:textSize="24sp" />
-    </LinearLayout>
 
     <View
         android:id="@+id/divider2"

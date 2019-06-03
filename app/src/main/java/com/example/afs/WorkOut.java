@@ -65,14 +65,14 @@ public class WorkOut extends AppCompatActivity {
                 enterExerciseList("Leg");
             }
         });
-        absButton = (Button) findViewById(R.id.abs);
+        absButton = (Button) findViewById(R.id.male_front_abs);
         absButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Abs");
             }
         });
 
-        legButton = (Button) findViewById(R.id.legs);
+        legButton = (Button) findViewById(R.id.male_front_legs);
         legButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Leg");
@@ -85,21 +85,21 @@ public class WorkOut extends AppCompatActivity {
             }
         });
 
-        buttButton = (Button) findViewById(R.id.butt);
+        buttButton = (Button) findViewById(R.id.male_back_butt);
         buttButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Butt and Hips");
             }
         });
 
-        leftShoulderButton = (Button) findViewById(R.id.shoulder_left);
+        leftShoulderButton = (Button) findViewById(R.id.male_back_shoulder_left);
         leftShoulderButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Shoulders");
             }
         });
 
-        rightShoulderButton = (Button) findViewById(R.id.shoulder_right);
+        rightShoulderButton = (Button) findViewById(R.id.male_back_shoulder_right);
         rightShoulderButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Shoulders");
