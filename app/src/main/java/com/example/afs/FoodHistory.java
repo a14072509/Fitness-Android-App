@@ -33,6 +33,7 @@ public class FoodHistory extends firebaseActivity {
     private String userID;
     private RelativeLayout addItemText;
     private int calorieNum;
+    private int cal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +87,7 @@ public class FoodHistory extends firebaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Food clickedObj =  (Food)parent.getItemAtPosition(position);
-                System.out.println("tapped\n\n"+clickedObj);
+                //System.out.println("tapped\n\n"+clickedObj);
                 addFood(clickedObj);
             }
         });
@@ -171,17 +172,19 @@ public class FoodHistory extends firebaseActivity {
 
     private void addFood(final Food f) {
         //TODO add the food selected to the database
-        db.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
+        db.child("Users").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                calorieNum = Integer.parseInt(dataSnapshot.child(MainActivity.toDate)
-                        .child("food_list").child(f.getName()).getValue().toString());
-                final int cal = calorieNum + f.getCalorie();
+                calorieNum = Integer.parseInt(dataSnapshot.child(MainActivity.toDate).child("food_list")
+                        .child(f.getName()).getValue().toString());
+                System.out.println("testname\n"+f.getName());
+                //System.out.println("test\n"+calorieNum);
+                cal = calorieNum + f.getCalorie();
                 db.child("Users").child(userID).child(MainActivity.toDate).child("food_list")
                         .child(f.getName()).setValue(cal);
-                System.out.println("etasdfas\n"+f.getCalorie());
+                //System.out.println("etasdfas\n"+f.getCalorie());
 
-                System.out.println("etes\n"+calorieNum);
+                //System.out.println("etes\n"+calorieNum);
             }
 
             @Override
@@ -189,14 +192,11 @@ public class FoodHistory extends firebaseActivity {
 
             }
         });
-
-
-
-        finish();
         /*else {
             db.child("Users").child(userID).child(MainActivity.toDate).child("food_list")
                     .child(f.getName()).setValue()
         }*/
+        finish();
 
     }
 }

@@ -71,7 +71,6 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
 
-
         db = FirebaseDatabase.getInstance().getReference();
 
         mAuth = FirebaseAuth.getInstance();
