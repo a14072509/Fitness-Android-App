@@ -23,6 +23,7 @@
         <activity android:name=".EquipmentInfo"/>
         <activity android:name=".ExeToCal"/>
         <activity android:name=".ForgetPassword"/>
+        <activity android:name=".AerobicToCal"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
