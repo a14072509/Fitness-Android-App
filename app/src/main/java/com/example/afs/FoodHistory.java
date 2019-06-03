@@ -32,6 +32,7 @@ public class FoodHistory extends firebaseActivity {
     private FirebaseUser curUser;
     private String userID;
     private RelativeLayout addItemText;
+    private int calorieNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,12 +169,34 @@ public class FoodHistory extends firebaseActivity {
         foodList.setAdapter(foodAdapter);
     }
 
-    private void addFood(Food f) {
-
+    private void addFood(final Food f) {
         //TODO add the food selected to the database
-        db.child("Users").child(userID).child(MainActivity.toDate).child("food_list")
-                .child(f.getName()).setValue(f.getCalorie());
+        db.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                calorieNum = Integer.parseInt(dataSnapshot.child(MainActivity.toDate)
+                        .child("food_list").child(f.getName()).getValue().toString());
+                final int cal = calorieNum + f.getCalorie();
+                db.child("Users").child(userID).child(MainActivity.toDate).child("food_list")
+                        .child(f.getName()).setValue(cal);
+                System.out.println("etasdfas\n"+f.getCalorie());
+
+                System.out.println("etes\n"+calorieNum);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
         finish();
+        /*else {
+            db.child("Users").child(userID).child(MainActivity.toDate).child("food_list")
+                    .child(f.getName()).setValue()
+        }*/
 
     }
 }
