@@ -82,6 +82,8 @@ public class EditProfile extends AppCompatActivity {
             public void onClick(View v) {
                 System.out.println("Bye");
                 gender = Gender.FEMALE;
+                femaleButton.setBackgroundResource(R.drawable.border);
+                maleButton.setBackgroundColor(Color.TRANSPARENT);
             }
         });
 
@@ -89,6 +91,8 @@ public class EditProfile extends AppCompatActivity {
             public void onClick(View v) {
                 System.out.println("Hi");
                 gender = Gender.MALE;
+                maleButton.setBackgroundResource(R.drawable.border);
+                femaleButton.setBackgroundColor(Color.TRANSPARENT);
             }
         });
 
