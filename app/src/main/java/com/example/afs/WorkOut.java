@@ -78,7 +78,7 @@ public class WorkOut extends AppCompatActivity {
                 enterExerciseList("Leg");
             }
         });
-        blegButton = (Button) findViewById(R.id.b_legs);
+        blegButton = (Button) findViewById(R.id.male_back_legs);
         blegButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Leg");
@@ -106,14 +106,14 @@ public class WorkOut extends AppCompatActivity {
             }
         });
 
-        leftTricepButton = (Button) findViewById(R.id.ticep_left);
+        leftTricepButton = (Button) findViewById(R.id.male_back_ticep_left);
         leftTricepButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Triceps");
             }
         });
 
-        rightTricepButton = (Button) findViewById(R.id.ticep_right);
+        rightTricepButton = (Button) findViewById(R.id.male_back_ticep_right);
         rightTricepButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 enterExerciseList("Triceps");
