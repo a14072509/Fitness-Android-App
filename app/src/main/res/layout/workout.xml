@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@color/backgroundWhite">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/workout_toolbar"
@@ -55,14 +55,14 @@
     <RelativeLayout
         android:id="@+id/fixed"
         android:layout_width="match_parent"
-        android:layout_height="420dp"
-        android:layout_below="@+id/divider"
-        android:layout_marginTop="10dp">
+        android:layout_height="440dp"
+        android:layout_below="@+id/divider">
 
         <RelativeLayout
             android:id="@+id/male_front_section"
             android:layout_width="match_parent"
             android:layout_height="420dp"
+            android:layout_centerVertical="true"
             android:orientation="vertical">
 
             <include layout="@layout/male_body_front" />
@@ -71,7 +71,8 @@
         <RelativeLayout
             android:id="@+id/male_back_section"
             android:layout_width="match_parent"
-            android:layout_height="420dp">
+            android:layout_height="420dp"
+            android:layout_centerVertical="true">
 
             <include layout="@layout/male_body_back" />
         </RelativeLayout>
@@ -79,7 +80,8 @@
         <RelativeLayout
             android:id="@+id/female_front_section"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="420dp"
+            android:layout_centerVertical="true">
 
             <include layout="@layout/female_body_front" />
         </RelativeLayout>
@@ -87,7 +89,8 @@
         <RelativeLayout
             android:id="@+id/female_back_section"
             android:layout_width="match_parent"
-            android:layout_height="420dp">
+            android:layout_height="420dp"
+            android:layout_centerVertical="true">
 
             <include layout="@layout/female_body_back" />
         </RelativeLayout>
@@ -99,7 +102,6 @@
         android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:layout_below="@+id/fixed"
-        android:layout_marginTop="10dp"
         android:background="@android:color/black" />
 
     <RelativeLayout

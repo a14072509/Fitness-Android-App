@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="110dp"
+        android:layout_marginRight="140dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:text="cal:"
@@ -31,7 +31,7 @@
 
     <TextView
         android:id="@+id/calorieTextView"
-        android:layout_width="50dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="50dp"
