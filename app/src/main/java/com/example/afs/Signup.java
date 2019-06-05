@@ -10,6 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
 import android.util.Log;
 import android.view.View;
@@ -74,30 +75,50 @@ public class Signup extends firebaseActivity {
         confirmInput = (EditText)findViewById(R.id.confirmInput);
         passwordInput = (EditText)findViewById(R.id.passwordInput);
 
+        if (TextUtils.isEmpty(emailInput.getText().toString())) {
+            emailInput.setError("Required");
+            return;
+        } else {
+            emailInput.setError(null);
+        }
+        int index = emailInput.getText().toString().indexOf("@");
+
+        if (index == -1 || index == 0 || index == emailInput.getText().toString().length()-1) {
+            emailInput.setError("Invalid");
+            return;
+        } else {
+            emailInput.setError(null);
+        }
+
+
+
+        if (TextUtils.isEmpty(passwordInput.getText().toString())) {
+            passwordInput.setError("Required");
+            return;
+        } else {
+            passwordInput.setError(null);
+        }
+
+        if (TextUtils.isEmpty(confirmInput.getText().toString())) {
+            confirmInput.setError("Required");
+            return;
+        } else {
+            confirmInput.setError(null);
+        }
+
+        if (!confirmInput.getText().toString().equals(passwordInput.getText().toString())) {
+            confirmInput.setError("Mismatch");
+            return;
+        } else {
+            confirmInput.setError(null);
+        }
+
         String email = emailInput.getText().toString();
         String password = passwordInput.getText().toString();
         String confirm = confirmInput.getText().toString();
 
-        //basic format check
-        int indexOfAt = email.indexOf("@");
-        if(indexOfAt == -1 || indexOfAt == 0 ||
-                indexOfAt == email.length()-1 || email.indexOf(" ") != -1)
-        {
-            emailInput.setText("");
-            emailInput.setHint("Invalid email format");
-            return;
-        }
-        if(password.length() == 0)
-        {
-            passwordInput.setText("");
-            passwordInput.setHint("Cannot be empty");
-            return;
-        }
-        if(!confirm.equals(password)) {
-            confirmInput.setText("");
-            confirmInput.setHint("Doesn't match.");
-            return;
-        }
+
+
         //TODO check with database
 
         mAuth.createUserWithEmailAndPassword(email, password)
