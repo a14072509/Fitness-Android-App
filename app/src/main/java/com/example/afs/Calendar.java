@@ -68,7 +68,7 @@ public class Calendar extends firebaseActivity {
         String temp = selDate.toString();
         temp = temp.substring(temp.lastIndexOf(" ")+1);
 
-        selDateText = getMonthString(selDate.getMonth()+1) + " " + selDate.getDate() + " " + temp;
+        selDateText = getMonthString(selDate.getMonth()+1) + " " + selDate.getDate() + ", " + temp;
         calinfo = (Button) findViewById(R.id.detail);
         calinfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -81,7 +81,7 @@ public class Calendar extends firebaseActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
-                selDateText = getMonthString(month+1) + " " + dayOfMonth + " " + year;
+                selDateText = getMonthString(month+1) + " " + dayOfMonth + ", " + year;
                 System.out.println("test date\n"+selDateText);
             }
         });

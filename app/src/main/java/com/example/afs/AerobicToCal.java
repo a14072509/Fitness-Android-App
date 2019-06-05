@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,6 +64,19 @@ public class AerobicToCal extends AppCompatActivity {
         addExer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (TextUtils.isEmpty(input1.getText().toString())) {
+                    input1.setError("Required");
+                    return;
+                } else {
+                    input1.setError(null);
+                }
+
+                if (TextUtils.isEmpty(input2.getText().toString())) {
+                    input2.setError("Required");
+                    return;
+                } else {
+                    input2.setError(null);
+                }
                 Food food = new Food(input1.getText().toString(), Integer.parseInt(input2.getText().toString()));
                 add(food);
                 finish();

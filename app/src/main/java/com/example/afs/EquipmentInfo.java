@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -120,7 +121,16 @@ public class EquipmentInfo extends AppCompatActivity {
     private void addExer()
     {
         try {
+
+
             minInput = (EditText)findViewById(R.id.time_input);
+
+            if (TextUtils.isEmpty(minInput.getText().toString())) {
+                minInput.setError("Required");
+                return;
+            } else {
+                minInput.setError(null);
+            }
 
             final String name = getIntent().getStringExtra("name");
 

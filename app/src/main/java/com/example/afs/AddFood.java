@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -66,6 +67,20 @@ public class AddFood extends AppCompatActivity {
     public void add() {
         EditText foodName = (EditText)findViewById(R.id.foodName);
         EditText foodCalorie = (EditText)findViewById(R.id.foodCalorie);
+
+        if (TextUtils.isEmpty(foodName.getText().toString())) {
+            foodName.setError("Required");
+            return;
+        } else {
+            foodName.setError(null);
+        }
+
+        if (TextUtils.isEmpty(foodCalorie.getText().toString())) {
+            foodCalorie.setError("Required");
+            return;
+        } else {
+            foodCalorie.setError(null);
+        }
 
         try {
 
