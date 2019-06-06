@@ -143,5 +143,9 @@ public class login extends firebaseActivity {
         return result;
     }
 
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(false);
+    }
 
 }

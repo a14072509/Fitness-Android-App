@@ -26,6 +26,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.Date;
 import java.util.List;
 
@@ -42,6 +44,7 @@ public class Calendar extends firebaseActivity {
     private List<Food> exer;
     private int caloriesTaken;
     private int caloriesBurned;
+    private TextView todayCalorie;
 
 
     @Override
@@ -68,7 +71,7 @@ public class Calendar extends firebaseActivity {
         String temp = selDate.toString();
         temp = temp.substring(temp.lastIndexOf(" ")+1);
 
-        selDateText = getMonthString(selDate.getMonth()+1) + " " + selDate.getDate() + ", " + temp;
+        selDateText = getMonthString(selDate.getMonth()+1) + " " + selDate.getDate() + " " + temp;
         calinfo = (Button) findViewById(R.id.detail);
         calinfo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -81,8 +84,67 @@ public class Calendar extends firebaseActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
-                selDateText = getMonthString(month+1) + " " + dayOfMonth + ", " + year;
-                System.out.println("test date\n"+selDateText);
+                final String newDateText;
+                selDateText = getMonthString(month+1) + " " + dayOfMonth + " " + year;
+                newDateText = dateForm(year, month, dayOfMonth);
+                //System.out.println("test date\n"+ newDateText);
+                db.child("Users").child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String foodListStr = "";
+                        String exerListStr = "";
+                        todayCalorie = (TextView)findViewById(R.id.daily_cal);
+                        int age = Integer.parseInt(dataSnapshot.child("age").getValue().toString());
+                        double height = Double.parseDouble(dataSnapshot.child("height").getValue().toString());
+                        double weight = Double.parseDouble(dataSnapshot.child("weight").getValue().toString());
+                        Gender gender = Gender.valueOf(dataSnapshot.child("Gender").getValue().toString());
+                        double BMR;
+                        if(gender == Gender.FEMALE)
+                        {
+                            BMR = 655 + 4.3 * weight + 4.7 * 12 * height - 4.7 * age;
+                        }
+                        else
+                        {
+                            BMR = 66 + 6.3 * weight + 12.9 * 12 * height - 6.8 * age;
+                        }
+                        try {
+                            foodListStr = dataSnapshot.child(newDateText).child("food_list").getValue().toString();
+                            exerListStr = dataSnapshot.child(newDateText).child("exercise_list").getValue().toString();
+                            if(foodListStr.length() <= 4) {
+                                food = null;
+                                caloriesTaken = 0;
+                            }
+                            else {
+                                food = parseStrToFoodlist(foodListStr);
+                                caloriesTaken = calculateCalories(foodListStr);
+
+                            }
+
+                            if(exerListStr.length() <= 4) {
+                                exer = null;
+                                caloriesBurned = 0;
+                            }
+                            else {
+                                exer = parseStrToFoodlist(exerListStr);
+                                caloriesBurned = calculateCalories(exerListStr);
+                            }
+
+                            System.out.println("test daily cal\n" + caloriesBurned + caloriesTaken + BMR);
+                            todayCalorie.setText("" + (caloriesTaken - caloriesBurned - BMR));
+                        }
+                        catch (Exception e) {
+                            todayCalorie.setText("-" + BMR);
+                        }
+
+                        //System.out.println(foodListStr);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
 
@@ -226,6 +288,24 @@ public class Calendar extends firebaseActivity {
                 return "December";
         }
         return "Unknown";
+    }
+
+    private String dateForm(int year, int month, int dayOfMonth) {
+        String retStr = "";
+        if(month < 10) {
+            if(dayOfMonth < 10) {
+                retStr = year + "-" + "0" + (month+1) + "-" + "0" + dayOfMonth;
+            }
+            else retStr = year + "-" + "0" + (month+1) + "-" + dayOfMonth;
+
+        }
+        else {
+            if(dayOfMonth < 10) {
+                retStr = year + "-" + "0" + (month+1) + "-" + "0" + dayOfMonth;
+            }
+            else retStr = year + "-" + "0" + (month+1) + "-" + dayOfMonth;
+        }
+        return retStr;
     }
 }
 
