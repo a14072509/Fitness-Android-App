@@ -119,7 +119,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
             android:gravity="center"
-            android:text="Add A Aerobic Exercise To Calendar"
+            android:text="Add An Aerobic Exercise To Calendar"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 

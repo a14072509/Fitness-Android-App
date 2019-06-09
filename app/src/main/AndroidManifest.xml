@@ -21,7 +21,6 @@
         <activity android:name=".EditProfile"/>
         <activity android:name=".CalInfo"/>
         <activity android:name=".EquipmentInfo"/>
-        <activity android:name=".ExeToCal"/>
         <activity android:name=".ForgetPassword"/>
         <activity android:name=".AerobicToCal"/>
         <activity

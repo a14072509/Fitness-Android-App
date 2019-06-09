@@ -126,8 +126,17 @@ public class login extends firebaseActivity {
 
     private boolean validateForm() {
         boolean result = true;
+
         if (TextUtils.isEmpty(emailInput.getText().toString())) {
             emailInput.setError("Required");
+            result = false;
+        } else {
+            emailInput.setError(null);
+        }
+        int index = emailInput.getText().toString().indexOf("@");
+
+        if (index == -1 || index == 0 || index == emailInput.getText().toString().length()-1) {
+            emailInput.setError("Invalid");
             result = false;
         } else {
             emailInput.setError(null);

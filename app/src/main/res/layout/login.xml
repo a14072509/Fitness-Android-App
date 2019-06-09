@@ -75,7 +75,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:clickable="true"
-            android:text="Forget Password?"
+            android:text="Forgot Password?"
             android:textColor="#ffffff"
             android:textSize="18sp" />
 

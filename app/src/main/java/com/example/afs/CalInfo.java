@@ -27,7 +27,6 @@ public class CalInfo extends firebaseActivity {
     private TextView takenCalorie;
     private TextView burntCalorie;
     public static TextView resultCalorie;
-    //private TextView dateView;
     private List<Food> food;
     private List<Food> exer;
     private DatabaseReference db;
@@ -47,8 +46,6 @@ public class CalInfo extends firebaseActivity {
         String dateText = getIntent().getStringExtra("date");
 
         System.out.println(dateText);
-        //dateView = (TextView)findViewById(R.id.date);
-        //dateView.setText(dateText);
 
         db = FirebaseDatabase.getInstance().getReference();
 
@@ -114,42 +111,7 @@ public class CalInfo extends firebaseActivity {
                     }
                 });
 
-        //test
-        //hist = new History(date, 500);
-
-        //hist.addFood("Apple", 500);
-        //hist.addFood("Pear", 20);
-        //hist.addExercise("Bird-dog", 1000);
-        //hist.addExercise("Push_up", 300);
-        //hist.addExercise("Running", 500);
-        //hist.addExercise("Pull-up", 300);
-
-        //set up the adapters
-        //Map<String, Integer> foodDB = hist.getFood();
-        //Map<String, Integer> exerDB = hist.getExercise();
-
-        //food = new ArrayList<Food>();
-        //exer = new ArrayList<Food>();
-
-        //for(String f : foodDB.keySet())
-            //food.add(new Food(f, foodDB.get(f)));
-        //for(String e : exerDB.keySet())
-        //    exer.add(new Food(e, exerDB.get(e)));
-
-        /*foodList = (ListView)findViewById(R.id.taken_calorie_list);
-        takenCalorie = (TextView)findViewById(R.id.taken_calorie);
-        FoodAdapter foodAdapter = new FoodAdapter(getApplicationContext(), food);
-        foodList.setAdapter(foodAdapter);
-        takenCalorie.setText("" + hist.getCalTaken());*/
-
-        /*exerList = (ListView)findViewById(R.id.burnt_calorie_list);
-        burntCalorie = (TextView)findViewById(R.id.burnt_calorie);
-        FoodAdapter exerAdapter = new FoodAdapter(getApplicationContext(), exer, "c");
-        exerList.setAdapter(exerAdapter);
-        burntCalorie.setText("" + hist.getCalSpent());*/
-
-        //resultCalorie = (TextView)findViewById(R.id.result_calorie);
-        //resultCalorie.setText("" + );
+        String[] text = dateText.split(" ");
 
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.calInfoToolbar);
         setSupportActionBar(toolbar);
@@ -162,12 +124,11 @@ public class CalInfo extends firebaseActivity {
             }
         });
 
-        getSupportActionBar().setTitle(dateText);
+        getSupportActionBar().setTitle(text[0] + " " + text[1] + ", " + text[2]);
     }
 
     private void back() {
-        Intent intent = new Intent(this, Calendar.class);
-        startActivity(intent);
+        finish();
     }
 
 }
