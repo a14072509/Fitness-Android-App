@@ -58,11 +58,12 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/imageView7"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789() "
             android:ems="10"
             android:gravity="center"
             android:hint="name of the food"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789() "
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:singleLine="true" />
     </RelativeLayout>
 
     <RelativeLayout
