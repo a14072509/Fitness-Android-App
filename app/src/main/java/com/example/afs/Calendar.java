@@ -98,14 +98,14 @@ public class Calendar extends firebaseActivity {
                         double height = Double.parseDouble(dataSnapshot.child("height").getValue().toString());
                         double weight = Double.parseDouble(dataSnapshot.child("weight").getValue().toString());
                         Gender gender = Gender.valueOf(dataSnapshot.child("Gender").getValue().toString());
-                        double BMR;
+                        int BMR;
                         if(gender == Gender.FEMALE)
                         {
-                            BMR = 655 + 4.3 * weight + 4.7 * 12 * height - 4.7 * age;
+                            BMR = (int)(655 + 4.3 * weight + 4.7 * 12 * height - 4.7 * age);
                         }
                         else
                         {
-                            BMR = 66 + 6.3 * weight + 12.9 * 12 * height - 6.8 * age;
+                            BMR = (int)(66 + 6.3 * weight + 12.9 * 12 * height - 6.8 * age);
                         }
                         try {
                             foodListStr = dataSnapshot.child(newDateText).child("food_list").getValue().toString();
@@ -158,14 +158,14 @@ public class Calendar extends firebaseActivity {
                         double weight = Double.parseDouble(dataSnapshot.child("weight").getValue().toString());
                         Gender gender = Gender.valueOf(dataSnapshot.child("Gender").getValue().toString());
 
-                        double BMR;
+                        int BMR;
                         if(gender == Gender.FEMALE)
                         {
-                            BMR = 655 + 4.3 * weight + 4.7 * 12 * height - 4.7 * age;
+                            BMR = (int)(655 + 4.3 * weight + 4.7 * 12 * height - 4.7 * age);
                         }
                         else
                         {
-                            BMR = 66 + 6.3 * weight + 12.9 * 12 * height - 6.8 * age;
+                            BMR = (int)(66 + 6.3 * weight + 12.9 * 12 * height - 6.8 * age);
                         }
 
                         String foodListStr = dataSnapshot.child(MainActivity.toDate)
@@ -194,7 +194,7 @@ public class Calendar extends firebaseActivity {
                         //System.out.println(foodListStr);
 
                         dailyCalorie = (TextView)findViewById(R.id.daily_cal);
-                        String dailyCalorieText = String.format("%.2f", (caloriesTaken - caloriesBurned - BMR));
+                        String dailyCalorieText = caloriesTaken - caloriesBurned - BMR + "";
                         dailyCalorie.setText(dailyCalorieText);
 
                     }

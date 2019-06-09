@@ -240,13 +240,13 @@ public class Profile extends AppCompatActivity {
             String BMRStr;
             if(gender == Gender.FEMALE)
             {
-                double BMR = 655 + 4.3 * weightV + 4.7 * 12 * heightV - 4.7 * ageV;
-                BMRStr = String.format("%.2f", BMR);
+                int BMR = (int)(655 + 4.3 * weightV + 4.7 * 12 * heightV - 4.7 * ageV);
+                BMRStr = "" + BMR;
             }
             else
             {
-                double BMR = 66 + 6.3 * weightV + 12.9 * 12 * heightV - 6.8 * ageV;
-                BMRStr = String.format("%.2f", BMR);
+                int BMR = (int)(66 + 6.3 * weightV + 12.9 * 12 * heightV - 6.8 * ageV);
+                BMRStr = "" + BMR;
             }
             BMRText.setText(BMRStr);
         }
