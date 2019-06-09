@@ -66,4 +66,10 @@ public class ForgetPassword extends AppCompatActivity {
         Intent intent = new Intent(this, login.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 }

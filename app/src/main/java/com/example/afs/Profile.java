@@ -156,6 +156,7 @@ public class Profile extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(Profile.this, login.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
 
@@ -181,21 +182,25 @@ public class Profile extends AppCompatActivity {
                     case R.id.nav_workout:
                         Intent intent1 = new Intent(Profile.this, WorkOut.class);
                         startActivity(intent1);
+                        overridePendingTransition(0, 0);
                         break;
 
                     case R.id.nav_dietplan:
                         Intent intent2 = new Intent(Profile.this, DietPlan.class);
                         startActivity(intent2);
+                        overridePendingTransition(0, 0);
                         break;
 
                     case R.id.nav_calendar:
                         Intent intent3 = new Intent(Profile.this, Calendar.class);
                         startActivity(intent3);
+                        overridePendingTransition(0, 0);
                         break;
 
                     case R.id.nav_profile:
                         Intent intent4 = new Intent(Profile.this, Profile.class);
                         startActivity(intent4);
+                        overridePendingTransition(0, 0);
                         break;
                 }
 
@@ -222,12 +227,7 @@ public class Profile extends AppCompatActivity {
         else
             intent.putExtra("gender", "m");
         startActivity(intent);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        overridePendingTransition(0, 0);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void updateBMI(Gender gender, String age, String height, String weight)

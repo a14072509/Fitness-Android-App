@@ -189,6 +189,7 @@ public class EditProfile extends AppCompatActivity {
     private void back() {
         Intent intent = new Intent(this, Profile.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     private void enterProfile() {
@@ -228,12 +229,7 @@ public class EditProfile extends AppCompatActivity {
         db.child("Users").child(userID).updateChildren(userInfoMap);
 
         finish();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        overridePendingTransition(0, 0);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     private void chooseImage() {
@@ -320,6 +316,11 @@ public class EditProfile extends AppCompatActivity {
         // [END send_password_reset]
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 
 }
 

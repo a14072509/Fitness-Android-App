@@ -174,4 +174,9 @@ public class Signup extends firebaseActivity {
         db.child("Users").child(userId).updateChildren(userValue);
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 }

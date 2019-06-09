@@ -54,6 +54,7 @@ public class ExerciseList extends AppCompatActivity {
     private void back() {
         Intent intent = new Intent(this, WorkOut.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     private void exerDetail(Exercise e) {
@@ -64,6 +65,7 @@ public class ExerciseList extends AppCompatActivity {
         intent.putExtra("image", e.getImagePath());
         intent.putExtra("met", e.getMet());
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void updateExerciseAdapter(List<Exercise> exerciseList)
@@ -77,4 +79,9 @@ public class ExerciseList extends AppCompatActivity {
         exerList.setAdapter(exerciseAdapter);
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 }

@@ -117,11 +117,13 @@ public class login extends firebaseActivity {
     private void signUp() {
         Intent intent = new Intent(this, Signup.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void resetPassword() {
         Intent intent = new Intent(this, ForgetPassword.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private boolean validateForm() {
@@ -154,7 +156,7 @@ public class login extends firebaseActivity {
 
     @Override
     public void onBackPressed() {
-        moveTaskToBack(false);
+        moveTaskToBack(true);
     }
 
 }

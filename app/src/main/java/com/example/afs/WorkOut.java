@@ -334,21 +334,25 @@ public class WorkOut extends AppCompatActivity {
                     case R.id.nav_workout:
                         Intent intent1 = new Intent(WorkOut.this, WorkOut.class);
                         startActivity(intent1);
+                        overridePendingTransition(0,0);
                         break;
 
                     case R.id.nav_dietplan:
                         Intent intent2 = new Intent(WorkOut.this, DietPlan.class);
                         startActivity(intent2);
+                        overridePendingTransition(0,0);
                         break;
 
                     case R.id.nav_calendar:
                         Intent intent3 = new Intent(WorkOut.this, Calendar.class);
                         startActivity(intent3);
+                        overridePendingTransition(0,0);
                         break;
 
                     case R.id.nav_profile:
                         Intent intent4 = new Intent(WorkOut.this, Profile.class);
                         startActivity(intent4);
+                        overridePendingTransition(0,0);
                         break;
                 }
 
@@ -367,17 +371,13 @@ public class WorkOut extends AppCompatActivity {
         System.out.println(body);
         intent.putExtra("body", body);
         startActivity(intent);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        overridePendingTransition(0, 0);
+        overridePendingTransition(0,0);
     }
 
     public void aerobic() {
         Intent intent = new Intent(this, AerobicToCal.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void updateFrontBack() { front = !front; }

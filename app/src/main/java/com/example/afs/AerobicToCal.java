@@ -80,6 +80,7 @@ public class AerobicToCal extends AppCompatActivity {
                 Food food = new Food(input1.getText().toString(), Integer.parseInt(input2.getText().toString()));
                 add(food);
                 finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
     }
@@ -87,6 +88,7 @@ public class AerobicToCal extends AppCompatActivity {
     private void back() {
         Intent intent = new Intent(this, WorkOut.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     private void add(final Food f) {
@@ -118,5 +120,11 @@ public class AerobicToCal extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }

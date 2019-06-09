@@ -67,6 +67,7 @@ public class EquipmentInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
 
@@ -75,6 +76,7 @@ public class EquipmentInfo extends AppCompatActivity {
         addExerButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 addExer();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
 
@@ -193,6 +195,12 @@ public class EquipmentInfo extends AppCompatActivity {
             return;
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
 }

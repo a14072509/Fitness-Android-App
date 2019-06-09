@@ -155,10 +155,12 @@ public class FoodHistory extends firebaseActivity {
     private void addItem() {
         Intent intent = new Intent(this, AddFood.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void back() {
         finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     private void updateFoodAdapter(List<Food> food)
@@ -207,5 +209,11 @@ public class FoodHistory extends firebaseActivity {
         }*/
         finish();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }

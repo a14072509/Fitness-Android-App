@@ -59,6 +59,7 @@ public class AddFood extends AppCompatActivity {
     private void back() {
         Intent intent = new Intent(this, DietPlan.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
     /**
@@ -102,5 +103,11 @@ public class AddFood extends AppCompatActivity {
             foodCalorie.setText("");
             return;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }

@@ -217,21 +217,25 @@ public class Calendar extends firebaseActivity {
                     case R.id.nav_workout:
                         Intent intent1 = new Intent(Calendar.this, WorkOut.class);
                         startActivity(intent1);
+                        overridePendingTransition(0, 0);
                         break;
 
                     case R.id.nav_dietplan:
                         Intent intent2 = new Intent(Calendar.this, DietPlan.class);
                         startActivity(intent2);
+                        overridePendingTransition(0, 0);
                         break;
 
                     case R.id.nav_calendar:
                         Intent intent3 = new Intent(Calendar.this, Calendar.class);
                         startActivity(intent3);
+                        overridePendingTransition(0, 0);
                         break;
 
                     case R.id.nav_profile:
                         Intent intent4 = new Intent(Calendar.this, Profile.class);
                         startActivity(intent4);
+                        overridePendingTransition(0, 0);
                         break;
                 }
 
@@ -249,13 +253,7 @@ public class Calendar extends firebaseActivity {
         Intent intent = new Intent(this, CalInfo.class);
         intent.putExtra("date", selDateText);
         startActivity(intent);
-    }
-
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        overridePendingTransition(0, 0);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private String getMonthString(int month)
