@@ -109,7 +109,7 @@ public class Profile extends AppCompatActivity {
                 //System.out.println("aaa\n\n"+path);
 
                 storageReference = storage
-                        .getReferenceFromUrl("gs://abbt-a95ad.appspot.com/images/" + userID);
+                        .getReferenceFromUrl("gs://fitness-android-9de00.appspot.com/images/" + userID);
                 final long ONE_MEGABYTE = 1024 * 1024;
                 storageReference.getBytes(ONE_MEGABYTE)
                         .addOnSuccessListener(new OnSuccessListener<byte[]>() {
