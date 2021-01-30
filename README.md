@@ -17,3 +17,17 @@ In order to maximize muscle gain, this Android app allow users to keep track of 
 ![](setting.gif)
 
 -- Use BMR (Basal metabolic rate) to compute optimal calories user should have remaining at the end of the day
+
+### Choose your workout
+-- Choose a part of the body you want to work out
+
+![](workout.gif)
+
+### Track food consumption
+
+![](food.gif)
+
+### Daily Result
+-- A zero in "Today's Calories" represent optimal workout vs food intake
+
+![](calendar.gif)
